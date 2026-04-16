@@ -16,7 +16,11 @@ function App() {
         initialRouteName={pages.RoleSelection}
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name={pages.RoleSelection} component={RoleSelection} />
+        <Stack.Screen
+          name={pages.RoleSelection}
+          component={RoleSelection}
+          options={{ title: 'Join BloomMarket' }}
+        />
         <Stack.Screen name={pages.BuyerHome} component={BuyerHome} />
         <Stack.Screen name={pages.SellerHome} component={SellerHome} />
       </Stack.Navigator>
