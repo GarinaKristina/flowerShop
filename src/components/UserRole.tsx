@@ -7,12 +7,14 @@ type UserRoleProps = {
   userRole: tUserRole;
   roleDescription: string;
   highlights: string[];
+  selected?: boolean;
 };
 
 export function UserRole({
   userRole,
   roleDescription,
   highlights,
+  selected = false,
 }: UserRoleProps) {
   const label = `  I'm a ${userRole}`;
 
@@ -23,8 +25,10 @@ export function UserRole({
           {userRole === 'Buyer' ? <Archive size={24}  /> : <Flower2 size={24}  />} 
     
         </View>
-         <Text> { '\n'} </Text>
-         <View style={styles.checkIcon}/>
+        <Text> { '\n'} </Text>
+        <View
+          style={[styles.checkIcon, selected && styles.checkIconSelected]}
+        />
         <Text style={styles.title}>{label}</Text>
         <Text style={styles.description}>{roleDescription}</Text>
         <View style={styles.highlights}>
@@ -119,15 +123,18 @@ icon: {
     lineHeight: 16,
     fontWeight: '500',
   },
-checkIcon: {
-  width: 26,
-  height: 26,
-   borderWidth: 1,
+  checkIcon: {
+    width: 26,
+    height: 26,
+    borderWidth: 1,
     borderColor: '#1f222a',
-  backgroundColor: '#fafafa7e',
-  borderRadius: 20,
-  position: 'absolute',
-  top: 32,
-  right: 22
-},
+    backgroundColor: 'transparent',
+    borderRadius: 20,
+    position: 'absolute',
+    top: 32,
+    right: 22,
+  },
+  checkIconSelected: {
+    backgroundColor: 'rgb(229, 230, 232)',
+  },
 });

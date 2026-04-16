@@ -48,6 +48,7 @@ export function RoleSelection() {
               userRole="Buyer"
               roleDescription={buyerRoleDescription.description}
               highlights={buyerRoleDescription.highlights}
+              selected={selectedRole === 'Buyer'}
             />
           </TouchableOpacity>
         </View>
@@ -61,6 +62,7 @@ export function RoleSelection() {
             userRole="Seller"
             roleDescription={sellerRoleDescription.description}
             highlights={sellerRoleDescription.highlights}
+            selected={selectedRole === 'Seller'}
           />
         </TouchableOpacity>
       </View>
