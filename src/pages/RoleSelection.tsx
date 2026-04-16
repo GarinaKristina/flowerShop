@@ -2,19 +2,23 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowRight } from 'lucide-react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import { UserRole } from '../components/UserRole';
 import { buttonNames } from '../constants/ButtonNames';
 import { mainHeader } from '../constants/MainHeader';
-import { buyerRoleDescription, sellerRoleDescription } from '../constants/UserRoleDescription';
+import {
+  buyerRoleDescription,
+  sellerRoleDescription,
+} from '../constants/UserRoleDescription';
+import { pages} from '../constants/navigation';
 import { mainHeaderStyles } from '../styles/mainHeader';
-import { pages } from '../constants/navigation';
-import {useNavigation} from '@react-navigation/native';
 
 type SelectedRole = 'Buyer' | 'Seller' | null;
 
 export function RoleSelection() {
-   const navigation = useNavigation();
-   const [selectedRole, setSelectedRole] = useState<SelectedRole>(null);
+  const navigation = useNavigation();
+  const [selectedRole, setSelectedRole] = useState<SelectedRole>(null);
 
  const onContinue = () => {
     if (selectedRole === 'Buyer') {
@@ -36,28 +40,29 @@ export function RoleSelection() {
       <Text style={styles.description}>{mainHeader.description}</Text>
       <View style={styles.stack}>
         <View style={styles.item}>
-            <TouchableOpacity
-          activeOpacity={0.9}
-          style={styles.item}
-        >
-          <UserRole
-            userRole="Buyer"
-            roleDescription={buyerRoleDescription.description}
-            highlights={buyerRoleDescription.highlights}
+          <TouchableOpacity
+            activeOpacity={0.9}
+            style={styles.item}
             onPress={() => setSelectedRole('Buyer')}
-          />
+          >
+            <UserRole
+              userRole="Buyer"
+              roleDescription={buyerRoleDescription.description}
+              highlights={buyerRoleDescription.highlights}
+            />
           </TouchableOpacity>
         </View>
+
         <TouchableOpacity
           activeOpacity={0.9}
           style={styles.item}
+          onPress={() => setSelectedRole('Seller')}
         >
-        <UserRole
-          userRole="Seller"
-          roleDescription={sellerRoleDescription.description}
-          highlights={sellerRoleDescription.highlights}
-           onPress={() => setSelectedRole('Seller')}
-        />
+          <UserRole
+            userRole="Seller"
+            roleDescription={sellerRoleDescription.description}
+            highlights={sellerRoleDescription.highlights}
+          />
         </TouchableOpacity>
       </View>
       <View>

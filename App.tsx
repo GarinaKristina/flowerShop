@@ -1,36 +1,26 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import { BuyerHome } from './src/pages/BuyerHome';
 import { RoleSelection } from './src/pages/RoleSelection';
-import { pages } from './src/constants/navigation';
+import { SellerHome } from './src/pages/SellerHome';
+import { pages, type RootStackParamList } from './src/constants/navigation';
 
-import {createStaticNavigation} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-const RootStack = createNativeStackNavigator({
-  screens: {
-    Home: {
-      screen: RoleSelection,
-      options: {title: 'Welcome'},
-    },
-    Profile: {
-      screen: BuyerHome,
-    },
-  },
-});
-
-const Navigation = createStaticNavigation(RootStack);
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App() {
-  return (<Navigation />
-    // <SafeAreaProvider>
-    //   <NavigationContainer>
-    //     <Stack.Navigator screenOptions={{ headerShown: false }}>
-    //       <Stack.Screen name={pages.RoleSelection} component={RoleSelection} />
-    //       <Stack.Screen name={pages.BuyerHome} component={BuyerHome} />
-
-    //     </Stack.Navigator>
-    //   </NavigationContainer>
-    // </SafeAreaProvider>
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName={pages.RoleSelection}
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name={pages.RoleSelection} component={RoleSelection} />
+        <Stack.Screen name={pages.BuyerHome} component={BuyerHome} />
+        <Stack.Screen name={pages.SellerHome} component={SellerHome} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
