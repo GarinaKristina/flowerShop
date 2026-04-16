@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowRight } from 'lucide-react-native';
-
 import { UserRole } from '../components/UserRole';
 import { buttonNames } from '../constants/ButtonNames';
 import { mainHeader } from '../constants/MainHeader';
@@ -19,11 +18,11 @@ export function RoleSelection() {
 
  const onContinue = () => {
     if (selectedRole === 'Buyer') {
-      navigation.navigate('BuyerHome');
+      navigation.navigate(pages.BuyerHome);
       return;
     }
     if (selectedRole === 'Seller') {
-      navigation.navigate('SellerHome');
+      navigation.navigate(pages.SellerHome);
       return;
     }
    

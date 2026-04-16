@@ -1,6 +1,4 @@
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
 import { BuyerHome } from './src/pages/BuyerHome';
 import { RoleSelection } from './src/pages/RoleSelection';
 import { pages } from './src/constants/navigation';

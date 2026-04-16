@@ -1,3 +1,4 @@
 export const pages = {
     RoleSelection: 'RoleSelection',
-    BuyerHome: 'BuyerHome'}
+    BuyerHome: 'BuyerHome',
+    SellerHome: 'SellerHome'}
