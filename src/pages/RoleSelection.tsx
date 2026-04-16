@@ -42,7 +42,7 @@ export function RoleSelection() {
           <TouchableOpacity
             activeOpacity={0.9}
             style={styles.item}
-            onPress={() => setSelectedRole('Buyer')}
+            // onPress={() => setSelectedRole('Buyer')}
           >
             <UserRole
               userRole="Buyer"
@@ -56,7 +56,7 @@ export function RoleSelection() {
         <TouchableOpacity
           activeOpacity={0.9}
           style={styles.item}
-          onPress={() => setSelectedRole('Seller')}
+          // onPress={() => setSelectedRole('Seller')}
         >
           <UserRole
             userRole="Seller"
