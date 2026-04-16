@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     paddingHorizontal: 24,
     paddingBottom: 24,
-    paddingTop: 260,
+    paddingTop: 140,
   },
   item: {
     marginBottom: 16,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
 
   mainTitle: {
     position: 'absolute',
-    top: 132,
+    top: 24,
     left: 16,
     width: 264,
     fontFamily: 'Archivo',
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   },
   description: {
     position: 'absolute',
-    top: 204,
+    top: 88,
     left: 16,
     width: 356,
     fontFamily: 'Inter',
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 16,
     right: 16,
-    bottom: -35,
+    bottom: -15,
     height: 46,
     alignItems: 'center',
     justifyContent: 'center',
