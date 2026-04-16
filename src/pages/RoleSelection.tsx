@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { ArrowRight } from 'lucide-react-native';
+import { StyleSheet, Text, TouchableOpacity, View , ScrollView} from 'react-native';
+import { ArrowRight} from 'lucide-react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -13,7 +12,6 @@ import {
   sellerRoleDescription,
 } from '../constants/UserRoleDescription';
 import { pages, type RootStackParamList } from '../constants/navigation';
-import { mainHeaderStyles } from '../styles/mainHeader';
 
 type SelectedRole = 'Buyer' | 'Seller' | null;
 
@@ -36,9 +34,7 @@ export function RoleSelection() {
   };
   return (
     <View style={styles.screen}>
-      <SafeAreaView edges={['top']} style={mainHeaderStyles.headerContainer}>
-        <Text style={mainHeaderStyles.headerTitle}>Join BloomMarket</Text>
-      </SafeAreaView>
+      <ScrollView >
       <Text style={styles.mainTitle}>{mainHeader.title}</Text>
       <Text style={styles.description}>{mainHeader.description}</Text>
       <View style={styles.stack}>
@@ -80,6 +76,7 @@ export function RoleSelection() {
           </View>
         </TouchableOpacity>
       </View>
+      </ScrollView>
     </View>
   );
 }

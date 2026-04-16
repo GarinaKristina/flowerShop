@@ -14,15 +14,25 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName={pages.RoleSelection}
-        screenOptions={{ headerShown: false }}
+        screenOptions={{
+          headerShown: true,
+        }}
       >
         <Stack.Screen
           name={pages.RoleSelection}
           component={RoleSelection}
           options={{ title: 'Join BloomMarket' }}
         />
-        <Stack.Screen name={pages.BuyerHome} component={BuyerHome} />
-        <Stack.Screen name={pages.SellerHome} component={SellerHome} />
+        <Stack.Screen
+          name={pages.BuyerHome}
+          component={BuyerHome}
+          options={{ title: 'Buyer' }}
+        />
+        <Stack.Screen
+          name={pages.SellerHome}
+          component={SellerHome}
+          options={{ title: 'Seller' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
