@@ -1,10 +1,10 @@
 import { Text, View } from 'react-native';
 import { mainHeaderStyles } from '../styles/mainHeader';
 
-export function BuyerHome() {
+export function SellerHome() {
   return (
     <View style={mainHeaderStyles.headerContainer}>
-      <Text style={mainHeaderStyles.headerTitle}>Buyer</Text>
+      <Text style={mainHeaderStyles.headerTitle}>Seller</Text>
     </View>
   );
 }
