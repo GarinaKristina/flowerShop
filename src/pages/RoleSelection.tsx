@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowRight } from 'lucide-react-native';
 import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { UserRole } from '../components/UserRole';
 import { buttonNames } from '../constants/ButtonNames';
@@ -11,13 +12,15 @@ import {
   buyerRoleDescription,
   sellerRoleDescription,
 } from '../constants/UserRoleDescription';
-import { pages} from '../constants/navigation';
+import { pages, type RootStackParamList } from '../constants/navigation';
 import { mainHeaderStyles } from '../styles/mainHeader';
 
 type SelectedRole = 'Buyer' | 'Seller' | null;
 
+type RoleSelectionNav = NativeStackNavigationProp<RootStackParamList>;
+
 export function RoleSelection() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<RoleSelectionNav>();
   const [selectedRole, setSelectedRole] = useState<SelectedRole>(null);
 
  const onContinue = () => {
