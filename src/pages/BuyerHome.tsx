@@ -1,9 +1,11 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import InputComponent from '../components/Input';
 import FilterButton from '../components/FilterButton';
+import React from 'react';
 
 export function BuyerHome() {
   const highlights: string[] = ['Roses', 'Tulips', 'Mixed', 'Wedding'];
+  const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
 
   return (
     <View>
@@ -14,9 +16,16 @@ export function BuyerHome() {
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={styles.highlights}>
           {highlights.map((highlight, index) => (
-            <View key={index} style={styles.highlightItem}>
+            <Pressable
+              key={index}
+              onPress={() => setSelectedIndex(index)}
+              style={[
+                styles.highlightItem,
+                selectedIndex === index && styles.highlightItemSelected,
+              ]}
+            >
               <Text style={styles.highlightText}>{highlight}</Text>
-            </View>
+            </Pressable>
           ))}
         </View>
       </ScrollView>
@@ -39,7 +48,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-
+  highlightItemSelected: { backgroundColor: '#8080e63e' },
   highlightItem: {
     height: 42,
     paddingHorizontal: 30,
