@@ -1,6 +1,6 @@
-import {Search} from 'lucide-react-native';
+import { Search } from 'lucide-react-native';
 import React from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 
 const InputComponent = () => {
   const [value, setValue] = React.useState('');
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     borderColor: '#000000',
     borderStyle: 'solid',
     shadowColor: '#171A1F',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.09,
     shadowRadius: 5,
     elevation: 3,

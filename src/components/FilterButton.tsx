@@ -1,4 +1,4 @@
-import {SlidersHorizontal} from 'lucide-react-native';
+import { SlidersHorizontal } from 'lucide-react-native';
 import React from 'react';
 import {
   Pressable,
@@ -13,18 +13,19 @@ type Props = {
   style?: StyleProp<ViewStyle>;
 };
 
-const FilterButton = ({onPress, disabled, style}: Props) => {
+const FilterButton = ({ onPress, disabled, style }: Props) => {
   return (
     <Pressable
       accessibilityRole="button"
       disabled={disabled}
       onPress={onPress}
-      style={({pressed}) => [
+      style={({ pressed }) => [
         styles.button,
         pressed && styles.buttonPressed,
         disabled && styles.buttonDisabled,
         style,
-      ]}>
+      ]}
+    >
       <SlidersHorizontal size={20} color={tokens.iconColor} />
     </Pressable>
   );
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     borderColor: '#000000',
     borderStyle: 'solid',
     shadowColor: '#171A1F',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.09,
     shadowRadius: 5,
     elevation: 3,

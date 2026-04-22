@@ -1,31 +1,15 @@
 import React from 'react';
-import { Pressable } from 'react-native';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { CircleUserRound } from 'lucide-react-native';
 
 import { BuyerHome } from './src/pages/BuyerHome';
 import { RoleSelection } from './src/pages/RoleSelection';
 import { SellerHome } from './src/pages/SellerHome';
 import { pages, type RootStackParamList } from './src/constants/navigation';
+import { BuyerHeaderRight } from './src/components/buyerHome/BuyerHeaderRight';
+import { BuyerHeaderLeft } from './src/components/buyerHome/BuyerHeaderLeft';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-type RootNav = NativeStackNavigationProp<RootStackParamList>;
-
-function BuyerHeaderRight() {
-  const navigation = useNavigation<RootNav>();
-
-  return (
-    <Pressable
-      onPress={() => navigation.navigate(pages.RoleSelection)}
-      hitSlop={10}
-    >
-      <CircleUserRound size={22} color="#3f4146" />
-    </Pressable>
-  );
-}
 
 function App() {
   return (
@@ -43,6 +27,7 @@ function App() {
           options={{
             title: '',
             headerRight: BuyerHeaderRight,
+            headerLeft: BuyerHeaderLeft,
           }}
         />
         <Stack.Screen

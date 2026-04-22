@@ -22,10 +22,9 @@ export function UserRole({
     <View style={styles.container}>
       <View style={styles.card}>
         <View style={styles.icon}>
-          {userRole === 'Buyer' ? <Archive size={24}  /> : <Flower2 size={24}  />} 
-    
+          {userRole === 'Buyer' ? <Archive size={24} /> : <Flower2 size={24} />}
         </View>
-        <Text> { '\n'} </Text>
+        <Text> {'\n'} </Text>
         <View
           style={[styles.checkIcon, selected && styles.checkIconSelected]}
         />
@@ -48,17 +47,17 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     alignItems: 'center',
   },
-icon: {
-  position: 'absolute',
-  top: 22,
-  left: 22,
-  width: 48,
-  height: 48,
-  backgroundColor: '#F3F4F6FF',
-  borderRadius: 16,
-  justifyContent: 'center',
-  alignItems: 'center',
-},
+  icon: {
+    position: 'absolute',
+    top: 22,
+    left: 22,
+    width: 48,
+    height: 48,
+    backgroundColor: '#F3F4F6FF',
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   card: {
     position: 'relative',
     width: 358,
