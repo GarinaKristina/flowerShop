@@ -36,6 +36,7 @@ const tokens = {
 
 const styles = StyleSheet.create({
   button: {
+    marginTop: 8,
     width: 44,
     height: 44,
     paddingHorizontal: 10,

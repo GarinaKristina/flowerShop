@@ -24,6 +24,7 @@ const InputComponent = () => {
 
 const styles = StyleSheet.create({
   inputWrapper: {
+    marginTop: 8,
     width: 330,
     height: 44,
     position: 'relative',
