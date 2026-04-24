@@ -6,7 +6,7 @@ export function ScrollableFilters() {
   const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
 
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+    <ScrollView horizontal>
       <View style={styles.highlights}>
         {highlights.map((highlight, index) => (
           <Pressable
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   },
   highlightItemSelected: { backgroundColor: '#8080e63e' },
   highlightItem: {
+    marginRight: 12,
     height: 42,
     paddingHorizontal: 30,
     alignItems: 'center',

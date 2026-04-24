@@ -1,18 +1,21 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { FeaturedSkeleton } from './Skeletons';
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { NearYouSkeleton } from './Skeletons';
 
-export function FeaturedForYou() {
+export function NearYou() {
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
-        <Text style={styles.title}>Featured For You</Text>
+        <Text style={styles.title}>Near You</Text>
         <Pressable>
           <Text style={styles.viewAllButton}>View All</Text>
         </Pressable>
       </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <FeaturedSkeleton />
-      </ScrollView>
+      <FlatList
+        scrollEnabled={false}
+        data={Array.from({ length: 10 })}
+        renderItem={() => <NearYouSkeleton />}
+        keyExtractor={(_, index) => `nearYou-${index}`}
+      />
     </View>
   );
 }
