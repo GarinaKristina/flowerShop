@@ -32,7 +32,7 @@ export function NearYouSkeleton() {
   const layout = Array.from({ length: cardsCount }, (_, i) => ({
     key: `card${i}`,
     width: 171,
-    height: 213,
+    height: 362,
     borderRadius: 0,
     marginTop: 20,
     marginLeft: i === 0 ? 0 : 25,

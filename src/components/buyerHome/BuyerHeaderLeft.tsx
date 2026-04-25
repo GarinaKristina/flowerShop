@@ -7,6 +7,7 @@ export function BuyerHeaderLeft() {
       <View pointerEvents="none" style={styles.container}>
         <Zap
           size={22}
+           color="#FFFFFF"
           style={styles.iconBackground}
         />
       </View>
@@ -17,5 +18,5 @@ export function BuyerHeaderLeft() {
 
 const styles = StyleSheet.create({
   container: { marginRight: 12 },
-  iconBackground: { backgroundColor: '#150e0ef3', borderColor: '#3f4146' }
+  iconBackground: { backgroundColor: '#170f0ff3', borderColor: '#030305' }
 });
