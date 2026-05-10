@@ -6,6 +6,10 @@ export const pages = {
   CreateAccount: 'CreateAccount',
   BuyerAccount: 'BuyerAccount',
   SellerDashboard: 'SellerDashboard',
+  Search: 'Search',
+  Favorites: 'Favorites',
+  Cart: 'Cart',
+  MainTabs: 'MainTabs',
 } as const;
 
 export type RootStackParamList = {
@@ -15,4 +19,8 @@ export type RootStackParamList = {
   [pages.CreateAccount]: undefined;
   [pages.BuyerAccount]: undefined;
   [pages.SellerDashboard]: undefined;
+  [pages.Search]: undefined;
+  [pages.Favorites]: undefined;
+  [pages.Cart]: undefined;
+  [pages.MainTabs]: undefined;
 };

@@ -5,8 +5,9 @@ import {
   ShoppingCart,
   UserRound,
 } from 'lucide-react-native';
-import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { pages } from '../constants/navigation';
 
 type MenuButtonProps = {
   icon: React.ComponentType<{ size: number; color: string }>;
@@ -14,6 +15,7 @@ type MenuButtonProps = {
   isSelected: boolean;
   onPress: () => void;
 };
+
 function MenuButton({ icon: Icon, label, isSelected, onPress }: MenuButtonProps) {
   return (
     <TouchableOpacity 
@@ -34,42 +36,28 @@ function MenuButton({ icon: Icon, label, isSelected, onPress }: MenuButtonProps)
   );
 }
 
-export function BottomNavigation() {
-  const [selected, setSelected] = useState(0);
+export function BottomNavigation(props?: Partial<BottomTabBarProps>) {
+    const state = props?.state;
+  const navigation = props?.navigation;
+  const tabs = [
+    { route: pages.BuyerHome, icon: House, label: 'Home' },
+    { route: pages.Search, icon: Search, label: 'Search' },
+    { route: pages.Favorites, icon: Heart, label: 'Favorites' },
+    { route: pages.Cart, icon: ShoppingCart, label: 'Cart' },
+    { route: pages.BuyerAccount, icon: UserRound, label: 'Profile' },
+  ];
 
-  
   return (
     <View style={styles.container}>
-       <MenuButton 
-        icon={House} 
-        label="Home" 
-        isSelected={selected === 0}
-        onPress={() => setSelected(0)}
-      />
-       <MenuButton 
-        icon={Search} 
-        label="Search" 
-        isSelected={selected === 1}
-        onPress={() => setSelected(1)}
-      />
-       <MenuButton 
-        icon={Heart} 
-        label="Favorites" 
-        isSelected={selected === 2}
-        onPress={() => setSelected(2)}
-      />
-       <MenuButton 
-        icon={ShoppingCart} 
-        label="Cart" 
-        isSelected={selected === 3}
-        onPress={() => setSelected(3)}
-      />
-       <MenuButton 
-        icon={UserRound} 
-        label="Profile" 
-        isSelected={selected === 4}
-        onPress={() => setSelected(4)}
-      />
+      {tabs.map((tab, index) => (
+        <MenuButton 
+          key={tab.route}
+          icon={tab.icon} 
+          label={tab.label} 
+          isSelected={state?.index === index}
+          onPress={() => navigation?.navigate(tab.route)}
+        />
+      ))}
     </View>
   );
 }

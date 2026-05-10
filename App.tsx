@@ -11,6 +11,12 @@ import { BuyerHeaderLeft } from './src/components/buyerHome/BuyerHeaderLeft';
 import { CreateAccount } from './src/pages/CreateAccount';
 import { BuyerAccount } from './src/pages/BuyerAccount';
 import { SellerDashboard } from './src/pages/SellerDashboard';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Search } from './src/pages/Search';
+import { Favorites } from './src/pages/Favorites';
+import { Cart } from './src/pages/Cart';
+import { BottomNavigation } from './src/components/BottomNavigation';
+
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -61,4 +67,32 @@ function App() {
   );
 }
 
+
+const Tab = createBottomTabNavigator();
+
+export function MainTabs() {
+  return (
+    <Tab.Navigator
+      tabBar={BottomNavigation}
+      screenOptions={{
+        headerShown: true,
+      }}
+    >
+      <Tab.Screen
+        name={pages.BuyerHome}
+        component={BuyerHome}
+        options={{
+          title: '',
+          headerRight: BuyerHeaderRight,
+          headerLeft: BuyerHeaderLeft,
+        }}
+      />
+      <Tab.Screen name={pages.Search} component={Search} options={{ title: 'Search' }} />
+      <Tab.Screen name={pages.Favorites} component={Favorites} options={{ title: 'Favorites' }} />
+      <Tab.Screen name={pages.Cart} component={Cart} options={{ title: 'Cart' }} />
+      <Tab.Screen name={pages.BuyerAccount} component={BuyerAccount} options={{ title: 'Profile' }} />
+    </Tab.Navigator>
+  );
+}
 export default App;
+
