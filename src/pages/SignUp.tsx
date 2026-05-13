@@ -192,7 +192,7 @@ export function SignUp() {
           )}
         </View>
         <View>
-          <TouchableOpacity style={styles.signUpButton} disabled={!isFormValid}>
+          <TouchableOpacity style={styles.signUpButton} disabled={!isFormValid}   onPress={() => navigation.navigate('RoleSelection')} activeOpacity={0.7}>
             <Text style={styles.signUpButtonText}>{buttonNames.signUp}</Text>
             <View style={styles.buttonIcon}>
               <UserPlus size={18} />

@@ -40,7 +40,7 @@ export const DatePickerInput = ({
 
   return (
     <View style={style}>
-      {label && <Text style={styles.label}>{label}</Text>}
+      {label && <Text style={styles.inputDescription}>{label}</Text>}
       <TouchableOpacity 
         onPress={() => setShowPicker(true)}
         style={[styles.inputWrapper, inputStyle]}
@@ -67,10 +67,12 @@ export const DatePickerInput = ({
 };
 
 const styles = StyleSheet.create({
-  label: {
-    marginBottom: 4,
+ inputDescription: {
     fontSize: 14,
-    color: '#171A1F',
+    lineHeight: 20,
+    color: '#565D6D',
+    marginTop: 4,
+    fontWeight: '700',
   },
   inputWrapper: {
     marginTop: 8,
