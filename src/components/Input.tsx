@@ -1,20 +1,28 @@
-import { Search } from 'lucide-react-native';
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
-const InputComponent = () => {
-  const [value, setValue] = React.useState('');
+type InputProps = {
+  placeholderValue: string,
+  icon?: React.ReactNode,
+  value?: string, 
+  onChangeText?: (text: string) => void, 
+  style?: object,
+  inputStyle?: object,
+  
+};
+
+const InputComponent = ({placeholderValue, icon, value, onChangeText, style, inputStyle} : InputProps) => {
 
   return (
-    <View style={styles.inputWrapper}>
+    <View style={[styles.inputWrapper, style]}>
       <View style={styles.leftIcon} pointerEvents="none">
-        <Search size={16} />
+        {icon }
       </View>
       <TextInput
-        style={styles.input}
-        onChangeText={setValue}
+        style={[styles.input, inputStyle]}
+        onChangeText={onChangeText}
         value={value}
-        placeholder="Search for bouquets..."
+        placeholder={placeholderValue}
         inputMode="text"
         maxLength={20}
       />
@@ -43,11 +51,12 @@ const styles = StyleSheet.create({
     paddingLeft: 34,
     paddingRight: 12,
     fontFamily: 'Inter',
+    paddingVertical: 0, 
     fontSize: 16,
-    lineHeight: 26,
+    lineHeight: 20,
     fontWeight: '400',
     backgroundColor: '#FAFAFB',
-    borderRadius: 16,
+    borderRadius: 8,
     borderWidth: 0,
     borderColor: '#000000',
     borderStyle: 'solid',

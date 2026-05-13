@@ -1856,6 +1856,28 @@ PODS:
     - React-utils (= 0.84.1)
     - ReactNativeDependencies
   - ReactNativeDependencies (0.84.1)
+  - RNDateTimePicker (9.1.0):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
   - RNReanimated (4.3.0):
     - hermes-engine
     - RCTRequired
@@ -2171,6 +2193,7 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios/ReactCodegen`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeDependencies (from `../node_modules/react-native/third-party-podspecs/ReactNativeDependencies.podspec`)
+  - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
@@ -2327,6 +2350,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeDependencies:
     :podspec: "../node_modules/react-native/third-party-podspecs/ReactNativeDependencies.podspec"
+  RNDateTimePicker:
+    :path: "../node_modules/@react-native-community/datetimepicker"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -2413,6 +2438,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 4fa1b291ad275013e39212f2463c46480fb53afe
   ReactCommon: 309419492d417c4cbb87af06f67735afa40ecb9d
   ReactNativeDependencies: fdcb939da31b70e39afafa8bda8ae64394235b5c
+  RNDateTimePicker: aa632707deede4e443bde3372bfd80e6dee734e9
   RNReanimated: d570323905a3ee01616fc504a9327e7d7c48b1a5
   RNScreens: 088d923c4327c63c9f8c942cae17a9d038f47d97
   RNSVG: 2ead7004a54d1cded41af4e6ee29104e94ba48c6

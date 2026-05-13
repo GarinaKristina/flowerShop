@@ -1,3 +1,6 @@
 export const buttonNames = {
-    continue: 'Continue'
+    continue: 'Continue',
+    signIn: 'Sign In',
+    signUp: 'Sign Up',
+
 }

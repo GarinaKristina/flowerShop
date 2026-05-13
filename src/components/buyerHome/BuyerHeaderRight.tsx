@@ -16,7 +16,9 @@ export function BuyerHeaderRight() {
         <Bell size={22} color="#3f4146" style={{ marginRight: 24 }} />
       </View>
       <View>
-        <Pressable onPress={() => navigation.navigate(pages.RoleSelection)}>
+        {/* <Pressable onPress={() => navigation.navigate(pages.RoleSelection)}> */}
+        <Pressable onPress={() => navigation.navigate(pages.SignIn)}>
+
           <CircleUserRound size={22} color="#3f4146" />
         </Pressable>
       </View>

@@ -8,7 +8,6 @@ import { SellerHome } from './src/pages/SellerHome';
 import { pages, type RootStackParamList } from './src/constants/navigation';
 import { BuyerHeaderRight } from './src/components/buyerHome/BuyerHeaderRight';
 import { BuyerHeaderLeft } from './src/components/buyerHome/BuyerHeaderLeft';
-import { CreateAccount } from './src/pages/CreateAccount';
 import { BuyerAccount } from './src/pages/BuyerAccount';
 import { SellerDashboard } from './src/pages/SellerDashboard';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -16,6 +15,8 @@ import { Search } from './src/pages/Search';
 import { Favorites } from './src/pages/Favorites';
 import { Cart } from './src/pages/Cart';
 import { BottomNavigation } from './src/components/BottomNavigation';
+import { SignIn } from './src/pages/SignIn';
+import { SignUp } from './src/pages/SignUp';
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -52,10 +53,15 @@ function App() {
           name={pages.SellerDashboard}
           component={SellerDashboard}
         />
-          <Stack.Screen
-          name={pages.CreateAccount}
-          component={CreateAccount}
-          options={{ title: 'Create Account' }}
+         <Stack.Screen
+          name={pages.SignIn}
+          component={SignIn}
+          options={{ title: 'Sign In' }}
+        />
+         <Stack.Screen
+          name={pages.SignUp}
+          component={SignUp}
+          options={{ title: 'Sign Up' }}
         />
         <Stack.Screen
           name={pages.SellerHome}
