@@ -17,6 +17,7 @@ import { Cart } from './src/pages/Cart';
 import { BottomNavigation } from './src/components/BottomNavigation';
 import { SignIn } from './src/pages/SignIn';
 import { SignUp } from './src/pages/SignUp';
+import { BuyerProfileRight } from './src/components/buyerProfile/BuyerProfileRight';
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -48,10 +49,14 @@ function App() {
         <Stack.Screen
           name={pages.BuyerAccount}
           component={BuyerAccount}
+          options={{ title: 'My Profile',  headerRight: BuyerProfileRight }}
+
         />
           <Stack.Screen
           name={pages.SellerDashboard}
           component={SellerDashboard}
+          options={{ title: 'Bloom Dashboard',  headerRight: BuyerProfileRight }}
+
         />
          <Stack.Screen
           name={pages.SignIn}

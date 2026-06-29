@@ -65,13 +65,15 @@ export function BottomNavigation(props?: Partial<BottomTabBarProps>) {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    bottom: 4,
+    bottom: 0,
     left: 0,
-    width: 390,
+    right: 0,
     height: 64,
     backgroundColor: '#f7f7f7',
     flexDirection: 'row',
     alignItems: 'center',
+    borderTopWidth: 1,
+    borderTopColor: '#EEEEEE',
   },
   button: {
     flex: 1,
