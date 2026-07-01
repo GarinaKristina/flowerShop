@@ -58,7 +58,8 @@ export const DatePickerInput = ({
           value={value}
           mode="date"
           display="default"
-          onChange={handleChange}
+          onValueChange={handleChange}
+          onDismiss={() => setShowPicker(false)}
           maximumDate={maxDate}
         />
       )}
