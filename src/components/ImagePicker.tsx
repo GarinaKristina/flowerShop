@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 
-export function AvatarPicker() {
+type AvatarProps ={
+  avatarType:"buyer" | "seller"
+}
+
+export function AvatarPicker({ avatarType }: AvatarProps) {
   const [avatar, setAvatar] = useState<string | null>(null);
 
   const pickAvatar = async () => {
@@ -25,13 +29,25 @@ export function AvatarPicker() {
             ? { uri: avatar }
             : require('../../assets/cat.png')
         }
-        style={{
-          width: 120,
-          height: 120,
-          borderRadius: 60,
-          alignItems: 'center'
-        }}
+        style={avatarType === 'buyer' ?styles.buyerSize : styles.sellerSize}
       />
     </TouchableOpacity>
   );
 }
+
+
+const styles = StyleSheet.create({
+ 
+  buyerSize: {
+          width: 120,
+          height: 120,
+          borderRadius: 60,
+          alignItems: 'center'
+        },
+        sellerSize: {
+          width: 60,
+          height: 60,
+          borderRadius: 60,
+          alignItems: 'center'
+        },
+  })
