@@ -1,4 +1,4 @@
-import {  DollarSign, TrendingUp } from 'lucide-react-native';
+import { DollarSign, TrendingUp } from 'lucide-react-native';
 import { StyleSheet, Text, View } from 'react-native';
 
 export function RevenueToday() {
@@ -11,14 +11,15 @@ export function RevenueToday() {
         <Text style={styles.statistic}> +12% from yesterday</Text>
       </View>
       <View style={styles.iconContainer}>
-      <DollarSign size={16}/>
+        <DollarSign size={16} color={tokens.dollarColor} />
       </View>
     </View>
   );
 }
 
 const tokens = {
-  iconColor: '#22CCB2FF',
+  iconColor: '#22CCB2',
+  dollarColor: '#636AE8',
 } as const;
 
 const styles = StyleSheet.create({
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconContainer: {
-  position: 'absolute',
+    position: 'absolute',
     top: 12,
     right: 12,
     width: 40,
@@ -77,5 +78,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
 });
