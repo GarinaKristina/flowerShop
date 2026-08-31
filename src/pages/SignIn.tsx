@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-nati
 import React from 'react';
 import InputComponent from '../components/Input';
 import { KeyRound, Mail } from 'lucide-react-native';
-import { buttonNames } from '../constants/ButtonNames';
+import { buttonNames } from '../constants/buttonNames';
 import { pages, RootStackParamList } from '../constants/navigation';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';

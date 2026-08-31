@@ -5,8 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { UserRole } from '../components/UserRole';
-import { buttonNames } from '../constants/ButtonNames';
-import { mainHeader } from '../constants/MainHeader';
+import { buttonNames } from '../constants/buttonNames';
+import { mainHeader } from '../constants/mainHeader';
 import { buyerRoleDescription, sellerRoleDescription } from '../constants/UserRoleDescription';
 import { pages, type RootStackParamList } from '../constants/navigation';
 
