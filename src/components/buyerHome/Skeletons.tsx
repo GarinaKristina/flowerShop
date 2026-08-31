@@ -15,11 +15,7 @@ export function FeaturedSkeleton() {
   }));
 
   return (
-    <Skeleton
-      isLoading={true}
-      containerStyle={styles.containerStyle}
-      layout={layout}
-    >
+    <Skeleton isLoading={true} containerStyle={styles.containerStyle} layout={layout}>
       <Text>Your content</Text>
       <Text>Other content</Text>
     </Skeleton>
@@ -39,11 +35,7 @@ export function NearYouSkeleton() {
   }));
 
   return (
-    <Skeleton
-      isLoading={true}
-      containerStyle={styles.containerStyle}
-      layout={layout}
-    >
+    <Skeleton isLoading={true} containerStyle={styles.containerStyle} layout={layout}>
       <Text>Your content</Text>
       <Text>Other content</Text>
     </Skeleton>

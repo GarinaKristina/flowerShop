@@ -9,20 +9,20 @@ import { BottomNavigation } from '../components/BottomNavigation';
 import { Search } from 'lucide-react-native';
 
 export function BuyerHome() {
-  return ( 
-  <View>
-    <ScrollView contentContainerStyle={styles.screen}>
-      <View style={styles.row}>
-        <InputComponent  placeholderValue={'Search for bouquets...'} icon={<Search size={16} />} />
-        <FilterButton style={styles.filterButton} />
-      </View>
+  return (
+    <View>
+      <ScrollView contentContainerStyle={styles.screen}>
+        <View style={styles.row}>
+          <InputComponent placeholderValue={'Search for bouquets...'} icon={<Search size={16} />} />
+          <FilterButton style={styles.filterButton} />
+        </View>
 
-      <ScrollableFilters />
-      <FeaturedForYou />
-      <NearYou />
-    </ScrollView>
-   
-    <BottomNavigation />
+        <ScrollableFilters />
+        <FeaturedForYou />
+        <NearYou />
+      </ScrollView>
+
+      <BottomNavigation />
     </View>
   );
 }

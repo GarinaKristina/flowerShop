@@ -20,16 +20,12 @@ export function AvatarPicker() {
   return (
     <TouchableOpacity onPress={pickAvatar}>
       <Image
-        source={
-          avatar
-            ? { uri: avatar }
-            : require('../../assets/cat.png')
-        }
+        source={avatar ? { uri: avatar } : require('../../assets/cat.png')}
         style={{
           width: 120,
           height: 120,
           borderRadius: 60,
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       />
     </TouchableOpacity>

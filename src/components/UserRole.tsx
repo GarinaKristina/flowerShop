@@ -10,24 +10,15 @@ type UserRoleProps = {
   selected?: boolean;
 };
 
-export function UserRole({
-  userRole,
-  roleDescription,
-  highlights,
-  selected = false,
-}: UserRoleProps) {
+export function UserRole({ userRole, roleDescription, highlights, selected = false }: UserRoleProps) {
   const label = `  I'm a ${userRole}`;
 
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <View style={styles.icon}>
-          {userRole === 'Buyer' ? <Archive size={24} /> : <Flower2 size={24} />}
-        </View>
+        <View style={styles.icon}>{userRole === 'Buyer' ? <Archive size={24} /> : <Flower2 size={24} />}</View>
         <Text> {'\n'} </Text>
-        <View
-          style={[styles.checkIcon, selected && styles.checkIconSelected]}
-        />
+        <View style={[styles.checkIcon, selected && styles.checkIconSelected]} />
         <Text style={styles.title}>{label}</Text>
         <Text style={styles.description}>{roleDescription}</Text>
         <View style={styles.highlights}>

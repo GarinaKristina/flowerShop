@@ -18,7 +18,6 @@ export function BuyerHeaderRight() {
       <View>
         {/* <Pressable onPress={() => navigation.navigate(pages.RoleSelection)}> */}
         <Pressable onPress={() => navigation.navigate(pages.SignIn)}>
-
           <CircleUserRound size={22} color="#3f4146" />
         </Pressable>
       </View>

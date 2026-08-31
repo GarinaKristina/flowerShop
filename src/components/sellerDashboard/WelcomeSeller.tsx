@@ -3,8 +3,8 @@ import { AvatarPicker } from '../ImagePicker';
 
 export function WelcomeSeller() {
   return (
-    <View >
-      <AvatarPicker/>
+    <View>
+      <AvatarPicker />
     </View>
   );
 }

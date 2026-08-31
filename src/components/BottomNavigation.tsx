@@ -1,10 +1,4 @@
-import {
-  Heart,
-  House,
-  Search,
-  ShoppingCart,
-  UserRound,
-} from 'lucide-react-native';
+import { Heart, House, Search, ShoppingCart, UserRound } from 'lucide-react-native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { pages } from '../constants/navigation';
@@ -18,26 +12,15 @@ type MenuButtonProps = {
 
 function MenuButton({ icon: Icon, label, isSelected, onPress }: MenuButtonProps) {
   return (
-    <TouchableOpacity 
-      style={styles.button}
-      onPress={onPress}
-    >
-      <Icon 
-        size={24} 
-        color={isSelected ? '#636AE8' : '#565E6C'} 
-      />
-      <Text style={[
-        styles.text,
-        isSelected && styles.textSelected
-      ]}>
-        {label}
-      </Text>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      <Icon size={24} color={isSelected ? '#636AE8' : '#565E6C'} />
+      <Text style={[styles.text, isSelected && styles.textSelected]}>{label}</Text>
     </TouchableOpacity>
   );
 }
 
 export function BottomNavigation(props?: Partial<BottomTabBarProps>) {
-    const state = props?.state;
+  const state = props?.state;
   const navigation = props?.navigation;
   const tabs = [
     { route: pages.BuyerHome, icon: House, label: 'Home' },
@@ -50,10 +33,10 @@ export function BottomNavigation(props?: Partial<BottomTabBarProps>) {
   return (
     <View style={styles.container}>
       {tabs.map((tab, index) => (
-        <MenuButton 
+        <MenuButton
           key={tab.route}
-          icon={tab.icon} 
-          label={tab.label} 
+          icon={tab.icon}
+          label={tab.label}
           isSelected={state?.index === index}
           onPress={() => navigation?.navigate(tab.route)}
         />

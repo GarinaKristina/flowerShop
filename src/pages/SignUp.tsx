@@ -1,20 +1,7 @@
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import InputComponent from '../components/Input';
-import {
-  KeyRound,
-  Mail,
-  User,
-  UserPlus,
-  MessageCircleWarning,
-  ArrowRight,
-} from 'lucide-react-native';
+import { KeyRound, Mail, User, UserPlus, MessageCircleWarning, ArrowRight } from 'lucide-react-native';
 import { buttonNames } from '../constants/ButtonNames';
 import { DatePickerInput } from '../components/DataPicker';
 
@@ -25,7 +12,7 @@ import { RootStackParamList } from '../constants/navigation';
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export function SignUp() {
-    const navigation = useNavigation<NavigationProp>();
+  const navigation = useNavigation<NavigationProp>();
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
 
@@ -35,34 +22,18 @@ export function SignUp() {
   const [emailError, setEmailError] = React.useState<string | null>(null);
   const [passwordError, setPasswordError] = React.useState<string | null>(null);
   const [confirmPassword, setConfirmPassword] = React.useState('');
-  const [confirmPasswordError, setConfirmPasswordError] = React.useState<
-    string | null
-  >(null);
+  const [confirmPasswordError, setConfirmPasswordError] = React.useState<string | null>(null);
 
   const validateEmail = (value: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    setEmailError(
-      value === ''
-        ? null
-        : re.test(value)
-        ? null
-        : 'Please enter a valid email address.',
-    );
+    setEmailError(value === '' ? null : re.test(value) ? null : 'Please enter a valid email address.');
   };
 
   const validatePassword = (value: string) => {
-    setPasswordError(
-      value === ''
-        ? null
-        : value.length >= 8
-        ? null
-        : 'Password must be at least 8 characters.',
-    );
+    setPasswordError(value === '' ? null : value.length >= 8 ? null : 'Password must be at least 8 characters.');
 
     if (confirmPassword !== '') {
-      setConfirmPasswordError(
-        value === confirmPassword ? null : 'Passwords do not match.',
-      );
+      setConfirmPasswordError(value === confirmPassword ? null : 'Passwords do not match.');
     }
   };
 
@@ -77,13 +48,7 @@ export function SignUp() {
   };
 
   const validateConfirmPassword = (value: string) => {
-    setConfirmPasswordError(
-      value === ''
-        ? null
-        : value === password
-        ? null
-        : 'Passwords do not match.',
-    );
+    setConfirmPasswordError(value === '' ? null : value === password ? null : 'Passwords do not match.');
   };
 
   const onConfirmPasswordChange = (v: string) => {
@@ -105,9 +70,7 @@ export function SignUp() {
       <View style={styles.row}>
         <View style={styles.titleContainer}>
           <Text style={styles.title}> Tell us about you</Text>
-          <Text style={styles.subTitle}>
-            Join our community of flower enthusiasts today.
-          </Text>
+          <Text style={styles.subTitle}>Join our community of flower enthusiasts today.</Text>
         </View>
         <View style={styles.userDataContainer}>
           <View>
@@ -133,12 +96,7 @@ export function SignUp() {
             />
           </View>
         </View>
-        <DatePickerInput
-          value={birthDate}
-          onChange={setBirthDate}
-          label="Date of Birth"
-          minimumAge={18}
-        />
+        <DatePickerInput value={birthDate} onChange={setBirthDate} label="Date of Birth" minimumAge={18} />
         <View>
           <Text style={styles.inputDescription}>Email Address</Text>
           <InputComponent
@@ -192,7 +150,12 @@ export function SignUp() {
           )}
         </View>
         <View>
-          <TouchableOpacity style={styles.signUpButton} disabled={!isFormValid}   onPress={() => navigation.navigate('RoleSelection')} activeOpacity={0.7}>
+          <TouchableOpacity
+            style={styles.signUpButton}
+            disabled={!isFormValid}
+            onPress={() => navigation.navigate('RoleSelection')}
+            activeOpacity={0.7}
+          >
             <Text style={styles.signUpButtonText}>{buttonNames.signUp}</Text>
             <View style={styles.buttonIcon}>
               <UserPlus size={18} />
@@ -201,11 +164,7 @@ export function SignUp() {
         </View>
       </View>
       <View style={styles.bottomTextSignIn}>
-        <TouchableOpacity
-          style={styles.bottomTouchable}
-          onPress={() => navigation.navigate('SignIn')}
-          activeOpacity={0.7}
-        >
+        <TouchableOpacity style={styles.bottomTouchable} onPress={() => navigation.navigate('SignIn')} activeOpacity={0.7}>
           <Text style={styles.signUpText}>Already have an account?</Text>
           <View style={styles.signUpInline}>
             <Text style={styles.signUpTextBold}>Sign In to BloomMarket</Text>
@@ -335,7 +294,7 @@ const styles = StyleSheet.create({
   },
   bottomTextSignIn: {
     alignItems: 'center',
-  paddingVertical: 12,
+    paddingVertical: 12,
   },
   bottomTouchable: {
     alignItems: 'center',

@@ -12,17 +12,11 @@ const ITEMS = [
   { key: 'wallet', Icon: CreditCard, value: '$45', label: 'WALLET' },
 ];
 
-export function StatisticDashboardItems({
-  onPressItem,
-}: StatisticDashboardItemsProps) {
+export function StatisticDashboardItems({ onPressItem }: StatisticDashboardItemsProps) {
   return (
     <View style={styles.row}>
       {ITEMS.map(({ key, Icon, value, label }) => (
-        <Pressable
-          key={key}
-          onPress={() => onPressItem?.(key)}
-          style={({ pressed }) => [styles.container, pressed && styles.pressed]}
-        >
+        <Pressable key={key} onPress={() => onPressItem?.(key)} style={({ pressed }) => [styles.container, pressed && styles.pressed]}>
           <Icon size={16} color="#636AE8FF" style={styles.icon} />
           <Text style={styles.value}>{value}</Text>
           <Text style={styles.label}>{label}</Text>
@@ -39,7 +33,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   container: {
-    marginTop:10,
+    marginTop: 10,
     width: 112,
     height: 103,
     backgroundColor: '#FFFFFFFF',

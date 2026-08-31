@@ -16,22 +16,22 @@ export function BuyerAccount() {
 
   return (
     <View>
-    <ScrollView contentContainerStyle={styles.content}>
-      <View style={styles.avatarCOntainer}>
-        <AvatarPicker />
-        <Text style={styles.nameStyle}>Sarah Jenkins</Text>
-        <Text style={styles.emailStyle}>sarah.j@bloommarket.com</Text>
-      </View>
-      <EditProfileButton onPress={handleEditProfile} />
-      <StatisticDashboardItems />
-      <SellerModeCard />
-      <AccountSettingsMenu />
-      <SupportMenu />
-      <LogOut/>
-      <View>
-        <Text style={styles.buildText}>BloomMarket v2.4.0 (Build 892)</Text>
-    </View>
-    </ScrollView>
+      <ScrollView contentContainerStyle={styles.content}>
+        <View style={styles.avatarCOntainer}>
+          <AvatarPicker />
+          <Text style={styles.nameStyle}>Sarah Jenkins</Text>
+          <Text style={styles.emailStyle}>sarah.j@bloommarket.com</Text>
+        </View>
+        <EditProfileButton onPress={handleEditProfile} />
+        <StatisticDashboardItems />
+        <SellerModeCard />
+        <AccountSettingsMenu />
+        <SupportMenu />
+        <LogOut />
+        <View>
+          <Text style={styles.buildText}>BloomMarket v2.4.0 (Build 892)</Text>
+        </View>
+      </ScrollView>
       <BottomNavigation />
     </View>
   );

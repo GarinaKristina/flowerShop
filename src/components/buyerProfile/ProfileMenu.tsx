@@ -26,16 +26,12 @@ export function ProfileMenuItems({ title, items }: ProfileMenuProps) {
             <Pressable
               key={item.key}
               onPress={item.onPress}
-              style={({ pressed }) => [
-                styles.row,
-                !isLast && styles.rowDivider,
-                pressed && styles.pressed,
-              ]}
+              style={({ pressed }) => [styles.row, !isLast && styles.rowDivider, pressed && styles.pressed]}
             >
               <View style={styles.iconBadge}>
                 <item.Icon size={20} color="#636AE8" />
               </View>
-<Text style={styles.label}>{item.label}</Text>
+              <Text style={styles.label}>{item.label}</Text>
               <ChevronRight size={20} color="#BCC1CA" />
             </Pressable>
           );
@@ -61,7 +57,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#FFFFFFFF',
     borderRadius: 10,
-   overflow: 'hidden',
+    overflow: 'hidden',
     shadowColor: '#171A1F',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.09,

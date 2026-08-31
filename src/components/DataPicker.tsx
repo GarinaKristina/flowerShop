@@ -41,16 +41,11 @@ export const DatePickerInput = ({
   return (
     <View style={style}>
       {label && <Text style={styles.inputDescription}>{label}</Text>}
-      <TouchableOpacity 
-        onPress={() => setShowPicker(true)}
-        style={[styles.inputWrapper, inputStyle]}
-      >
+      <TouchableOpacity onPress={() => setShowPicker(true)} style={[styles.inputWrapper, inputStyle]}>
         <View style={styles.leftIcon} pointerEvents="none">
           <Calendar size={16} color="#565D6D" />
         </View>
-        <Text style={[styles.input, !isSelected && styles.placeholderText]}>
-          {isSelected ? value.toLocaleDateString() : placeholder}
-        </Text>
+        <Text style={[styles.input, !isSelected && styles.placeholderText]}>{isSelected ? value.toLocaleDateString() : placeholder}</Text>
       </TouchableOpacity>
 
       {showPicker && (
@@ -68,7 +63,7 @@ export const DatePickerInput = ({
 };
 
 const styles = StyleSheet.create({
- inputDescription: {
+  inputDescription: {
     fontSize: 14,
     lineHeight: 20,
     color: '#565D6D',
