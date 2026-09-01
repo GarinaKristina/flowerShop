@@ -1,9 +1,4 @@
-import {
-  ChevronRight,
-  ClipboardList,
-  Flower2,
-  MessageSquare,
-} from 'lucide-react-native';
+import { ChevronRight, ClipboardList, Flower2, MessageSquare } from 'lucide-react-native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 type Alert = {
@@ -54,11 +49,7 @@ export function RecentAlerts() {
         {alerts.map((alert, index) => (
           <View key={alert.title}>
             <TouchableOpacity style={styles.row} activeOpacity={0.7}>
-              <View
-                style={[styles.iconWrap, { backgroundColor: iconBg[index] }]}
-              >
-                {alert.icon}
-              </View>
+              <View style={[styles.iconWrap, { backgroundColor: iconBg[index] }]}>{alert.icon}</View>
               <View style={styles.content}>
                 <View style={styles.titleRow}>
                   <Text style={styles.title}>{alert.title}</Text>

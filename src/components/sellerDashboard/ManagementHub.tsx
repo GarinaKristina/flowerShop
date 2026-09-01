@@ -1,16 +1,13 @@
-import { CirclePlus,  Flower2, Star, Settings } from 'lucide-react-native';
+import { CirclePlus, Flower2, Star, Settings } from 'lucide-react-native';
 import { StyleSheet, Text, View } from 'react-native';
 
 type ManagementHubProps = {
   label: string;
   color: string;
-  icon: typeof 	CirclePlus |
-typeof	Flower2 |
-typeof	Star |
-typeof	Settings
+  icon: typeof CirclePlus | typeof Flower2 | typeof Star | typeof Settings;
 };
 
-export function ManagementHub({ label, color, icon: Icon, }: ManagementHubProps) {
+export function ManagementHub({ label, color, icon: Icon }: ManagementHubProps) {
   return (
     <View>
       <View style={[styles.container, { backgroundColor: color }]}>

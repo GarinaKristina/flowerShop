@@ -7,20 +7,8 @@ type TagProps = {
 
 export function ProSellerButton({ onPress }: TagProps) {
   return (
-    <Pressable
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.tagItem,
-        pressed && styles.tagItemPressed
-      ]}
-    >
-      <Text
-        style={[
-          styles.label
-        ]}
-      >
-        Pro Seller
-      </Text>
+    <Pressable onPress={onPress} style={({ pressed }) => [styles.tagItem, pressed && styles.tagItemPressed]}>
+      <Text style={[styles.label]}>Pro Seller</Text>
     </Pressable>
   );
 }

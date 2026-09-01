@@ -7,18 +7,9 @@ type SubStatisticProps = {
   icon: typeof Flower2 | typeof ClipboardList;
 };
 
-export function SubStatistic({
-  label,
-  statisticNumber,
-  icon: Icon,
-}: SubStatisticProps) {
+export function SubStatistic({ label, statisticNumber, icon: Icon }: SubStatisticProps) {
   return (
-    <View
-      style={[
-        styles.container,
-        label !== 'ACTIVE LISTINGS' && styles.iconContainerAlt,
-      ]}
-    >
+    <View style={[styles.container, label !== 'ACTIVE LISTINGS' && styles.iconContainerAlt]}>
       <Text style={[styles.label]}>{label}</Text>
       <Text style={[styles.amount]}> {statisticNumber}</Text>
       <View style={styles.iconContainer}>

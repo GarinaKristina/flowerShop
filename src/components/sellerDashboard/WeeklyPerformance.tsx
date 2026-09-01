@@ -2,15 +2,7 @@ import { TrendingUp } from 'lucide-react-native';
 import { LineChart } from 'react-native-gifted-charts';
 import { StyleSheet, Text, View } from 'react-native';
 
-const data = [
-  { value: 400 },
-  { value: 340 },
-  { value: 520 },
-  { value: 450 },
-  { value: 680 },
-  { value: 820 },
-  { value: 760 },
-];
+const data = [{ value: 400 }, { value: 340 }, { value: 520 }, { value: 450 }, { value: 680 }, { value: 820 }, { value: 760 }];
 
 const xLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
