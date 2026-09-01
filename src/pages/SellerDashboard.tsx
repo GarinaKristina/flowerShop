@@ -12,9 +12,9 @@ import { RecentAlerts } from '../components/sellerDashboard/RecentAlerts';
 
 const managementItems = [
   { label: 'Add Flower', color: '#F2F2FDFF', icon: CirclePlus },
-  { label: 'Listings',   color: '#FDF2F5FF', icon: Flower2    },
-  { label: 'Reviews',    color: '#EEFCFAFF', icon: Star       },
-  { label: 'Settings',   color: '#F5F2FDFF', icon: Settings   },
+  { label: 'Listings', color: '#FDF2F5FF', icon: Flower2 },
+  { label: 'Reviews', color: '#EEFCFAFF', icon: Star },
+  { label: 'Settings', color: '#F5F2FDFF', icon: Settings },
 ];
 
 export function SellerDashboard() {
@@ -24,26 +24,13 @@ export function SellerDashboard() {
         <WelcomeSeller />
         <RevenueToday />
         <View style={styles.subStatisticContainer}>
-          <SubStatistic
-            label={'ACTIVE LISTINGS'}
-            statisticNumber={'24'}
-            icon={Flower2}
-          />
-          <SubStatistic
-            label={'ORDERS TODAY'}
-            statisticNumber={'08'}
-            icon={ClipboardList}
-          />
+          <SubStatistic label={'ACTIVE LISTINGS'} statisticNumber={'24'} icon={Flower2} />
+          <SubStatistic label={'ORDERS TODAY'} statisticNumber={'08'} icon={ClipboardList} />
         </View>
         <WeeklyPerformance />
         <View style={styles.managementHubContainer}>
-          {managementItems.map((item) => (
-            <ManagementHub
-              key={item.label}
-              label={item.label}
-              color={item.color}
-              icon={item.icon}
-            />
+          {managementItems.map(item => (
+            <ManagementHub key={item.label} label={item.label} color={item.color} icon={item.icon} />
           ))}
         </View>
         <RecentAlerts />

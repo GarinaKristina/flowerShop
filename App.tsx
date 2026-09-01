@@ -14,7 +14,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Search } from './src/pages/Search';
 import { Favorites } from './src/pages/Favorites';
 import { Cart } from './src/pages/Cart';
-import { BottomNavigation } from './src/components/BottomNavigation';
+import { BottomNavigation } from './src/components/common/BottomNavigation';
 import { SignIn } from './src/pages/SignIn';
 import { SignUp } from './src/pages/SignUp';
 import { BuyerProfileRight } from './src/components/buyerProfile/BuyerProfileRight';
