@@ -59,7 +59,7 @@ function App() {
   );
 }
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<RootStackParamList>();
 
 export function MainTabs() {
   return (

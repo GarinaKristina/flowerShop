@@ -1,12 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { BottomNavigation } from '../components/BottomNavigation';
+import { pages, RootStackScreenProps } from '../constants/navigation';
 
-export function Search() {
+export type SearchScreenProps = {
+  query: string;
+};
+
+export function Search({ route }: RootStackScreenProps<typeof pages.Search>) {
+  const { query } = route.params;
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Search</Text>
+        <Text style={styles.title}>{query}</Text>
       </View>
       <BottomNavigation />
     </View>

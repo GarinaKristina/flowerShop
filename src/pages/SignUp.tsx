@@ -5,14 +5,11 @@ import { KeyRound, Mail, User, UserPlus, MessageCircleWarning, ArrowRight } from
 import { buttonNames } from '../constants/buttonNames';
 import { DatePickerInput } from '../components/DataPicker';
 
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../constants/navigation';
-
-type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+import { pages } from '../constants/navigation';
+import { useAppNavigation } from '../hooks/useAppNavigation';
 
 export function SignUp() {
-  const navigation = useNavigation<NavigationProp>();
+  const navigation = useAppNavigation();
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
 
@@ -153,7 +150,7 @@ export function SignUp() {
           <TouchableOpacity
             style={styles.signUpButton}
             disabled={!isFormValid}
-            onPress={() => navigation.navigate('RoleSelection')}
+            onPress={() => navigation.navigate(pages.RoleSelection)}
             activeOpacity={0.7}
           >
             <Text style={styles.signUpButtonText}>{buttonNames.signUp}</Text>
@@ -164,7 +161,7 @@ export function SignUp() {
         </View>
       </View>
       <View style={styles.bottomTextSignIn}>
-        <TouchableOpacity style={styles.bottomTouchable} onPress={() => navigation.navigate('SignIn')} activeOpacity={0.7}>
+        <TouchableOpacity style={styles.bottomTouchable} onPress={() => navigation.navigate(pages.SignIn)} activeOpacity={0.7}>
           <Text style={styles.signUpText}>Already have an account?</Text>
           <View style={styles.signUpInline}>
             <Text style={styles.signUpTextBold}>Sign In to BloomMarket</Text>

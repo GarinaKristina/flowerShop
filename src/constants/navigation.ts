@@ -1,3 +1,6 @@
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { SearchScreenProps } from '../pages/Search';
+
 export const pages = {
   RoleSelection: 'RoleSelection',
   BuyerHome: 'BuyerHome',
@@ -20,8 +23,10 @@ export type RootStackParamList = {
   [pages.SellerDashboard]: undefined;
   [pages.SignIn]: undefined;
   [pages.SignUp]: undefined;
-  [pages.Search]: undefined;
+  [pages.Search]: SearchScreenProps;
   [pages.Favorites]: undefined;
   [pages.Cart]: undefined;
   [pages.MainTabs]: undefined;
 };
+
+export type RootStackScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, T>;

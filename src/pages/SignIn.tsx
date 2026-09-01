@@ -3,14 +3,11 @@ import React from 'react';
 import InputComponent from '../components/Input';
 import { KeyRound, Mail } from 'lucide-react-native';
 import { buttonNames } from '../constants/buttonNames';
-import { pages, RootStackParamList } from '../constants/navigation';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-
-type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+import { pages } from '../constants/navigation';
+import { useAppNavigation } from '../hooks/useAppNavigation';
 
 export function SignIn() {
-  const navigation = useNavigation<NavigationProp>();
+  const navigation = useAppNavigation();
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
