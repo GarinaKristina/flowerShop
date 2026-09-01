@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import InputComponent from '../components/Input';
+import InputComponent from '../components/common/Input';
 import { KeyRound, Mail } from 'lucide-react-native';
 import { buttonNames } from '../constants/buttonNames';
 import { pages } from '../constants/navigation';

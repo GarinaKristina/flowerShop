@@ -1,9 +1,9 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import InputComponent from '../components/Input';
+import InputComponent from '../components/common/Input';
 import { KeyRound, Mail, User, UserPlus, MessageCircleWarning, ArrowRight } from 'lucide-react-native';
 import { buttonNames } from '../constants/buttonNames';
-import { DatePickerInput } from '../components/DataPicker';
+import { DatePickerInput } from '../components/common/DataPicker';
 
 import { pages } from '../constants/navigation';
 import { useAppNavigation } from '../hooks/useAppNavigation';

@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
+import { TextStyleProp, ViewStyleProp } from '../../utils/styles';
 
 type InputProps = {
   placeholderValue: string;
   icon?: React.ReactNode;
   value?: string;
   onChangeText?: (text: string) => void;
-  style?: object;
-  inputStyle?: object;
+  style?: ViewStyleProp;
+  inputStyle?: TextStyleProp;
 };
 
 const InputComponent = ({ placeholderValue, icon, value, onChangeText, style, inputStyle }: InputProps) => {
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   input: {
-    width: 330,
+    width: '100%',
     height: 44,
     paddingLeft: 34,
     paddingRight: 12,

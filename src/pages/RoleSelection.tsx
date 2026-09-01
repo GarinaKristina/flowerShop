@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import { ArrowRight } from 'lucide-react-native';
 
-import { UserRole } from '../components/UserRole';
+import { UserRole } from '../components/common/UserRole';
 import { buttonNames } from '../constants/buttonNames';
 import { mainHeader } from '../constants/mainHeader';
 import { buyerRoleDescription, sellerRoleDescription } from '../constants/UserRoleDescription';

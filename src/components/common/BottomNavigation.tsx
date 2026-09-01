@@ -1,7 +1,7 @@
 import { Heart, House, Search, ShoppingCart, UserRound } from 'lucide-react-native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { pages } from '../constants/navigation';
+import { pages } from '../../constants/navigation';
 
 type MenuButtonProps = {
   icon: React.ComponentType<{ size: number; color: string }>;

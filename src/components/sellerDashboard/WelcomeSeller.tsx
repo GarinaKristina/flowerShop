@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { AvatarPicker } from '../ImagePicker';
+import { AvatarPicker } from '../common/ImagePicker';
 
 export function WelcomeSeller() {
   return (

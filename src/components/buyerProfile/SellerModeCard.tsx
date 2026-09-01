@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Switch, Text, View } from 'react-native';
 import { Store } from 'lucide-react-native';
+import { useOpen } from '../../hooks/useOpenClose';
 
 type SellerModeCardProps = {
   onValueChange?: (isOn: boolean) => void;
 };
 
 export function SellerModeCard({ onValueChange }: SellerModeCardProps) {
-  const [isOn, setIsOn] = useState(false);
+  const sellerMode = useOpen();
 
   const handleChange = (next: boolean) => {
-    setIsOn(next);
+    if (next) {
+      sellerMode.open();
+    } else {
+      sellerMode.close();
+    }
     onValueChange?.(next);
   };
 
@@ -25,7 +30,7 @@ export function SellerModeCard({ onValueChange }: SellerModeCardProps) {
       </View>
       <Switch
         style={styles.switch}
-        value={isOn}
+        value={sellerMode.isOpen}
         onValueChange={handleChange}
         trackColor={{ false: '#BCC1CAFF', true: '#636AE8FF' }}
         thumbColor="#FFFFFFFF"

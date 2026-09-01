@@ -1,11 +1,11 @@
 import { ScrollView, StyleSheet, View } from 'react-native';
-import InputComponent from '../components/Input';
-import FilterButton from '../components/FilterButton';
+import InputComponent from '../components/common/Input';
+import FilterButton from '../components/common/FilterButton';
 import React from 'react';
 import { FeaturedForYou } from '../components/buyerHome/FeaturedForYou';
 import { ScrollableFilters } from '../components/buyerHome/ScrollableFilters';
 import { NearYou } from '../components/buyerHome/NearYou';
-import { BottomNavigation } from '../components/BottomNavigation';
+import { BottomNavigation } from '../components/common/BottomNavigation';
 import { Search } from 'lucide-react-native';
 
 export function BuyerHome() {

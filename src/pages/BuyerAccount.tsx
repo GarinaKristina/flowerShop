@@ -1,12 +1,12 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { AvatarPicker } from '../components/ImagePicker';
+import { AvatarPicker } from '../components/common/ImagePicker';
 import { EditProfileButton } from '../components/buyerProfile/EditProfileButton';
 import { StatisticDashboardItems } from '../components/buyerProfile/StatisticDashboardItems';
 import { SellerModeCard } from '../components/buyerProfile/SellerModeCard';
 import { AccountSettingsMenu } from '../components/buyerProfile/AccountSettingsMenu';
 import { SupportMenu } from '../components/buyerProfile/SupportMenu';
-import { BottomNavigation } from '../components/BottomNavigation';
+import { BottomNavigation } from '../components/common/BottomNavigation';
 import { LogOut } from '../components/buyerProfile/LogOut';
 
 export function BuyerAccount() {
