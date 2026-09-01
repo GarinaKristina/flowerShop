@@ -1,5 +1,5 @@
-import { StyleSheet, Text,  View } from 'react-native';
-import { AvatarPicker } from '../ImagePicker';
+import { StyleSheet, Text, View } from 'react-native';
+import { AvatarPicker } from '../common/ImagePicker';
 import { ProSellerButton } from './ProSellerButton';
 
 export function WelcomeSeller() {

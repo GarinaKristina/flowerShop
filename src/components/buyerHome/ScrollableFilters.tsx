@@ -12,10 +12,7 @@ export function ScrollableFilters() {
           <Pressable
             key={index}
             onPress={() => setSelectedIndex(index)}
-            style={[
-              styles.highlightItem,
-              selectedIndex === index && styles.highlightItemSelected,
-            ]}
+            style={[styles.highlightItem, selectedIndex === index && styles.highlightItemSelected]}
           >
             <Text style={styles.highlightText}>{highlight}</Text>
           </Pressable>

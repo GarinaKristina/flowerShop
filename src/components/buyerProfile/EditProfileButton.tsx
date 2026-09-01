@@ -2,15 +2,8 @@ import React from 'react';
 import { Text, Pressable, StyleSheet } from 'react-native';
 
 export function EditProfileButton({ onPress }) {
-
   return (
-    <Pressable
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.button,
-        pressed && styles.pressed,
-      ]}
-    >
+    <Pressable onPress={onPress} style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
       <Text style={styles.text}>Edit Profile</Text>
     </Pressable>
   );

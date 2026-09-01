@@ -2,14 +2,16 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Platform } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Calendar } from 'lucide-react-native';
+import { useOpen } from '../../hooks/useOpenClose';
+import { ViewStyleProp } from '../../utils/styles';
 
 type DatePickerInputProps = {
   value: Date;
   onChange: (date: Date) => void;
   label?: string;
   placeholder?: string;
-  style?: object;
-  inputStyle?: object;
+  style?: ViewStyleProp;
+  inputStyle?: ViewStyleProp;
   minimumAge?: number;
 };
 
@@ -22,44 +24,41 @@ export const DatePickerInput = ({
   inputStyle,
   minimumAge = 18,
 }: DatePickerInputProps) => {
-  const [showPicker, setShowPicker] = React.useState(false);
-  const [isSelected, setIsSelected] = React.useState(false);
+  const datePickerModal = useOpen();
+  const dateSelected = useOpen();
 
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() - minimumAge);
 
-  const handleChange = (event: any, selectedDate?: Date) => {
+  const handleChange = (event: unknown, selectedDate?: Date) => {
     if (Platform.OS === 'android') {
-      setShowPicker(false);
+      datePickerModal.close();
     }
     if (selectedDate) {
       onChange(selectedDate);
-      setIsSelected(true);
+      dateSelected.open();
     }
   };
 
   return (
     <View style={style}>
       {label && <Text style={styles.inputDescription}>{label}</Text>}
-      <TouchableOpacity 
-        onPress={() => setShowPicker(true)}
-        style={[styles.inputWrapper, inputStyle]}
-      >
+      <TouchableOpacity onPress={datePickerModal.open} style={[styles.inputWrapper, inputStyle]}>
         <View style={styles.leftIcon} pointerEvents="none">
           <Calendar size={16} color="#565D6D" />
         </View>
-        <Text style={[styles.input, !isSelected && styles.placeholderText]}>
-          {isSelected ? value.toLocaleDateString() : placeholder}
+        <Text style={[styles.input, !dateSelected.isOpen && styles.placeholderText]}>
+          {dateSelected.isOpen ? value.toLocaleDateString() : placeholder}
         </Text>
       </TouchableOpacity>
 
-      {showPicker && (
+      {datePickerModal.isOpen && (
         <DateTimePicker
           value={value}
           mode="date"
           display="default"
           onValueChange={handleChange}
-          onDismiss={() => setShowPicker(false)}
+          onDismiss={datePickerModal.close}
           maximumDate={maxDate}
         />
       )}
@@ -68,7 +67,7 @@ export const DatePickerInput = ({
 };
 
 const styles = StyleSheet.create({
- inputDescription: {
+  inputDescription: {
     fontSize: 14,
     lineHeight: 20,
     color: '#565D6D',

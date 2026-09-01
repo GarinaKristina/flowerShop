@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet, View } from 'react-native';
 
 import React from 'react';
-import { BottomNavigation } from '../components/BottomNavigation';
+import { BottomNavigation } from '../components/common/BottomNavigation';
 import { WelcomeSeller } from '../components/sellerDashboard/WelcomeSeller';
 import { RevenueToday } from '../components/sellerDashboard/RevenueToday';
 import { SubStatistic } from '../components/sellerDashboard/SubStatistic';
@@ -47,7 +47,6 @@ export function SellerDashboard() {
           ))}
         </View>
         <RecentAlerts />
-
       </ScrollView>
       <BottomNavigation />
     </View>

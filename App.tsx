@@ -19,7 +19,6 @@ import { SignIn } from './src/pages/SignIn';
 import { SignUp } from './src/pages/SignUp';
 import { BuyerProfileRight } from './src/components/buyerProfile/BuyerProfileRight';
 
-
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App() {
@@ -41,45 +40,26 @@ function App() {
             headerLeft: BuyerHeaderLeft,
           }}
         />
-        <Stack.Screen
-          name={pages.RoleSelection}
-          component={RoleSelection}
-          options={{ title: 'Join BloomMarket' }}
-        />
+        <Stack.Screen name={pages.RoleSelection} component={RoleSelection} options={{ title: 'Join BloomMarket' }} />
         <Stack.Screen
           name={pages.BuyerAccount}
           component={BuyerAccount}
-          options={{ title: 'My Profile',  headerRight: BuyerProfileRight }}
-
-        />
-          <Stack.Screen
-          name={pages.SellerDashboard}
-          component={SellerDashboard}
-          options={{ title: 'Bloom Dashboard',  headerRight: BuyerProfileRight }}
-
-        />
-         <Stack.Screen
-          name={pages.SignIn}
-          component={SignIn}
-          options={{ title: 'Sign In' }}
-        />
-         <Stack.Screen
-          name={pages.SignUp}
-          component={SignUp}
-          options={{ title: 'Sign Up' }}
+          options={{ title: 'My Profile', headerRight: BuyerProfileRight }}
         />
         <Stack.Screen
-          name={pages.SellerHome}
-          component={SellerHome}
-          options={{ title: 'Seller' }}
+          name={pages.SellerDashboard}
+          component={SellerDashboard}
+          options={{ title: 'Bloom Dashboard', headerRight: BuyerProfileRight }}
         />
+        <Stack.Screen name={pages.SignIn} component={SignIn} options={{ title: 'Sign In' }} />
+        <Stack.Screen name={pages.SignUp} component={SignUp} options={{ title: 'Sign Up' }} />
+        <Stack.Screen name={pages.SellerHome} component={SellerHome} options={{ title: 'Seller' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<RootStackParamList>();
 
 export function MainTabs() {
   return (
@@ -106,4 +86,3 @@ export function MainTabs() {
   );
 }
 export default App;
-

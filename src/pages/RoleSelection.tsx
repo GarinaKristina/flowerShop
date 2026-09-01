@@ -1,27 +1,21 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View , ScrollView} from 'react-native';
-import { ArrowRight} from 'lucide-react-native';
-import { useNavigation } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import { ArrowRight } from 'lucide-react-native';
 
-import { UserRole } from '../components/UserRole';
-import { buttonNames } from '../constants/ButtonNames';
-import { mainHeader } from '../constants/MainHeader';
-import {
-  buyerRoleDescription,
-  sellerRoleDescription,
-} from '../constants/UserRoleDescription';
-import { pages, type RootStackParamList } from '../constants/navigation';
+import { UserRole } from '../components/common/UserRole';
+import { buttonNames } from '../constants/buttonNames';
+import { mainHeader } from '../constants/mainHeader';
+import { buyerRoleDescription, sellerRoleDescription } from '../constants/UserRoleDescription';
+import { pages } from '../constants/navigation';
+import { useAppNavigation } from '../hooks/useAppNavigation';
 
 type SelectedRole = 'Buyer' | 'Seller' | null;
 
-type RoleSelectionNav = NativeStackNavigationProp<RootStackParamList>;
-
 export function RoleSelection() {
-  const navigation = useNavigation<RoleSelectionNav>();
+  const navigation = useAppNavigation();
   const [selectedRole, setSelectedRole] = useState<SelectedRole>(null);
 
- const onContinue = () => {
+  const onContinue = () => {
     if (selectedRole === 'Buyer') {
       navigation.navigate(pages.BuyerAccount);
       return;
@@ -30,54 +24,41 @@ export function RoleSelection() {
       navigation.navigate(pages.SellerDashboard);
       return;
     }
-   
   };
   return (
     <View style={styles.screen}>
-      <ScrollView >
-      <Text style={styles.mainTitle}>{mainHeader.title}</Text>
-      <Text style={styles.description}>{mainHeader.description}</Text>
-      <View style={styles.stack}>
-        <View style={styles.item}>
-          <TouchableOpacity
-            activeOpacity={0.9}
-            style={styles.item}
-            onPress={() => setSelectedRole('Buyer')}
-          >
+      <ScrollView>
+        <Text style={styles.mainTitle}>{mainHeader.title}</Text>
+        <Text style={styles.description}>{mainHeader.description}</Text>
+        <View style={styles.stack}>
+          <View style={styles.item}>
+            <TouchableOpacity activeOpacity={0.9} style={styles.item} onPress={() => setSelectedRole('Buyer')}>
+              <UserRole
+                userRole="Buyer"
+                roleDescription={buyerRoleDescription.description}
+                highlights={buyerRoleDescription.highlights}
+                selected={selectedRole === 'Buyer'}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity activeOpacity={0.9} style={styles.item} onPress={() => setSelectedRole('Seller')}>
             <UserRole
-              userRole="Buyer"
-              roleDescription={buyerRoleDescription.description}
-              highlights={buyerRoleDescription.highlights}
-              selected={selectedRole === 'Buyer'}
+              userRole="Seller"
+              roleDescription={sellerRoleDescription.description}
+              highlights={sellerRoleDescription.highlights}
+              selected={selectedRole === 'Seller'}
             />
           </TouchableOpacity>
         </View>
-
-        <TouchableOpacity
-          activeOpacity={0.9}
-          style={styles.item}
-          onPress={() => setSelectedRole('Seller')}
-        >
-          <UserRole
-            userRole="Seller"
-            roleDescription={sellerRoleDescription.description}
-            highlights={sellerRoleDescription.highlights}
-            selected={selectedRole === 'Seller'}
-          />
-        </TouchableOpacity>
-      </View>
-      <View>
-       <TouchableOpacity
-          style={styles.continueButton}
-          disabled={!selectedRole}
-          onPress={onContinue}
-        >
-          <Text style={styles.continueButtonText}>{buttonNames.continue}</Text>
-          <View style={styles.buttonIcon}>
-            <ArrowRight size={18} />
-          </View>
-        </TouchableOpacity>
-      </View>
+        <View>
+          <TouchableOpacity style={styles.continueButton} disabled={!selectedRole} onPress={onContinue}>
+            <Text style={styles.continueButtonText}>{buttonNames.continue}</Text>
+            <View style={styles.buttonIcon}>
+              <ArrowRight size={18} />
+            </View>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </View>
   );

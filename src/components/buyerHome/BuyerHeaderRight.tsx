@@ -1,14 +1,11 @@
-import { useNavigation } from '@react-navigation/native';
 import { Bell, CircleUserRound } from 'lucide-react-native';
 import { View, Pressable } from 'react-native';
 
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { pages, RootStackParamList } from '../../constants/navigation';
-
-type RootNav = NativeStackNavigationProp<RootStackParamList>;
+import { pages } from '../../constants/navigation';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 
 export function BuyerHeaderRight() {
-  const navigation = useNavigation<RootNav>();
+  const navigation = useAppNavigation();
 
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -18,7 +15,6 @@ export function BuyerHeaderRight() {
       <View>
         {/* <Pressable onPress={() => navigation.navigate(pages.RoleSelection)}> */}
         <Pressable onPress={() => navigation.navigate(pages.SignIn)}>
-
           <CircleUserRound size={22} color="#3f4146" />
         </Pressable>
       </View>
