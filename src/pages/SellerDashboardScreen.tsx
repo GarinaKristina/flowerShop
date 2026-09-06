@@ -9,15 +9,18 @@ import { WeeklyPerformance } from '../components/sellerDashboard/WeeklyPerforman
 import { CirclePlus, ClipboardList, Flower2, Settings, Star } from 'lucide-react-native';
 import { ManagementHub } from '../components/sellerDashboard/ManagementHub';
 import { RecentAlerts } from '../components/sellerDashboard/RecentAlerts';
+import { useAppNavigation } from '../hooks/useAppNavigation';
+import { pages } from '../constants/navigation';
 
 const managementItems = [
-  { label: 'Add Flower', color: '#F2F2FDFF', icon: CirclePlus },
-  { label: 'Listings', color: '#FDF2F5FF', icon: Flower2 },
-  { label: 'Reviews', color: '#EEFCFAFF', icon: Star },
-  { label: 'Settings', color: '#F5F2FDFF', icon: Settings },
+  { label: 'Add Flower', color: '#F2F2FDFF', icon: CirclePlus, route: pages.AddFlower },
+  { label: 'Listings', color: '#FDF2F5FF', icon: Flower2, route: pages.Listings },
+  { label: 'Reviews', color: '#EEFCFAFF', icon: Star, route: pages.Reviews },
+  { label: 'Settings', color: '#F5F2FDFF', icon: Settings, route: pages.Settings },
 ];
 
 export function SellerDashboard() {
+  const navigation = useAppNavigation();
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
@@ -30,7 +33,13 @@ export function SellerDashboard() {
         <WeeklyPerformance />
         <View style={styles.managementHubContainer}>
           {managementItems.map(item => (
-            <ManagementHub key={item.label} label={item.label} color={item.color} icon={item.icon} />
+            <ManagementHub
+              key={item.label}
+              label={item.label}
+              color={item.color}
+              icon={item.icon}
+              onPress={() => navigation.navigate(item.route)}
+            />
           ))}
         </View>
         <RecentAlerts />

@@ -1,20 +1,21 @@
 import { CirclePlus, Flower2, Star, Settings } from 'lucide-react-native';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 type ManagementHubProps = {
   label: string;
   color: string;
   icon: typeof CirclePlus | typeof Flower2 | typeof Star | typeof Settings;
+  onPress: () => void;
 };
 
-export function ManagementHub({ label, color, icon: Icon }: ManagementHubProps) {
+export function ManagementHub({ label, color, icon: Icon, onPress }: ManagementHubProps) {
   return (
-    <View>
+    <TouchableOpacity onPress={onPress}>
       <View style={[styles.container, { backgroundColor: color }]}>
         <Icon size={24} />
       </View>
       <Text style={[styles.label]}>{label}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
