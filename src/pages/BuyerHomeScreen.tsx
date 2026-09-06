@@ -10,7 +10,7 @@ import { Search } from 'lucide-react-native';
 
 export function BuyerHome() {
   return (
-    <View>
+    <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.screen}>
         <View style={styles.row}>
           <InputComponent placeholderValue={'Search for bouquets...'} icon={<Search size={16} />} />
@@ -28,6 +28,9 @@ export function BuyerHome() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   row: {
     flexDirection: 'row',
     marginLeft: 10,

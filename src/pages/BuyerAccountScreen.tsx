@@ -15,10 +15,10 @@ export function BuyerAccount() {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.avatarCOntainer}>
-          <AvatarPicker />
+          <AvatarPicker avatarType="buyer" />
           <Text style={styles.nameStyle}>Sarah Jenkins</Text>
           <Text style={styles.emailStyle}>sarah.j@bloommarket.com</Text>
         </View>
@@ -38,6 +38,9 @@ export function BuyerAccount() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   content: {
     paddingBottom: 32,
   },

@@ -1,14 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { BottomNavigation } from '../components/BottomNavigation';
 
-export function Favorites() {
+export function AddFlower() {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Favorites</Text>
+        <Text style={styles.title}>Add Flower</Text>
       </View>
-      <BottomNavigation />
     </View>
   );
 }
