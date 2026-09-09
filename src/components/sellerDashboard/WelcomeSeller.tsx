@@ -3,12 +3,17 @@ import { AvatarPicker } from '../common/ImagePicker';
 import { ProSellerButton } from './ProSellerButton';
 
 export function WelcomeSeller() {
+  const seller = {
+    sellerName: 'Welcome back, Sarah!',
+    sellerShop: "Sarah's Blooms • Florist",
+  };
+
   return (
     <View style={styles.row}>
       <AvatarPicker avatarType="seller" />
       <View style={styles.textContainer}>
-        <Text style={styles.welcomeText}>Welcome back, Sarah!</Text>
-        <Text style={styles.subText}>Sarah's Blooms • Florist</Text>
+        <Text style={styles.welcomeText}>{seller.sellerName}</Text>
+        <Text style={styles.subText}>{seller.sellerShop}</Text>
       </View>
       <ProSellerButton />
     </View>

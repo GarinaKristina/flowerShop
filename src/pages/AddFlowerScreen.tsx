@@ -1,12 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { AddPhoto } from '../components/addFlower/AddPhoto';
 
 export function AddFlower() {
   return (
     <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>Add Flower</Text>
-      </View>
+      <AddPhoto />
     </View>
   );
 }

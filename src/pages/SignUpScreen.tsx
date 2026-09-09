@@ -1,158 +1,128 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import InputComponent from '../components/common/Input';
-import { KeyRound, Mail, User, UserPlus, MessageCircleWarning, ArrowRight } from 'lucide-react-native';
+import * as yup from 'yup';
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { FormInput } from '../components/common/FormInput';
+import { FieldError } from '../components/common/FieldError';
+import { KeyRound, Mail, User, UserPlus, ArrowRight } from 'lucide-react-native';
 import { buttonNames } from '../constants/buttonNames';
 import { DatePickerInput } from '../components/common/DataPicker';
 
 import { pages } from '../constants/navigation';
 import { useAppNavigation } from '../hooks/useAppNavigation';
+import { mainLabels, placeholders, signUpLabels, validationMessages } from '../constants/mainInfo';
+
+const emailRegexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const nameRegexp = /^[A-Za-z' -]+$/;
+
+const nameMessage = validationMessages.namePattern;
+const emailValidation = yup.string().matches(emailRegexp, validationMessages.invalidEmail);
+const [defaultName, defaultLastName, defaultBirthday, defaultEmail, defaultPassword] = [
+  'Cat',
+  'Sonia',
+  new Date(1985, 2, 14),
+  'abc@abc.abc',
+  '12345678',
+];
+
+const schema = yup.object({
+  firstName: yup.string().label(mainLabels.firstName).required().min(2).matches(nameRegexp, nameMessage),
+  lastName: yup.string().label(mainLabels.lastName).required().min(2).matches(nameRegexp, nameMessage),
+  birthDate: yup.date().label(mainLabels.dateOfBirth).required(),
+  email: emailValidation.label(placeholders.email).required(),
+  password: yup.string().label(mainLabels.password).required().min(8, validationMessages.shortPassword),
+  confirmPassword: yup
+    .string()
+    .label(mainLabels.confirmPassword)
+    .required()
+    .oneOf([yup.ref('password')], validationMessages.passwordsDoNotMatch),
+});
+
+type SignUpFormValues = yup.InferType<typeof schema>;
 
 export function SignUp() {
   const navigation = useAppNavigation();
-  const [firstName, setFirstName] = React.useState('');
-  const [lastName, setLastName] = React.useState('');
 
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const { control, handleSubmit, formState } = useForm<SignUpFormValues>({
+    defaultValues: {
+      firstName: defaultName,
+      lastName: defaultLastName,
+      birthDate: defaultBirthday,
+      email: defaultEmail,
+      password: defaultPassword,
+      confirmPassword: defaultPassword,
+    },
+    resolver: yupResolver(schema),
+    mode: 'onChange',
+  });
 
-  const [emailError, setEmailError] = React.useState<string | null>(null);
-  const [passwordError, setPasswordError] = React.useState<string | null>(null);
-  const [confirmPassword, setConfirmPassword] = React.useState('');
-  const [confirmPasswordError, setConfirmPasswordError] = React.useState<string | null>(null);
-
-  const validateEmail = (value: string) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    setEmailError(value === '' ? null : re.test(value) ? null : 'Please enter a valid email address.');
-  };
-
-  const validatePassword = (value: string) => {
-    setPasswordError(value === '' ? null : value.length >= 8 ? null : 'Password must be at least 8 characters.');
-
-    if (confirmPassword !== '') {
-      setConfirmPasswordError(value === confirmPassword ? null : 'Passwords do not match.');
-    }
-  };
-
-  const onEmailChange = (v: string) => {
-    setEmail(v);
-    validateEmail(v);
-  };
-
-  const onPasswordChange = (v: string) => {
-    setPassword(v);
-    validatePassword(v);
-  };
-
-  const validateConfirmPassword = (value: string) => {
-    setConfirmPasswordError(value === '' ? null : value === password ? null : 'Passwords do not match.');
-  };
-
-  const onConfirmPasswordChange = (v: string) => {
-    setConfirmPassword(v);
-    validateConfirmPassword(v);
-  };
-
-  const isFormValid =
-    email.trim() !== '' &&
-    password.trim() !== '' &&
-    confirmPassword.trim() !== '' &&
-    !emailError &&
-    !passwordError &&
-    !confirmPasswordError;
-  const [birthDate, setBirthDate] = React.useState(new Date());
-
+  const onSubmit = () => navigation.navigate(pages.RoleSelection);
+  // const save = (values:FormValue)=> {
+  //   fetch(......)
+  // }
   return (
     <ScrollView style={styles.container}>
       <View style={styles.row}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}> Tell us about you</Text>
-          <Text style={styles.subTitle}>Join our community of flower enthusiasts today.</Text>
+          <Text style={styles.title}>{signUpLabels.title}</Text>
+          <Text style={styles.subTitle}>{signUpLabels.subTitle}</Text>
         </View>
         <View style={styles.userDataContainer}>
-          <View>
-            <Text style={styles.inputDescription}>First Name</Text>
-            <InputComponent
-              placeholderValue={'Jane'}
-              icon={<User size={16} />}
-              value={firstName}
-              onChangeText={setFirstName}
-              style={{ width: styles.dataInput.width }}
-              inputStyle={{ width: styles.dataInput.width }}
-            />
-          </View>
-          <View>
-            <Text style={styles.inputDescription}>Last Name</Text>
-            <InputComponent
-              placeholderValue={'Doe'}
-              icon={<User size={16} />}
-              value={lastName}
-              onChangeText={setLastName}
-              style={{ width: styles.dataInput.width }}
-              inputStyle={{ width: styles.dataInput.width }}
-            />
-          </View>
-        </View>
-        <DatePickerInput value={birthDate} onChange={setBirthDate} label="Date of Birth" minimumAge={18} />
-        <View>
-          <Text style={styles.inputDescription}>Email Address</Text>
-          <InputComponent
-            placeholderValue={'Email'}
-            icon={<Mail size={16} />}
-            value={email}
-            onChangeText={onEmailChange}
-            style={styles.inputWide}
-            inputStyle={styles.inputWide}
+          <FormInput
+            control={control}
+            name="firstName"
+            label={mainLabels.firstName}
+            placeholderValue={placeholders.firstName}
+            icon={<User size={16} />}
+            width={styles.dataInput.width}
           />
-          {emailError && (
-            <View style={styles.errorRow}>
-              <MessageCircleWarning size={16} color="#EF4444" />
-              <Text style={styles.errorText}>{emailError}</Text>
+          <FormInput
+            control={control}
+            name="lastName"
+            label={mainLabels.lastName}
+            placeholderValue={placeholders.lastName}
+            icon={<User size={16} />}
+            width={styles.dataInput.width}
+          />
+        </View>
+        <Controller
+          control={control}
+          name="birthDate"
+          render={({ field: { value, onChange }, fieldState: { error } }) => (
+            <View>
+              <DatePickerInput value={value} onChange={onChange} label={mainLabels.dateOfBirth} minimumAge={18} />
+              <FieldError message={error?.message} />
             </View>
           )}
-        </View>
-
+        />
+        <FormInput
+          control={control}
+          name="email"
+          label={mainLabels.emailAddress}
+          placeholderValue={placeholders.email}
+          icon={<Mail size={16} />}
+          width={styles.inputWide.width}
+        />
+        <FormInput
+          control={control}
+          name="password"
+          label={mainLabels.password}
+          placeholderValue={placeholders.password}
+          icon={<KeyRound size={16} />}
+          width={styles.inputWide.width}
+        />
+        <FormInput
+          control={control}
+          name="confirmPassword"
+          label={mainLabels.confirmPassword}
+          placeholderValue={placeholders.confirmPassword}
+          icon={<KeyRound size={16} />}
+          width={styles.inputWide.width}
+        />
         <View>
-          <Text style={styles.inputDescription}>Password</Text>
-          <InputComponent
-            placeholderValue={'Password'}
-            icon={<KeyRound size={16} />}
-            value={password}
-            onChangeText={onPasswordChange}
-            style={styles.inputWide}
-            inputStyle={styles.inputWide}
-          />
-          {passwordError && (
-            <View style={styles.errorRow}>
-              <MessageCircleWarning size={16} color="#EF4444" />
-              <Text style={styles.errorText}>{passwordError}</Text>
-            </View>
-          )}
-        </View>
-        <View>
-          <Text style={styles.inputDescription}>Confirm Password</Text>
-          <InputComponent
-            placeholderValue={'Confirm Password'}
-            icon={<KeyRound size={16} />}
-            value={confirmPassword}
-            onChangeText={onConfirmPasswordChange}
-            style={styles.inputWide}
-            inputStyle={styles.inputWide}
-          />
-          {confirmPasswordError && (
-            <View style={styles.errorRow}>
-              <MessageCircleWarning size={16} color="#EF4444" />
-              <Text style={styles.errorText}>{confirmPasswordError}</Text>
-            </View>
-          )}
-        </View>
-        <View>
-          <TouchableOpacity
-            style={styles.signUpButton}
-            disabled={!isFormValid}
-            onPress={() => navigation.navigate(pages.RoleSelection)}
-            activeOpacity={0.7}
-          >
+          {/* onPress={handleSubmit(save)} */}
+          <TouchableOpacity style={styles.signUpButton} disabled={!formState.isValid} onPress={handleSubmit(onSubmit)} activeOpacity={0.7}>
             <Text style={styles.signUpButtonText}>{buttonNames.signUp}</Text>
             <View style={styles.buttonIcon}>
               <UserPlus size={18} />
@@ -162,9 +132,9 @@ export function SignUp() {
       </View>
       <View style={styles.bottomTextSignIn}>
         <TouchableOpacity style={styles.bottomTouchable} onPress={() => navigation.navigate(pages.SignIn)} activeOpacity={0.7}>
-          <Text style={styles.signUpText}>Already have an account?</Text>
+          <Text style={styles.signUpText}>{mainLabels.alreadyHaveAccount}</Text>
           <View style={styles.signUpInline}>
-            <Text style={styles.signUpTextBold}>Sign In to BloomMarket</Text>
+            <Text style={styles.signUpTextBold}>{mainLabels.signInToBloomMarket}</Text>
             <ArrowRight />
           </View>
         </TouchableOpacity>
@@ -261,30 +231,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 12,
   },
-  inputDescription: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: '#565D6D',
-    marginTop: 4,
-    fontWeight: '700',
-  },
   inputLabel: {
     fontSize: 14,
     lineHeight: 20,
     color: '#565D6D',
     marginTop: 4,
     fontWeight: '700',
-  },
-  errorRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 6,
-    marginLeft: 4,
-  },
-  errorText: {
-    color: '#EF4444',
-    marginLeft: 8,
-    fontSize: 13,
   },
   inputWide: {
     width: 360,

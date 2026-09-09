@@ -1,15 +1,16 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { CreditCard, Heart, Package } from 'lucide-react-native';
+import { buyerProfileLabels, demoData } from '../../constants/mainInfo';
 
 type StatisticDashboardItemsProps = {
   onPressItem?: (key: string) => void;
 };
 
 const ITEMS = [
-  { key: 'orders', Icon: Package, value: '12', label: 'ORDERS' },
-  { key: 'favorites', Icon: Heart, value: '8', label: 'FAVORITES' },
-  { key: 'wallet', Icon: CreditCard, value: '$45', label: 'WALLET' },
+  { key: 'orders', Icon: Package, value: demoData.ordersCount, label: buyerProfileLabels.orders },
+  { key: 'favorites', Icon: Heart, value: demoData.favoritesCount, label: buyerProfileLabels.favorites },
+  { key: 'wallet', Icon: CreditCard, value: demoData.walletAmount, label: buyerProfileLabels.wallet },
 ];
 
 export function StatisticDashboardItems({ onPressItem }: StatisticDashboardItemsProps) {

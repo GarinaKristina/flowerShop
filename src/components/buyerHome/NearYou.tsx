@@ -1,15 +1,16 @@
 import { Alert, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { NearYouSkeleton } from './Skeletons';
 import { Funnel } from 'lucide-react-native';
+import { buyerHomeLabels } from '../../constants/mainInfo';
 
 export function NearYou() {
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
-        <Text style={styles.title}>Near You</Text>
+        <Text style={styles.title}>{buyerHomeLabels.nearYou}</Text>
         <Pressable style={styles.relevanceButton} onPress={() => Alert.alert('pressed')}>
           <Funnel size={14} style={styles.filterIcon} />
-          <Text style={styles.relevanceText}>Relevance</Text>
+          <Text style={styles.relevanceText}>{buyerHomeLabels.relevance}</Text>
         </Pressable>
       </View>
       <FlatList

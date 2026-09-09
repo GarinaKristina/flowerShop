@@ -7,13 +7,14 @@ import { ScrollableFilters } from '../components/buyerHome/ScrollableFilters';
 import { NearYou } from '../components/buyerHome/NearYou';
 import { BottomNavigation } from '../components/common/BottomNavigation';
 import { Search } from 'lucide-react-native';
+import { placeholders } from '../constants/mainInfo';
 
 export function BuyerHome() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.screen}>
         <View style={styles.row}>
-          <InputComponent placeholderValue={'Search for bouquets...'} icon={<Search size={16} />} />
+          <InputComponent placeholderValue={placeholders.searchForBouquets} icon={<Search size={16} />} />
           <FilterButton style={styles.filterButton} />
         </View>
 

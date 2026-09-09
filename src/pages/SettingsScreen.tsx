@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { screenTitles } from '../constants/mainInfo';
 
 export function Settings() {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Settings</Text>
+        <Text style={styles.title}>{screenTitles.settings}</Text>
       </View>
     </View>
   );

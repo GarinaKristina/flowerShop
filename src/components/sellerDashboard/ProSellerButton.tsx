@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
+import { sellerDashboardLabels } from '../../constants/mainInfo';
 
 type TagProps = {
   onPress?: () => void;
@@ -8,7 +9,7 @@ type TagProps = {
 export function ProSellerButton({ onPress }: TagProps) {
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.tagItem, pressed && styles.tagItemPressed]}>
-      <Text style={[styles.label]}>Pro Seller</Text>
+      <Text style={[styles.label]}>{sellerDashboardLabels.proSeller}</Text>
     </Pressable>
   );
 }

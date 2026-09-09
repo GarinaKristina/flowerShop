@@ -1,14 +1,15 @@
 import { DollarSign, TrendingUp } from 'lucide-react-native';
 import { StyleSheet, Text, View } from 'react-native';
+import { demoData, sellerDashboardLabels } from '../../constants/mainInfo';
 
 export function RevenueToday() {
   return (
     <View style={styles.container}>
-      <Text style={[styles.label]}>REVENUE TODAY</Text>
-      <Text style={[styles.amount]}> $1,248.50</Text>
+      <Text style={[styles.label]}>{sellerDashboardLabels.revenueToday}</Text>
+      <Text style={[styles.amount]}>{demoData.revenueAmount}</Text>
       <View style={[styles.statisticContainer]}>
         <TrendingUp size={20} color={tokens.iconColor} />
-        <Text style={styles.statistic}> +12% from yesterday</Text>
+        <Text style={styles.statistic}>{demoData.revenueTrend}</Text>
       </View>
       <View style={styles.iconContainer}>
         <DollarSign size={16} color={tokens.dollarColor} />

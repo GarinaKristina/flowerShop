@@ -2,6 +2,7 @@ import { Heart, House, Search, ShoppingCart, UserRound } from 'lucide-react-nati
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { pages } from '../../constants/navigation';
+import { bottomNavigationLabels } from '../../constants/mainInfo';
 
 type MenuButtonProps = {
   icon: React.ComponentType<{ size: number; color: string }>;
@@ -23,11 +24,11 @@ export function BottomNavigation(props?: Partial<BottomTabBarProps>) {
   const state = props?.state;
   const navigation = props?.navigation;
   const tabs = [
-    { route: pages.BuyerHome, icon: House, label: 'Home' },
-    { route: pages.Search, icon: Search, label: 'Search' },
-    { route: pages.Favorites, icon: Heart, label: 'Favorites' },
-    { route: pages.Cart, icon: ShoppingCart, label: 'Cart' },
-    { route: pages.BuyerAccount, icon: UserRound, label: 'Profile' },
+    { route: pages.BuyerHome, icon: House, label: bottomNavigationLabels.home },
+    { route: pages.Search, icon: Search, label: bottomNavigationLabels.search },
+    { route: pages.Favorites, icon: Heart, label: bottomNavigationLabels.favorites },
+    { route: pages.Cart, icon: ShoppingCart, label: bottomNavigationLabels.cart },
+    { route: pages.BuyerAccount, icon: UserRound, label: bottomNavigationLabels.profile },
   ];
 
   return (

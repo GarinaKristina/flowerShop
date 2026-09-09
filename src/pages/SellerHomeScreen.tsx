@@ -1,9 +1,10 @@
 import { Text, View } from 'react-native';
+import { screenTitles } from '../constants/mainInfo';
 
 export function SellerHome() {
   return (
     <View>
-      <Text>Seller</Text>
+      <Text>{screenTitles.seller}</Text>
     </View>
   );
 }

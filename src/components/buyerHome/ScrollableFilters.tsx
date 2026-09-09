@@ -1,8 +1,9 @@
 import React from 'react';
 import { ScrollView, View, Pressable, Text, StyleSheet } from 'react-native';
+import { buyerHomeLabels } from '../../constants/mainInfo';
 
 export function ScrollableFilters() {
-  const highlights: string[] = ['Roses', 'Tulips', 'Mixed', 'Wedding'];
+  const highlights: string[] = buyerHomeLabels.filters;
   const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
 
   return (

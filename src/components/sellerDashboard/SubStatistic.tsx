@@ -1,5 +1,6 @@
 import { ClipboardList, Flower2 } from 'lucide-react-native';
 import { StyleSheet, Text, View } from 'react-native';
+import { sellerDashboardLabels } from '../../constants/mainInfo';
 
 type SubStatisticProps = {
   label: string;
@@ -9,7 +10,7 @@ type SubStatisticProps = {
 
 export function SubStatistic({ label, statisticNumber, icon: Icon }: SubStatisticProps) {
   return (
-    <View style={[styles.container, label !== 'ACTIVE LISTINGS' && styles.iconContainerAlt]}>
+    <View style={[styles.container, label !== sellerDashboardLabels.activeListings && styles.iconContainerAlt]}>
       <Text style={[styles.label]}>{label}</Text>
       <Text style={[styles.amount]}> {statisticNumber}</Text>
       <View style={styles.iconContainer}>

@@ -1,22 +1,23 @@
 import { TrendingUp } from 'lucide-react-native';
 import { LineChart } from 'react-native-gifted-charts';
 import { StyleSheet, Text, View } from 'react-native';
+import { demoData, sellerDashboardLabels } from '../../constants/mainInfo';
 
 const data = [{ value: 400 }, { value: 340 }, { value: 520 }, { value: 450 }, { value: 680 }, { value: 820 }, { value: 760 }];
 
-const xLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const xLabels = sellerDashboardLabels.weekDays;
 
 export function WeeklyPerformance() {
   return (
     <View style={styles.card}>
       <View style={styles.header}>
         <View>
-          <Text style={styles.title}>Weekly Performance</Text>
-          <Text style={styles.subtitle}>7-day revenue overview</Text>
+          <Text style={styles.title}>{sellerDashboardLabels.weeklyPerformance}</Text>
+          <Text style={styles.subtitle}>{sellerDashboardLabels.weeklyPerformanceSubtitle}</Text>
         </View>
         <View style={styles.badge}>
           <TrendingUp size={14} color="#22CCB2" />
-          <Text style={styles.badgeText}> 18.4%</Text>
+          <Text style={styles.badgeText}>{demoData.weeklyPerformanceTrend}</Text>
         </View>
       </View>
 

@@ -11,14 +11,19 @@ import { ManagementHub } from '../components/sellerDashboard/ManagementHub';
 import { RecentAlerts } from '../components/sellerDashboard/RecentAlerts';
 import { useAppNavigation } from '../hooks/useAppNavigation';
 import { pages } from '../constants/navigation';
+import { sellerDashboardLabels } from '../constants/mainInfo';
 
 const managementItems = [
-  { label: 'Add Flower', color: '#F2F2FDFF', icon: CirclePlus, route: pages.AddFlower },
-  { label: 'Listings', color: '#FDF2F5FF', icon: Flower2, route: pages.Listings },
-  { label: 'Reviews', color: '#EEFCFAFF', icon: Star, route: pages.Reviews },
-  { label: 'Settings', color: '#F5F2FDFF', icon: Settings, route: pages.Settings },
+  { label: sellerDashboardLabels.addFlower, color: '#F2F2FDFF', icon: CirclePlus, route: pages.AddFlower },
+  { label: sellerDashboardLabels.listings, color: '#FDF2F5FF', icon: Flower2, route: pages.Listings },
+  { label: sellerDashboardLabels.reviews, color: '#EEFCFAFF', icon: Star, route: pages.Reviews },
+  { label: sellerDashboardLabels.settings, color: '#F5F2FDFF', icon: Settings, route: pages.Settings },
 ];
 
+const statistics = {
+  listings: 24,
+  orderToday: 8,
+};
 export function SellerDashboard() {
   const navigation = useAppNavigation();
   return (
@@ -27,8 +32,8 @@ export function SellerDashboard() {
         <WelcomeSeller />
         <RevenueToday />
         <View style={styles.subStatisticContainer}>
-          <SubStatistic label={'ACTIVE LISTINGS'} statisticNumber={'24'} icon={Flower2} />
-          <SubStatistic label={'ORDERS TODAY'} statisticNumber={'08'} icon={ClipboardList} />
+          <SubStatistic label={sellerDashboardLabels.activeListings} statisticNumber={String(statistics.listings)} icon={Flower2} />
+          <SubStatistic label={sellerDashboardLabels.ordersToday} statisticNumber={String(statistics.orderToday)} icon={ClipboardList} />
         </View>
         <WeeklyPerformance />
         <View style={styles.managementHubContainer}>

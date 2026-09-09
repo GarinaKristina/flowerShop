@@ -4,6 +4,8 @@ import { launchImageLibrary } from 'react-native-image-picker';
 
 type AvatarProps = {
   avatarType: 'buyer' | 'seller';
+  // avatarUrl?:string;
+  // onChange:(avatarUri: string | null) => void
 };
 
 export function AvatarPicker({ avatarType }: AvatarProps) {

@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { screenTitles } from '../constants/mainInfo';
 
 export function Listings() {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Listings</Text>
+        <Text style={styles.title}>{screenTitles.listings}</Text>
       </View>
     </View>
   );

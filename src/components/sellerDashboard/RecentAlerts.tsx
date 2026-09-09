@@ -1,33 +1,13 @@
 import { ChevronRight, ClipboardList, Flower2, MessageSquare } from 'lucide-react-native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
-type Alert = {
-  icon: React.ReactNode;
-  title: string;
-  time: string;
-  subtitle: string;
-};
-
-const alerts: Alert[] = [
-  {
-    icon: <ClipboardList size={20} color="#22CCB2" />,
-    title: 'New Order #4892',
-    time: '2m ago',
-    subtitle: 'Customer: James Wilson • "Spring Bloom" x2',
-  },
-  {
-    icon: <MessageSquare size={20} color="#E57373" />,
-    title: 'New Message',
-    time: '45m ago',
-    subtitle: 'From Elena: "Do you offer delivery to Midtown?"',
-  },
-  {
-    icon: <Flower2 size={20} color="#636AE8" />,
-    title: 'Listing Performance',
-    time: '1h ago',
-    subtitle: '"Red Velvet Roses" reached 100+ views today!',
-  },
+import { demoData, mainLabels, sellerDashboardLabels } from '../../constants/mainInfo';
+const alertIcons: React.ReactNode[] = [
+  <ClipboardList size={20} color="#22CCB2" />,
+  <MessageSquare size={20} color="#E57373" />,
+  <Flower2 size={20} color="#636AE8" />,
 ];
+
+const alerts = demoData.recentAlerts;
 
 const iconBg: Record<number, string> = {
   0: '#EEFCFA',
@@ -39,9 +19,9 @@ export function RecentAlerts() {
   return (
     <View style={styles.wrapper}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Recent Alerts</Text>
+        <Text style={styles.headerTitle}>{sellerDashboardLabels.recentAlerts}</Text>
         <TouchableOpacity>
-          <Text style={styles.viewAll}>View All</Text>
+          <Text style={styles.viewAll}>{mainLabels.viewAll}</Text>
         </TouchableOpacity>
       </View>
 
@@ -49,7 +29,7 @@ export function RecentAlerts() {
         {alerts.map((alert, index) => (
           <View key={alert.title}>
             <TouchableOpacity style={styles.row} activeOpacity={0.7}>
-              <View style={[styles.iconWrap, { backgroundColor: iconBg[index] }]}>{alert.icon}</View>
+              <View style={[styles.iconWrap, { backgroundColor: iconBg[index] }]}>{alertIcons[index]}</View>
               <View style={styles.content}>
                 <View style={styles.titleRow}>
                   <Text style={styles.title}>{alert.title}</Text>
