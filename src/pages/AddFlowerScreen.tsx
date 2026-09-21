@@ -1,12 +1,20 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { AddPhoto } from '../components/addFlower/AddPhoto';
+import { BasicInformation } from '../components/addFlower/BasicInformation';
+import { FloralDetails } from '../components/addFlower/FloralDetails';
+import { DeliveryAndPickup } from '../components/addFlower/DeliveryAndPickup';
+import { ListingActions } from '../components/addFlower/ListingActions';
 
 export function AddFlower() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <AddPhoto />
-    </View>
+      <BasicInformation />
+      <FloralDetails />
+      <DeliveryAndPickup />
+      <ListingActions />
+    </ScrollView>
   );
 }
 

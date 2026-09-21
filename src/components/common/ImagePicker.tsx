@@ -8,18 +8,32 @@ type AvatarProps = {
   // onChange:(avatarUri: string | null) => void
 };
 
+export async function pickPhotos(selectionLimit = 1) {
+  const result = await launchImageLibrary({
+    mediaType: 'photo',
+    selectionLimit,
+    quality: 0.8,
+  });
+
+  const uris: string[] = [];
+
+  for (const asset of result.assets ?? []) {
+    if (asset.uri) {
+      uris.push(asset.uri);
+    }
+  }
+
+  return uris;
+}
+
 export function AvatarPicker({ avatarType }: AvatarProps) {
   const [avatar, setAvatar] = useState<string | null>(null);
 
   const pickAvatar = async () => {
-    const result = await launchImageLibrary({
-      mediaType: 'photo',
-      selectionLimit: 1,
-      quality: 0.8,
-    });
+    const [uri] = await pickPhotos();
 
-    if (result.assets?.[0]?.uri) {
-      setAvatar(result.assets[0].uri);
+    if (uri) {
+      setAvatar(uri);
     }
   };
 

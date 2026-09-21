@@ -8,6 +8,11 @@ export const placeholders = {
   firstName: 'Jane',
   lastName: 'Doe',
   selectDate: 'Select date',
+  listingTitle: 'Pastel Dream Rose Bouquet',
+  description:
+    "A stunning arrangement of soft-hued roses, accented with fresh eucalyptus and baby's breath. Perfect for anniversaries, birthdays, or just to brighten someone's day.",
+  price: '85.00',
+  stockQuantity: '5',
 };
 
 export const mainLabels = {
@@ -36,6 +41,7 @@ export const validationMessages = {
   invalidEmail: 'Please enter a valid email address.',
   shortPassword: 'Password must be at least 8 characters.',
   passwordsDoNotMatch: 'Passwords do not match.',
+  priceSeemsHigh: 'Price seems high for this category',
 };
 
 export const screenTitles = {
@@ -97,9 +103,45 @@ export const sellerDashboardLabels = {
   weekDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
 };
 
+export const MAX_FLOWER_PHOTOS = 10;
+
 export const addFlowerLabels = {
   photos: 'PHOTOS',
-  photosDescription: 'Upload up to 10 high-quality photos. The first photo is your cover image.',
+  photosDescription: `Upload up to ${MAX_FLOWER_PHOTOS} high-quality photos. The first photo is your cover image.`,
+  addPhoto: 'ADD PHOTO',
+  primary: 'Primary',
+  removePhoto: 'Remove photo',
+  basicInformation: 'BASIC INFORMATION',
+  listingTitle: 'Listing Title',
+  description: 'Description',
+  price: 'Price ($)',
+  stockQuantity: 'Stock Quantity',
+  currencySymbol: '$',
+};
+
+export const floralDetailsLabels = {
+  title: 'FLORAL DETAILS',
+  flowerType: 'Flower Type',
+  flowerTypeDescription: 'Select primary flower',
+  colorPalette: 'Color Palette',
+  colorPaletteDescription: 'Main theme color',
+  freshness: 'Freshness',
+  freshnessDescription: 'Guaranteed duration',
+};
+
+export const deliveryLabels = {
+  title: 'DELIVERY & PICKUP',
+  homeDelivery: 'Home Delivery',
+  homeDeliveryDescription: 'Available within 10 miles',
+  inStorePickup: 'In-store Pickup',
+  inStorePickupDescription: 'Collect from your shop',
+};
+
+export const addFlowerFieldLimits = {
+  listingTitle: 60,
+  description: 500,
+  price: 10,
+  stockQuantity: 5,
 };
 
 export const userRoleLabelPrefix = "  I'm a ";
@@ -110,6 +152,11 @@ export const skeletonLabels = {
 };
 
 export const demoData = {
+  floralDetails: {
+    flowerType: 'Roses',
+    colorPalette: 'Pastel Pink',
+    freshness: '7+ Days',
+  },
   revenueAmount: '$1,248.50',
   revenueTrend: '+12% from yesterday',
   weeklyPerformanceTrend: ' 18.4%',
