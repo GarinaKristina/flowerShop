@@ -144,6 +144,27 @@ export const addFlowerFieldLimits = {
   stockQuantity: 5,
 };
 
+export const listingsLabels = {
+  myFlowers: 'My Flowers',
+  searchPlaceholder: 'Search your inventory...',
+  sortByNewest: 'Sort By: Newest',
+  statusActive: 'Active',
+  statusPaused: 'Paused',
+};
+
+export type ListingStatus = 'active' | 'paused';
+
+export type ListingItem = {
+  id: string;
+  title: string;
+  price: string;
+  status: ListingStatus;
+  views: string;
+  favorites: number;
+  isEnabled: boolean;
+  image: ReturnType<typeof require>;
+};
+
 export const userRoleLabelPrefix = "  I'm a ";
 
 export const skeletonLabels = {

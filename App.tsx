@@ -59,7 +59,7 @@ function App() {
         <Stack.Screen name={pages.SignUp} component={SignUp} options={{ title: 'Sign Up' }} />
         <Stack.Screen name={pages.SellerHome} component={SellerHome} options={{ title: 'Seller' }} />
         <Stack.Screen name={pages.AddFlower} component={AddFlower} options={{ title: 'Add Bouquet' }} />
-        <Stack.Screen name={pages.Listings} component={Listings} options={{ title: 'Listings' }} />
+        <Stack.Screen name={pages.Listings} component={Listings} options={{ title: 'My Flowers' }} />
         <Stack.Screen name={pages.Reviews} component={Reviews} options={{ title: 'Reviews' }} />
         <Stack.Screen name={pages.Settings} component={Settings} options={{ title: 'Settings' }} />
       </Stack.Navigator>
