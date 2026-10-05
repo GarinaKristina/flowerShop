@@ -8,14 +8,17 @@ import { NearYou } from '../components/buyerHome/NearYou';
 import { BottomNavigation } from '../components/common/BottomNavigation';
 import { Search } from 'lucide-react-native';
 import { placeholders } from '../constants/mainInfo';
+import { useAppNavigation } from '../hooks/useAppNavigation';
+import { pages } from '../constants/navigation';
 
 export function BuyerHome() {
+  const navigation = useAppNavigation();
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.screen}>
         <View style={styles.row}>
           <InputComponent placeholderValue={placeholders.searchForBouquets} icon={<Search size={16} />} />
-          <FilterButton style={styles.filterButton} />
+          <FilterButton style={styles.filterButton} onPress={() => navigation.navigate(pages.FilterBouquets)} />
         </View>
 
         <ScrollableFilters />

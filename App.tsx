@@ -22,6 +22,7 @@ import { AddFlower } from './src/pages/AddFlowerScreen';
 import { Listings } from './src/pages/ListingsScreen';
 import { Reviews } from './src/pages/ReviewsScreen';
 import { Settings } from './src/pages/SettingsScreen';
+import { FilterBouquets } from './src/pages/FilterBouquets';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -55,6 +56,7 @@ function App() {
           component={SellerDashboard}
           options={{ title: 'Bloom Dashboard', headerRight: BuyerProfileRight }}
         />
+        <Stack.Screen name={pages.FilterBouquets} component={FilterBouquets} options={{ title: 'Filter Bouquets' }} />
         <Stack.Screen name={pages.SignIn} component={SignIn} options={{ title: 'Sign In' }} />
         <Stack.Screen name={pages.SignUp} component={SignUp} options={{ title: 'Sign Up' }} />
         <Stack.Screen name={pages.SellerHome} component={SellerHome} options={{ title: 'Seller' }} />
