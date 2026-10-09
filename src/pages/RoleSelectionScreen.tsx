@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react-native';
 import { UserRole } from '../components/common/UserRole';
 import { buttonNames } from '../constants/buttonNames';
 import { mainHeader } from '../constants/mainHeader';
-import { buyerRoleDescription, sellerRoleDescription } from '../constants/UserRoleDescription';
+import { buyerRoleDescription, sellerRoleDescription } from '../constants/userRoleDescription';
 import { pages } from '../constants/navigation';
 import { useAppNavigation } from '../hooks/useAppNavigation';
 

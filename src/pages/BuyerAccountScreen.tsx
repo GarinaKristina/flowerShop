@@ -8,19 +8,24 @@ import { AccountSettingsMenu } from '../components/buyerProfile/AccountSettingsM
 import { SupportMenu } from '../components/buyerProfile/SupportMenu';
 import { BottomNavigation } from '../components/common/BottomNavigation';
 import { LogOut } from '../components/buyerProfile/LogOut';
+import { appVersionData } from '../constants/mainInfo';
 
 export function BuyerAccount() {
   const handleEditProfile = () => {
     console.log('Edit profile pressed');
   };
 
+  const user = {
+    name: 'Sarah Jenkins',
+    email: 'sarah.j@bloommarket.com',
+  };
   return (
-    <View>
+    <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.avatarCOntainer}>
-          <AvatarPicker />
-          <Text style={styles.nameStyle}>Sarah Jenkins</Text>
-          <Text style={styles.emailStyle}>sarah.j@bloommarket.com</Text>
+          <AvatarPicker avatarType="buyer" />
+          <Text style={styles.nameStyle}>{user.name}</Text>
+          <Text style={styles.emailStyle}>{user.email}</Text>
         </View>
         <EditProfileButton onPress={handleEditProfile} />
         <StatisticDashboardItems />
@@ -29,7 +34,7 @@ export function BuyerAccount() {
         <SupportMenu />
         <LogOut />
         <View>
-          <Text style={styles.buildText}>BloomMarket v2.4.0 (Build 892)</Text>
+          <Text style={styles.buildText}>{appVersionData}</Text>
         </View>
       </ScrollView>
       <BottomNavigation />
@@ -38,6 +43,9 @@ export function BuyerAccount() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   content: {
     paddingBottom: 32,
   },

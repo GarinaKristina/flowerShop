@@ -1,10 +1,15 @@
 import React from 'react';
 import { Text, Pressable, StyleSheet } from 'react-native';
+import { buyerProfileLabels } from '../../constants/mainInfo';
 
-export function EditProfileButton({ onPress }) {
+type EditProfileButtonProps = {
+  onPress?: () => void;
+};
+
+export function EditProfileButton({ onPress }: EditProfileButtonProps) {
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
-      <Text style={styles.text}>Edit Profile</Text>
+      <Text style={styles.text}>{buyerProfileLabels.editProfile}</Text>
     </Pressable>
   );
 }

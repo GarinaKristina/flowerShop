@@ -1,6 +1,7 @@
 import React from 'react';
 import { Archive, Flower2 } from 'lucide-react-native';
 import { StyleSheet, View, Text } from 'react-native';
+import { userRoleLabelPrefix } from '../../constants/mainInfo';
 type tUserRole = 'Buyer' | 'Seller';
 
 type UserRoleProps = {
@@ -11,7 +12,7 @@ type UserRoleProps = {
 };
 
 export function UserRole({ userRole, roleDescription, highlights, selected = false }: UserRoleProps) {
-  const label = `  I'm a ${userRole}`;
+  const label = `${userRoleLabelPrefix}${userRole}`;
 
   return (
     <View style={styles.container}>

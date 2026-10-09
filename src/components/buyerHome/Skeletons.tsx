@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import Skeleton from 'react-native-reanimated-skeleton';
+import { skeletonLabels } from '../../constants/mainInfo';
 
 export function FeaturedSkeleton() {
   const cardsCount = 10;
@@ -16,8 +17,8 @@ export function FeaturedSkeleton() {
 
   return (
     <Skeleton isLoading={true} containerStyle={styles.containerStyle} layout={layout}>
-      <Text>Your content</Text>
-      <Text>Other content</Text>
+      <Text>{skeletonLabels.yourContent}</Text>
+      <Text>{skeletonLabels.otherContent}</Text>
     </Skeleton>
   );
 }
@@ -36,8 +37,8 @@ export function NearYouSkeleton() {
 
   return (
     <Skeleton isLoading={true} containerStyle={styles.containerStyle} layout={layout}>
-      <Text>Your content</Text>
-      <Text>Other content</Text>
+      <Text>{skeletonLabels.yourContent}</Text>
+      <Text>{skeletonLabels.otherContent}</Text>
     </Skeleton>
   );
 }

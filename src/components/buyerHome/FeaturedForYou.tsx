@@ -1,13 +1,14 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { FeaturedSkeleton } from './Skeletons';
+import { mainLabels } from '../../constants/mainInfo';
 
 export function FeaturedForYou() {
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
-        <Text style={styles.title}>Featured For You</Text>
+        <Text style={styles.title}>{mainLabels.featuredForYou}</Text>
         <Pressable>
-          <Text style={styles.viewAllButton}>View All</Text>
+          <Text style={styles.viewAllButton}>{mainLabels.viewAll}</Text>
         </Pressable>
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>

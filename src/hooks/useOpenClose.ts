@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from 'react';
 
 export const useOpen = (initialState = false) => {
   const [isOpen, setIsOpen] = useState(initialState);
@@ -15,5 +15,5 @@ export const useOpen = (initialState = false) => {
   });
 
   value.current.isOpen = isOpen;
-   return value.current;
+  return value.current;
 };

@@ -1,5 +1,5 @@
 import { Bell, CircleUserRound } from 'lucide-react-native';
-import { View, Pressable } from 'react-native';
+import { StyleSheet, View, Pressable } from 'react-native';
 
 import { pages } from '../../constants/navigation';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
@@ -8,9 +8,9 @@ export function BuyerHeaderRight() {
   const navigation = useAppNavigation();
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={styles.container}>
       <View>
-        <Bell size={22} color="#3f4146" style={{ marginRight: 24 }} />
+        <Bell size={22} color="#3f4146" style={styles.bellIcon} />
       </View>
       <View>
         {/* <Pressable onPress={() => navigation.navigate(pages.RoleSelection)}> */}
@@ -21,3 +21,13 @@ export function BuyerHeaderRight() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  bellIcon: {
+    marginRight: 24,
+  },
+});

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Switch, Text, View } from 'react-native';
 import { Store } from 'lucide-react-native';
 import { useOpen } from '../../hooks/useOpenClose';
+import { buyerProfileLabels } from '../../constants/mainInfo';
 
 type SellerModeCardProps = {
   onValueChange?: (isOn: boolean) => void;
@@ -25,8 +26,8 @@ export function SellerModeCard({ onValueChange }: SellerModeCardProps) {
         <Store size={20} color="#FFFFFFFF" />
       </View>
       <View style={styles.texts}>
-        <Text style={styles.title}>Seller Mode</Text>
-        <Text style={styles.subtitle}>Switch to your selling dashboard</Text>
+        <Text style={styles.title}>{buyerProfileLabels.sellerMode}</Text>
+        <Text style={styles.subtitle}>{buyerProfileLabels.sellerModeDescription}</Text>
       </View>
       <Switch
         style={styles.switch}
