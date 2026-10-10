@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { ViewStyleProp } from '../../utils/styles';
@@ -37,8 +38,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   filledButton: {
-    backgroundColor: '#636AE8',
-    borderColor: '#636AE8',
+    backgroundColor: PRIMARY_ICON_COLOR,
+    borderColor: PRIMARY_ICON_COLOR,
   },
   outlinedButton: {
     backgroundColor: '#FFFFFF',

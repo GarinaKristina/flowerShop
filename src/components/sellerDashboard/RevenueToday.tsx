@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { DollarSign, TrendingUp } from 'lucide-react-native';
 import { StyleSheet, Text, View } from 'react-native';
 import { demoData, sellerDashboardLabels } from '../../constants/mainInfo';
@@ -20,7 +21,7 @@ export function RevenueToday() {
 
 const tokens = {
   iconColor: '#22CCB2',
-  dollarColor: '#636AE8',
+  dollarColor: PRIMARY_ICON_COLOR,
 } as const;
 
 const styles = StyleSheet.create({

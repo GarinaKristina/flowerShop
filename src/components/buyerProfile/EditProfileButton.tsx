@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
 import { Text, Pressable, StyleSheet } from 'react-native';
 import { buyerProfileLabels } from '../../constants/mainInfo';
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 9999,
     borderWidth: 1,
-    borderColor: '#636AE8',
+    borderColor: PRIMARY_ICON_COLOR,
     opacity: 1,
   },
 
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 22,
     fontWeight: '500',
-    color: '#636AE8',
+    color: PRIMARY_ICON_COLOR,
   },
   pressed: {
     opacity: 0.7,

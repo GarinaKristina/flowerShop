@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { TextStyleProp, ViewStyleProp } from '../../utils/styles';
@@ -36,10 +37,10 @@ const styles = StyleSheet.create({
   },
   primaryItem: {
     backgroundColor: '#bfc4f1d6',
-    borderColor: '#636AE8',
+    borderColor: PRIMARY_ICON_COLOR,
   },
   primaryLabel: {
-    color: '#636AE8',
+    color: PRIMARY_ICON_COLOR,
   },
   primaryPressed: {
     backgroundColor: '#BCC1CA',

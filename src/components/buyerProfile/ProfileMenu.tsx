@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ChevronRight } from 'lucide-react-native';
@@ -29,7 +30,7 @@ export function ProfileMenuItems({ title, items }: ProfileMenuProps) {
               style={({ pressed }) => [styles.row, !isLast && styles.rowDivider, pressed && styles.pressed]}
             >
               <View style={styles.iconBadge}>
-                <item.Icon size={20} color="#636AE8" />
+                <item.Icon size={20} color={PRIMARY_ICON_COLOR} />
               </View>
               <Text style={styles.label}>{item.label}</Text>
               <ChevronRight size={20} color="#BCC1CA" />

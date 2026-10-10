@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { Heart, House, Search, ShoppingCart, UserRound } from 'lucide-react-native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
@@ -14,7 +15,7 @@ type MenuButtonProps = {
 function MenuButton({ icon: Icon, label, isSelected, onPress }: MenuButtonProps) {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Icon size={24} color={isSelected ? '#636AE8' : '#565E6C'} />
+      <Icon size={24} color={isSelected ? PRIMARY_ICON_COLOR : '#565E6C'} />
       <Text style={[styles.text, isSelected && styles.textSelected]}>{label}</Text>
     </TouchableOpacity>
   );
@@ -74,6 +75,6 @@ const styles = StyleSheet.create({
   },
   textSelected: {
     fontWeight: '700',
-    color: '#636AE8',
+    color: PRIMARY_ICON_COLOR,
   },
 });

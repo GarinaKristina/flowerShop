@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { sellerDashboardLabels } from '../../constants/mainInfo';
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     borderRadius: 11,
     backgroundColor: '#bfc4f1d6',
     borderWidth: 1,
-    borderColor: '#636AE8',
+    borderColor: PRIMARY_ICON_COLOR,
   },
   tagItemPressed: {
     backgroundColor: '#BCC1CA',
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 20,
     fontWeight: '600',
-    color: '#636AE8',
+    color: PRIMARY_ICON_COLOR,
   },
   labelMuted: {
     color: '#565E6C',

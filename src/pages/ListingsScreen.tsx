@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../constants/colors';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Switch, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Edit2, Eye, Heart, MoreVertical, Search } from 'lucide-react-native';
@@ -115,7 +116,7 @@ export function Listings() {
                 <Switch
                   value={enabledMap[listing.id] ?? listing.isEnabled}
                   onValueChange={() => toggleListing(listing.id)}
-                  trackColor={{ false: '#BCC1CA', true: '#636AE8' }}
+                  trackColor={{ false: '#BCC1CA', true: PRIMARY_ICON_COLOR }}
                   thumbColor="#FFFFFF"
                   ios_backgroundColor="#BCC1CA"
                 />
@@ -203,7 +204,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontSize: 13,
     fontWeight: '600',
-    color: '#636AE8',
+    color: PRIMARY_ICON_COLOR,
   },
   card: {
     flexDirection: 'row',
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   activeBadge: {
-    backgroundColor: '#636AE8',
+    backgroundColor: PRIMARY_ICON_COLOR,
   },
   pausedBadge: {
     backgroundColor: 'rgba(255,255,255,0.85)',
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontSize: 16,
     fontWeight: '700',
-    color: '#636AE8',
+    color: PRIMARY_ICON_COLOR,
     marginTop: 4,
   },
   statsRow: {

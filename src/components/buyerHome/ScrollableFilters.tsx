@@ -1,10 +1,11 @@
 import React from 'react';
 import { ScrollView, View, Pressable, Text, StyleSheet } from 'react-native';
 import { buyerHomeLabels } from '../../constants/mainInfo';
+import { useSelection } from '../../hooks/useSelection';
 
 export function ScrollableFilters() {
   const highlights: string[] = buyerHomeLabels.filters;
-  const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
+  const { selectedFilter, selectNewFilter } = useSelection();
 
   return (
     <ScrollView horizontal>
@@ -12,8 +13,8 @@ export function ScrollableFilters() {
         {highlights.map((highlight, index) => (
           <Pressable
             key={index}
-            onPress={() => setSelectedIndex(index)}
-            style={[styles.highlightItem, selectedIndex === index && styles.highlightItemSelected]}
+            onPress={() => selectNewFilter(index)}
+            style={[styles.highlightItem, selectedFilter === index && styles.highlightItemSelected]}
           >
             <Text style={styles.highlightText}>{highlight}</Text>
           </Pressable>

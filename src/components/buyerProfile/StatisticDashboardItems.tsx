@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { CreditCard, Heart, Package } from 'lucide-react-native';
@@ -18,7 +19,7 @@ export function StatisticDashboardItems({ onPressItem }: StatisticDashboardItems
     <View style={styles.row}>
       {ITEMS.map(({ key, Icon, value, label }) => (
         <Pressable key={key} onPress={() => onPressItem?.(key)} style={({ pressed }) => [styles.container, pressed && styles.pressed]}>
-          <Icon size={16} color="#636AE8FF" style={styles.icon} />
+          <Icon size={16} color={PRIMARY_ICON_COLOR} style={styles.icon} />
           <Text style={styles.value}>{value}</Text>
           <Text style={styles.label}>{label}</Text>
         </Pressable>

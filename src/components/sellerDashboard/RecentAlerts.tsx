@@ -1,10 +1,11 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { ChevronRight, ClipboardList, Flower2, MessageSquare } from 'lucide-react-native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { demoData, mainLabels, sellerDashboardLabels } from '../../constants/mainInfo';
 const alertIcons: React.ReactNode[] = [
   <ClipboardList size={20} color="#22CCB2" />,
   <MessageSquare size={20} color="#E57373" />,
-  <Flower2 size={20} color="#636AE8" />,
+  <Flower2 size={20} color={PRIMARY_ICON_COLOR} />,
 ];
 
 const alerts = demoData.recentAlerts;
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontSize: 14,
     fontWeight: '500',
-    color: '#636AE8',
+    color: PRIMARY_ICON_COLOR,
   },
   card: {
     backgroundColor: '#FFFFFF',

@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { TrendingUp } from 'lucide-react-native';
 import { LineChart } from 'react-native-gifted-charts';
 import { StyleSheet, Text, View } from 'react-native';
@@ -27,11 +28,11 @@ export function WeeklyPerformance() {
         height={150}
         curved
         areaChart
-        startFillColor="#636AE8"
-        endFillColor="#636AE8"
+        startFillColor={PRIMARY_ICON_COLOR}
+        endFillColor={PRIMARY_ICON_COLOR}
         startOpacity={0.25}
         endOpacity={0.02}
-        color="#636AE8"
+        color={PRIMARY_ICON_COLOR}
         thickness={2.5}
         hideDataPoints
         xAxisLabelTexts={xLabels}

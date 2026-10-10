@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { Alert, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { NearYouSkeleton } from './Skeletons';
 import { Funnel } from 'lucide-react-native';
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 22,
     fontWeight: '600',
-    color: '#636AE8FF',
+    color: PRIMARY_ICON_COLOR,
     backgroundColor: '#00000000',
     opacity: 1,
     borderWidth: 0,

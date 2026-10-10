@@ -1,5 +1,6 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { SearchScreenProps } from '../pages/SearchScreen';
+import type { BouquetFilters } from '../hooks/useBouquetFilters';
 
 export const pages = {
   RoleSelection: 'RoleSelection',
@@ -22,7 +23,7 @@ export const pages = {
 
 export type RootStackParamList = {
   [pages.RoleSelection]: undefined;
-  [pages.BuyerHome]: undefined;
+  [pages.BuyerHome]: { filters?: BouquetFilters } | undefined;
   [pages.SellerHome]: undefined;
   [pages.BuyerAccount]: undefined;
   [pages.SellerDashboard]: undefined;

@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
 import { StyleSheet, Switch, Text, View } from 'react-native';
 import { useOpen } from '../../hooks/useOpenClose';
@@ -48,7 +49,7 @@ export function ToggleCard({
         style={styles.switch}
         value={toggle.isOpen}
         onValueChange={handleChange}
-        trackColor={{ false: '#BCC1CAFF', true: '#636AE8FF' }}
+        trackColor={{ false: '#BCC1CAFF', true: PRIMARY_ICON_COLOR }}
         thumbColor="#FFFFFFFF"
         ios_backgroundColor="#BCC1CAFF"
       />
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#636AE8FF',
+    backgroundColor: PRIMARY_ICON_COLOR,
     marginRight: 12,
   },
   texts: {

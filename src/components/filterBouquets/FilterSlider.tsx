@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { Divider } from '../common/Divider';
+import { MAX_PRICE as MAX, MIN_PRICE as MIN } from '../../hooks/useBouquetFilters';
 
-const MIN = 15;
-const MAX = 150;
+type FilterSliderProps = {
+  onChange: (value: number) => void;
+};
 
-export function FilterSlider() {
+export function FilterSlider({ onChange }: FilterSliderProps) {
   const [value, setValue] = useState(MIN);
+
+  const handleChange = (next: number) => {
+    setValue(next);
+    onChange(Math.round(next));
+  };
 
   return (
     <View style={styles.container}>
@@ -16,7 +23,7 @@ export function FilterSlider() {
         minimumValue={MIN}
         maximumValue={MAX}
         value={value}
-        onValueChange={setValue}
+        onValueChange={handleChange}
         minimumTrackTintColor="#CED0F8FF"
         thumbTintColor="#fefeff"
         thumbSize={20}

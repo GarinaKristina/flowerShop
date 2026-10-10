@@ -67,6 +67,39 @@ export const buyerHomeLabels = {
   filters: ['Roses', 'Tulips', 'Mixed', 'Wedding'],
 };
 
+export const filterBouquetsLabels = {
+  flowerTypeTitle: 'FLOWER TYPE',
+  flowerTypes: ['Roses', 'Tulips', 'Lilies', 'Sunflowers', 'Mixed', 'Orchids', 'Peonies'],
+  applyFilters: 'Apply Filters',
+};
+
+export const freshnessLevelLabels = {
+  title: 'FRESHNESS LEVEL',
+  levels: ['Farm Fresh', 'Premium', 'Standard'],
+};
+
+export const logisticLabels = {
+  title: 'LOGISTICS & AVAILABILITY',
+  instantAvailability: 'Instant Availability',
+  instantAvailabilityDescription: 'Ready for same-day delivery',
+  deliveryAvailable: 'Delivery Available',
+  deliveryAvailableDescription: 'Standard shipping to your door',
+  localPickup: 'Local Pickup',
+  localPickupDescription: 'Collect directly from florist',
+};
+
+export const primaryColorLabels = {
+  primaryTitle: 'PRIMARY COLOR',
+  colors: [
+    { name: 'Red', hex: '#DF5249' },
+    { name: 'Pink', hex: '#E879B9' },
+    { name: 'Yellow', hex: '#F2CF4B' },
+    { name: 'White', hex: '#F8F9FA' },
+    { name: 'Purple', hex: '#A055F0' },
+    { name: 'Orange', hex: '#EF9A4F' },
+  ],
+};
+
 export const buyerProfileLabels = {
   editProfile: 'Edit Profile',
   sellerMode: 'Seller Mode',

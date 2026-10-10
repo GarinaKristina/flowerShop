@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { X } from 'lucide-react-native';
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 8,
     left: 8,
-    backgroundColor: '#636AE8',
+    backgroundColor: PRIMARY_ICON_COLOR,
     borderRadius: 12,
     paddingHorizontal: 10,
     paddingVertical: 4,

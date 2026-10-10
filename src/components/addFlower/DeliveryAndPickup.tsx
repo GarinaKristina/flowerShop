@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Store, Truck } from 'lucide-react-native';
@@ -16,7 +17,7 @@ export function DeliveryAndPickup() {
         initialValue
         style={styles.card}
         badgeStyle={styles.deliveryBadge}
-        iconColor="#636AE8"
+        iconColor={PRIMARY_ICON_COLOR}
       />
 
       <ToggleCard

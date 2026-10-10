@@ -1,3 +1,4 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Clock, Layers, Palette } from 'lucide-react-native';
@@ -92,7 +93,7 @@ const FLORAL_ROWS: FloralDetailRow[] = [
     value: demoData.floralDetails.flowerType,
     valueTone: 'neutral',
     badgeStyle: styles.flowerBadge,
-    iconColor: '#636AE8',
+    iconColor: PRIMARY_ICON_COLOR,
   },
   {
     key: 'colorPalette',
