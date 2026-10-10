@@ -2,6 +2,7 @@ export const appVersionData = 'BloomMarket v2.4.0 (Build 892)';
 
 export const placeholders = {
   searchForBouquets: 'Search for bouquets...',
+  searchScreen: 'Search for flowers, sellers...',
   confirmPassword: 'Confirm Password',
   password: 'Password',
   email: 'Email',

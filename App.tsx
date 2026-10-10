@@ -45,6 +45,9 @@ function App() {
             headerLeft: BuyerHeaderLeft,
           }}
         />
+        <Stack.Screen name={pages.Search} component={Search} options={{ title: 'Search' }} />
+        <Stack.Screen name={pages.Favorites} component={Favorites} options={{ title: 'Favorites' }} />
+        <Stack.Screen name={pages.Cart} component={Cart} options={{ title: 'Cart' }} />
         <Stack.Screen name={pages.RoleSelection} component={RoleSelection} options={{ title: 'Join BloomMarket' }} />
         <Stack.Screen
           name={pages.BuyerAccount}

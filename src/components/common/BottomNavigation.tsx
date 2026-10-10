@@ -1,7 +1,8 @@
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { Heart, House, Search, ShoppingCart, UserRound } from 'lucide-react-native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { useRoute } from '@react-navigation/native';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 import { pages } from '../../constants/navigation';
 import { bottomNavigationLabels } from '../../constants/mainInfo';
 
@@ -21,9 +22,9 @@ function MenuButton({ icon: Icon, label, isSelected, onPress }: MenuButtonProps)
   );
 }
 
-export function BottomNavigation(props?: Partial<BottomTabBarProps>) {
-  const state = props?.state;
-  const navigation = props?.navigation;
+export function BottomNavigation() {
+  const navigation = useAppNavigation();
+  const { name: currentRoute } = useRoute();
   const tabs = [
     { route: pages.BuyerHome, icon: House, label: bottomNavigationLabels.home },
     { route: pages.Search, icon: Search, label: bottomNavigationLabels.search },
@@ -34,13 +35,13 @@ export function BottomNavigation(props?: Partial<BottomTabBarProps>) {
 
   return (
     <View style={styles.container}>
-      {tabs.map((tab, index) => (
+      {tabs.map(tab => (
         <MenuButton
           key={tab.route}
           icon={tab.icon}
           label={tab.label}
-          isSelected={state?.index === index}
-          onPress={() => navigation?.navigate(tab.route)}
+          isSelected={currentRoute === tab.route}
+          onPress={() => navigation.navigate(tab.route)}
         />
       ))}
     </View>

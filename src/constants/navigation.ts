@@ -1,5 +1,4 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import type { SearchScreenProps } from '../pages/SearchScreen';
 import type { BouquetFilters } from '../hooks/useBouquetFilters';
 
 export const pages = {
@@ -29,7 +28,7 @@ export type RootStackParamList = {
   [pages.SellerDashboard]: undefined;
   [pages.SignIn]: undefined;
   [pages.SignUp]: undefined;
-  [pages.Search]: SearchScreenProps;
+  [pages.Search]: undefined;
   [pages.Favorites]: undefined;
   [pages.Cart]: undefined;
   [pages.MainTabs]: undefined;
