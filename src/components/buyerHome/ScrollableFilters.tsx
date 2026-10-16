@@ -1,6 +1,7 @@
 import React from 'react';
-import { ScrollView, View, Pressable, Text, StyleSheet } from 'react-native';
+import { ScrollView, View, Pressable, StyleSheet } from 'react-native';
 import { buyerHomeLabels } from '../../constants/mainInfo';
+import { Typography } from '../common/Typography';
 import { useSelection } from '../../hooks/useSelection';
 
 export function ScrollableFilters() {
@@ -16,7 +17,7 @@ export function ScrollableFilters() {
             onPress={() => selectNewFilter(index)}
             style={[styles.highlightItem, selectedFilter === index && styles.highlightItemSelected]}
           >
-            <Text style={styles.highlightText}>{highlight}</Text>
+            <Typography variant="buttonSmall">{highlight}</Typography>
           </Pressable>
         ))}
       </View>
@@ -43,12 +44,5 @@ const styles = StyleSheet.create({
     borderRadius: 9999,
     borderWidth: 1,
     borderColor: '#DEE1E6',
-  },
-  highlightText: {
-    fontFamily: 'Inter',
-    fontSize: 14,
-    lineHeight: 22,
-    fontWeight: '500',
-    color: '#171A1F',
   },
 });

@@ -1,6 +1,7 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import React from 'react';
 import { AvatarPicker } from '../components/common/ImagePicker';
+import { Typography } from '../components/common/Typography';
 import { EditProfileButton } from '../components/buyerProfile/EditProfileButton';
 import { StatisticDashboardItems } from '../components/buyerProfile/StatisticDashboardItems';
 import { SellerModeCard } from '../components/buyerProfile/SellerModeCard';
@@ -24,8 +25,8 @@ export function BuyerAccount() {
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.avatarCOntainer}>
           <AvatarPicker avatarType="buyer" />
-          <Text style={styles.nameStyle}>{user.name}</Text>
-          <Text style={styles.emailStyle}>{user.email}</Text>
+          <Typography variant="h5">{user.name}</Typography>
+          <Typography variant="body2">{user.email}</Typography>
         </View>
         <EditProfileButton onPress={handleEditProfile} />
         <StatisticDashboardItems />
@@ -34,7 +35,9 @@ export function BuyerAccount() {
         <SupportMenu />
         <LogOut />
         <View>
-          <Text style={styles.buildText}>{appVersionData}</Text>
+          <Typography variant="caption2" style={styles.buildText}>
+            {appVersionData}
+          </Typography>
         </View>
       </ScrollView>
       <BottomNavigation />
@@ -54,27 +57,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  nameStyle: {
-    fontFamily: 'Archivo',
-    fontSize: 20,
-    lineHeight: 28,
-    fontWeight: '700',
-    color: '#171A1FFF',
-  },
-  emailStyle: {
-    fontFamily: 'Inter',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '400',
-    color: '#565D6DFF',
-  },
   buildText: {
     textAlign: 'center',
     marginTop: 20,
-    fontFamily: 'Inter',
-    fontSize: 10,
-    lineHeight: 15,
-    fontWeight: '400',
-    color: '#565D6DFF',
   },
 });

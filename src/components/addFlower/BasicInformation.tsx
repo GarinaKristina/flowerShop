@@ -1,14 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import InputComponent from '../common/Input';
+import { Typography } from '../common/Typography';
 import { addFlowerFieldLimits, addFlowerLabels, placeholders } from '../../constants/mainInfo';
 
 export function BasicInformation() {
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.sectionTitle}>{addFlowerLabels.basicInformation}</Text>
+      <Typography variant="sectionTitle">{addFlowerLabels.basicInformation}</Typography>
 
-      <Text style={styles.label}>{addFlowerLabels.listingTitle}</Text>
+      <Typography variant="body2" style={styles.label}>
+        {addFlowerLabels.listingTitle}
+      </Typography>
       <InputComponent
         placeholderValue={placeholders.listingTitle}
         variant="outlined"
@@ -16,7 +19,9 @@ export function BasicInformation() {
         style={styles.field}
       />
 
-      <Text style={styles.label}>{addFlowerLabels.description}</Text>
+      <Typography variant="body2" style={styles.label}>
+        {addFlowerLabels.description}
+      </Typography>
       <InputComponent
         placeholderValue={placeholders.description}
         variant="outlined"
@@ -27,7 +32,9 @@ export function BasicInformation() {
 
       <View style={styles.row}>
         <View style={styles.column}>
-          <Text style={styles.label}>{addFlowerLabels.price}</Text>
+          <Typography variant="body2" style={styles.label}>
+            {addFlowerLabels.price}
+          </Typography>
           <InputComponent
             placeholderValue={placeholders.price}
             variant="outlined"
@@ -39,7 +46,9 @@ export function BasicInformation() {
         </View>
 
         <View style={styles.column}>
-          <Text style={styles.label}>{addFlowerLabels.stockQuantity}</Text>
+          <Typography variant="body2" style={styles.label}>
+            {addFlowerLabels.stockQuantity}
+          </Typography>
           <InputComponent
             placeholderValue={placeholders.stockQuantity}
             variant="outlined"
@@ -58,18 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginTop: 20,
   },
-  sectionTitle: {
-    fontFamily: 'Archivo',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '600',
-    color: '#171A1F',
-  },
   label: {
-    fontFamily: 'Inter',
-    fontSize: 14,
-    lineHeight: 20,
-    color: '#565D6D',
     marginTop: 16,
   },
   field: {

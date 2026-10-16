@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Control, FieldPath, FieldPathValue, FieldValues, useController } from 'react-hook-form';
 import InputComponent from './Input';
 import { FieldError } from './FieldError';
+import { Typography } from './Typography';
 
 type StringFieldPath<T extends FieldValues> = {
   [K in FieldPath<T>]: FieldPathValue<T, K> extends string ? K : never;
@@ -22,7 +23,9 @@ export function FormInput<T extends FieldValues>({ control, name, label, placeho
 
   return (
     <View>
-      <Text style={styles.inputDescription}>{label}</Text>
+      <Typography variant="fieldLabel" style={styles.inputDescription}>
+        {label}
+      </Typography>
       <InputComponent
         placeholderValue={placeholderValue}
         icon={icon}
@@ -38,10 +41,6 @@ export function FormInput<T extends FieldValues>({ control, name, label, placeho
 
 const styles = StyleSheet.create({
   inputDescription: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: '#565D6D',
     marginTop: 4,
-    fontWeight: '700',
   },
 });

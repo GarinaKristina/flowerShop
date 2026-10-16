@@ -8,6 +8,7 @@ import { FieldError } from '../components/common/FieldError';
 import { KeyRound, Mail, User, UserPlus, ArrowRight } from 'lucide-react-native';
 import { buttonNames } from '../constants/buttonNames';
 import { DatePickerInput } from '../components/common/DataPicker';
+import { Typography } from '../components/common/Typography';
 
 import { pages } from '../constants/navigation';
 import { useAppNavigation } from '../hooks/useAppNavigation';
@@ -65,7 +66,7 @@ export function SignUp() {
     <ScrollView style={styles.container}>
       <View style={styles.row}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>{signUpLabels.title}</Text>
+          <Typography variant="h5">{signUpLabels.title}</Typography>
           <Text style={styles.subTitle}>{signUpLabels.subTitle}</Text>
         </View>
         <View style={styles.userDataContainer}>
@@ -123,7 +124,7 @@ export function SignUp() {
         <View>
           {/* onPress={handleSubmit(save)} */}
           <TouchableOpacity style={styles.signUpButton} disabled={!formState.isValid} onPress={handleSubmit(onSubmit)} activeOpacity={0.7}>
-            <Text style={styles.signUpButtonText}>{buttonNames.signUp}</Text>
+            <Typography variant="button">{buttonNames.signUp}</Typography>
             <View style={styles.buttonIcon}>
               <UserPlus size={18} />
             </View>
@@ -172,13 +173,6 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
   },
-  signUpButtonText: {
-    fontFamily: 'Inter',
-    fontSize: 16,
-    lineHeight: 26,
-    fontWeight: '700',
-    color: 'rgb(15, 22, 39)',
-  },
   buttonIcon: {
     width: 20,
     height: 16,
@@ -207,13 +201,6 @@ const styles = StyleSheet.create({
     color: 'rgb(12, 39, 101)',
     fontFamily: 'Inter',
   },
-  title: {
-    fontFamily: 'Archivo',
-    fontSize: 20,
-    lineHeight: 28,
-    fontWeight: '700',
-    color: '#171A1FFF',
-  },
   subTitle: {
     fontFamily: 'Archivo',
     fontSize: 14,
@@ -230,13 +217,6 @@ const styles = StyleSheet.create({
   userDataContainer: {
     flexDirection: 'row',
     gap: 12,
-  },
-  inputLabel: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: '#565D6D',
-    marginTop: 4,
-    fontWeight: '700',
   },
   inputWide: {
     width: 360,

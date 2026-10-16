@@ -1,8 +1,9 @@
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
-import { StyleSheet, Switch, Text, View } from 'react-native';
+import { Switch, View } from 'react-native';
 import { useOpen } from '../../hooks/useOpenClose';
-import { ViewStyleProp } from '../../utils/styles';
+import { toggleCardStyles, ViewStyleProp } from '../../utils/styles';
+import { Typography } from './Typography';
 
 type ToggleCardProps = {
   Icon: React.ComponentType<{ size?: number; color?: string }>;
@@ -37,16 +38,16 @@ export function ToggleCard({
   };
 
   return (
-    <View style={[styles.container, style]}>
-      <View style={[styles.iconBadge, badgeStyle]}>
+    <View style={[toggleCardStyles.container, style]}>
+      <View style={[toggleCardStyles.iconBadge, badgeStyle]}>
         <Icon size={20} color={iconColor} />
       </View>
-      <View style={styles.texts}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{subtitle}</Text>
+      <View style={toggleCardStyles.texts}>
+        <Typography variant="subtitle2">{title}</Typography>
+        <Typography variant="caption">{subtitle}</Typography>
       </View>
       <Switch
-        style={styles.switch}
+        style={toggleCardStyles.switch}
         value={toggle.isOpen}
         onValueChange={handleChange}
         trackColor={{ false: '#BCC1CAFF', true: PRIMARY_ICON_COLOR }}
@@ -56,50 +57,3 @@ export function ToggleCard({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 68,
-    marginHorizontal: 16,
-    marginTop: 16,
-    paddingHorizontal: 12,
-    backgroundColor: '#F2F2FDFF',
-    borderRadius: 10,
-    shadowColor: '#171A1F',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.09,
-    shadowRadius: 5,
-    elevation: 2,
-  },
-  iconBadge: {
-    width: 40,
-    height: 40,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: PRIMARY_ICON_COLOR,
-    marginRight: 12,
-  },
-  texts: {
-    flex: 1,
-  },
-  switch: {
-    alignSelf: 'center',
-  },
-  title: {
-    fontFamily: 'Archivo',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '700',
-    color: '#171A1FFF',
-  },
-  subtitle: {
-    fontFamily: 'Inter',
-    fontSize: 12,
-    lineHeight: 16,
-    fontWeight: '400',
-    color: '#565D6DFF',
-  },
-});

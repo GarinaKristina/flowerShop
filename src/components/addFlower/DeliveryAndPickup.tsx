@@ -1,14 +1,17 @@
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Store, Truck } from 'lucide-react-native';
 import { ToggleCard } from '../common/ToggleCard';
+import { Typography } from '../common/Typography';
 import { deliveryLabels } from '../../constants/mainInfo';
 
 export function DeliveryAndPickup() {
   return (
     <View style={styles.section}>
-      <Text style={styles.title}>{deliveryLabels.title}</Text>
+      <Typography variant="subtitle2" style={styles.title}>
+        {deliveryLabels.title}
+      </Typography>
 
       <ToggleCard
         Icon={Truck}
@@ -38,11 +41,6 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   title: {
-    fontFamily: 'Archivo',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '700',
-    color: '#171A1FFF',
     marginHorizontal: 16,
     marginBottom: 8,
   },

@@ -10,6 +10,7 @@ import { filterBouquetsLabels } from '../constants/mainInfo';
 import { useAppNavigation } from '../hooks/useAppNavigation';
 import { useBouquetFilters } from '../hooks/useBouquetFilters';
 import { pages } from '../constants/navigation';
+import { layoutStyles } from '../components/common/Typography';
 
 // const data : Array<object>= [{
 //   id: 1,
@@ -37,7 +38,7 @@ export function FilterBouquets() {
   const navigation = useAppNavigation();
   const { filters, selectFilterOption } = useBouquetFilters();
   return (
-    <View style={styles.screen}>
+    <View style={layoutStyles.screen}>
       <ScrollView style={styles.container}>
         <FilterSlider onChange={value => selectFilterOption('maxPrice', value)} />
         <FlowersTypes onChange={value => selectFilterOption('flowerType', value)} />
@@ -61,10 +62,6 @@ export function FilterBouquets() {
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
   container: {
     flex: 1,
   },

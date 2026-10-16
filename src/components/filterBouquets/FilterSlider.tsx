@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { Divider } from '../common/Divider';
+import { layoutStyles } from '../common/Typography';
 import { MAX_PRICE as MAX, MIN_PRICE as MIN } from '../../hooks/useBouquetFilters';
 
 type FilterSliderProps = {
@@ -17,7 +18,7 @@ export function FilterSlider({ onChange }: FilterSliderProps) {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={layoutStyles.filterSection}>
       <Text style={styles.label}>PRICE RANGE: ${Math.round(value)}</Text>
       <Slider
         minimumValue={MIN}
@@ -38,7 +39,6 @@ export function FilterSlider({ onChange }: FilterSliderProps) {
 }
 
 const styles = StyleSheet.create({
-  container: { paddingHorizontal: 16, paddingVertical: 16 },
   label: { fontSize: 14, fontWeight: '600', marginBottom: 8, fontFamily: 'Archivo', color: '#565D6DFF' },
   rangeRow: { flexDirection: 'row', justifyContent: 'space-between' },
   rangeText: { fontSize: 12, color: '#888' },

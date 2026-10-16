@@ -4,6 +4,7 @@ import { Image, ScrollView, StyleSheet, Switch, Text, TextInput, TouchableOpacit
 import { Edit2, Eye, Heart, MoreVertical, Search } from 'lucide-react-native';
 import { ListingItem, listingsLabels } from '../constants/mainInfo';
 import { FilterTab, useListings } from '../hooks/useListings';
+import { Typography } from '../components/common/Typography';
 
 const TABS: FilterTab[] = ['all', 'active', 'inactive'];
 
@@ -75,7 +76,7 @@ export function Listings() {
       </View>
 
       <View style={styles.countRow}>
-        <Text style={styles.countText}>Showing {filtered.length} listings</Text>
+        <Typography variant="meta">Showing {filtered.length} listings</Typography>
         <Text style={styles.sortText}>{listingsLabels.sortByNewest}</Text>
       </View>
 
@@ -100,14 +101,16 @@ export function Listings() {
               </TouchableOpacity>
             </View>
 
-            <Text style={styles.price}>{listing.price}</Text>
+            <Typography variant="body1Bold" color={PRIMARY_ICON_COLOR} style={styles.price}>
+              {listing.price}
+            </Typography>
 
             <View style={styles.statsRow}>
               <View style={styles.statsLeft}>
                 <Eye size={15} color="#9095A0" />
-                <Text style={styles.statValue}>{listing.views}</Text>
+                <Typography variant="meta">{listing.views}</Typography>
                 <Heart size={15} color="#9095A0" />
-                <Text style={styles.statValue}>{listing.favorites}</Text>
+                <Typography variant="meta">{listing.favorites}</Typography>
               </View>
               <View style={styles.statsActions}>
                 <TouchableOpacity style={styles.editButton} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
@@ -195,11 +198,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 4,
   },
-  countText: {
-    fontFamily: 'Inter',
-    fontSize: 13,
-    color: '#9095A0',
-  },
   sortText: {
     fontFamily: 'Inter',
     fontSize: 13,
@@ -270,10 +268,6 @@ const styles = StyleSheet.create({
     color: '#171A1F',
   },
   price: {
-    fontFamily: 'Inter',
-    fontSize: 16,
-    fontWeight: '700',
-    color: PRIMARY_ICON_COLOR,
     marginTop: 4,
   },
   statsRow: {
@@ -286,11 +280,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
-  },
-  statValue: {
-    fontFamily: 'Inter',
-    fontSize: 13,
-    color: '#9095A0',
   },
   statsActions: {
     flexDirection: 'row',

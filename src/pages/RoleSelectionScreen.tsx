@@ -3,6 +3,8 @@ import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-nati
 import { ArrowRight } from 'lucide-react-native';
 
 import { UserRole } from '../components/common/UserRole';
+import { Typography } from '../components/common/Typography';
+import { TEXT_SECONDARY } from '../constants/colors';
 import { buttonNames } from '../constants/buttonNames';
 import { mainHeader } from '../constants/mainHeader';
 import { buyerRoleDescription, sellerRoleDescription } from '../constants/userRoleDescription';
@@ -29,7 +31,9 @@ export function RoleSelection() {
     <View style={styles.screen}>
       <ScrollView>
         <Text style={styles.mainTitle}>{mainHeader.title}</Text>
-        <Text style={styles.description}>{mainHeader.description}</Text>
+        <Typography variant="body2" style={styles.description}>
+          {mainHeader.description}
+        </Typography>
         <View style={styles.stack}>
           <View style={styles.item}>
             <TouchableOpacity activeOpacity={0.9} style={styles.item} onPress={() => setSelectedRole('Buyer')}>
@@ -53,7 +57,9 @@ export function RoleSelection() {
         </View>
         <View>
           <TouchableOpacity style={styles.continueButton} disabled={!selectedRole} onPress={onContinue}>
-            <Text style={styles.continueButtonText}>{buttonNames.continue}</Text>
+            <Typography variant="button" color={TEXT_SECONDARY}>
+              {buttonNames.continue}
+            </Typography>
             <View style={styles.buttonIcon}>
               <ArrowRight size={18} />
             </View>
@@ -95,11 +101,6 @@ const styles = StyleSheet.create({
     top: 88,
     left: 16,
     width: 356,
-    fontFamily: 'Inter',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '400',
-    color: '#565D6DFF',
   },
   continueButton: {
     position: 'absolute',
@@ -119,13 +120,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowRadius: 2,
     elevation: 2,
-  },
-  continueButtonText: {
-    fontFamily: 'Inter',
-    fontSize: 16,
-    lineHeight: 26,
-    fontWeight: '700',
-    color: '#565D6DFF',
   },
   buttonIcon: {
     width: 20,

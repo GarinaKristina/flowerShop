@@ -2,12 +2,17 @@ import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { DollarSign, TrendingUp } from 'lucide-react-native';
 import { StyleSheet, Text, View } from 'react-native';
 import { demoData, sellerDashboardLabels } from '../../constants/mainInfo';
+import { Typography } from '../common/Typography';
 
 export function RevenueToday() {
   return (
     <View style={styles.container}>
-      <Text style={[styles.label]}>{sellerDashboardLabels.revenueToday}</Text>
-      <Text style={[styles.amount]}>{demoData.revenueAmount}</Text>
+      <Typography variant="captionMedium" style={styles.label}>
+        {sellerDashboardLabels.revenueToday}
+      </Typography>
+      <Typography variant="h4" style={styles.amount}>
+        {demoData.revenueAmount}
+      </Typography>
       <View style={[styles.statisticContainer]}>
         <TrendingUp size={20} color={tokens.iconColor} />
         <Text style={styles.statistic}>{demoData.revenueTrend}</Text>
@@ -39,22 +44,12 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
   },
   label: {
-    fontFamily: 'Inter',
     justifyContent: 'flex-start',
-    fontSize: 12,
-    lineHeight: 16,
-    fontWeight: '500',
-    color: '#565D6DFF',
   },
   amount: {
     position: 'absolute',
     top: 53,
     left: 17,
-    fontFamily: 'Archivo',
-    fontSize: 24,
-    lineHeight: 32,
-    fontWeight: 700,
-    color: '#171A1FFF',
   },
   statistic: {
     fontFamily: 'Inter',

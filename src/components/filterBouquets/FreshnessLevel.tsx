@@ -1,6 +1,7 @@
 import { Leaf } from 'lucide-react-native';
 import { Divider } from '../common/Divider';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
+import { layoutStyles, Typography } from '../common/Typography';
 import { ACCENT_COLOR, PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { freshnessLevelLabels } from '../../constants/mainInfo';
 import { useSelection } from '../../hooks/useSelection';
@@ -18,17 +19,19 @@ export function FreshnessLevel({ onChange }: FreshnessLevelProps) {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.titleRow}>
+    <View style={layoutStyles.filterSection}>
+      <View style={layoutStyles.filterTitleRow}>
         <Leaf size={18} color={PRIMARY_ICON_COLOR} />
-        <Text style={styles.label}>{freshnessLevelLabels.title}</Text>
+        <Typography variant="filterTitleSmall">{freshnessLevelLabels.title}</Typography>
       </View>
       <View style={styles.chips}>
         {freshnessLevelLabels.levels.map((level, index) => {
           const isSelected = selectedFilter === index;
           return (
             <Pressable key={level} onPress={() => handleSelect(index, level)} style={[styles.chip, isSelected && styles.chipSelected]}>
-              <Text style={[styles.chipText, isSelected && styles.chipTextSelected]}>{level}</Text>
+              <Typography variant="subtitle1" style={isSelected && styles.chipTextSelected}>
+                {level}
+              </Typography>
             </Pressable>
           );
         })}
@@ -39,9 +42,6 @@ export function FreshnessLevel({ onChange }: FreshnessLevelProps) {
 }
 
 const styles = StyleSheet.create({
-  container: { paddingHorizontal: 16, paddingVertical: 16 },
-  titleRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 16 },
-  label: { fontSize: 14, fontWeight: '700', fontFamily: 'Archivo', color: '#565D6D' },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 16 },
   chip: {
     height: 42,
@@ -52,12 +52,5 @@ const styles = StyleSheet.create({
     borderRadius: 9999,
   },
   chipSelected: { backgroundColor: ACCENT_COLOR },
-  chipText: {
-    fontFamily: 'Inter',
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
-    color: '#171A1F',
-  },
   chipTextSelected: { color: '#FFFFFF' },
 });

@@ -1,7 +1,8 @@
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import { sellerDashboardLabels } from '../../constants/mainInfo';
+import { Typography } from '../common/Typography';
 
 type TagProps = {
   onPress?: () => void;
@@ -10,7 +11,9 @@ type TagProps = {
 export function ProSellerButton({ onPress }: TagProps) {
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.tagItem, pressed && styles.tagItemPressed]}>
-      <Text style={[styles.label]}>{sellerDashboardLabels.proSeller}</Text>
+      <Typography variant="labelSmall" color={PRIMARY_ICON_COLOR}>
+        {sellerDashboardLabels.proSeller}
+      </Typography>
     </Pressable>
   );
 }
@@ -30,13 +33,6 @@ const styles = StyleSheet.create({
   tagItemPressed: {
     backgroundColor: '#BCC1CA',
     borderColor: '#565E6C',
-  },
-  label: {
-    fontFamily: 'Inter',
-    fontSize: 12,
-    lineHeight: 20,
-    fontWeight: '600',
-    color: PRIMARY_ICON_COLOR,
   },
   labelMuted: {
     color: '#565E6C',

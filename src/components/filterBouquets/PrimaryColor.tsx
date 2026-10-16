@@ -1,6 +1,7 @@
 import { Check, Palette } from 'lucide-react-native';
 import { Divider } from '../common/Divider';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
+import { layoutStyles, Typography } from '../common/Typography';
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { primaryColorLabels } from '../../constants/mainInfo';
 import { useSelection } from '../../hooks/useSelection';
@@ -18,10 +19,10 @@ export function PrimaryColor({ onChange }: PrimaryColorProps) {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.titleRow}>
+    <View style={layoutStyles.filterSection}>
+      <View style={layoutStyles.filterTitleRow}>
         <Palette size={20} color={PRIMARY_ICON_COLOR} />
-        <Text style={styles.label}>{primaryColorLabels.primaryTitle}</Text>
+        <Typography variant="filterTitle">{primaryColorLabels.primaryTitle}</Typography>
       </View>
       <View style={styles.options}>
         {primaryColorLabels.colors.map(({ name, hex }, index) => {
@@ -29,7 +30,9 @@ export function PrimaryColor({ onChange }: PrimaryColorProps) {
           return (
             <Pressable key={name} onPress={() => handleSelect(index, name)} style={[styles.option, isSelected && styles.optionSelected]}>
               <View style={[styles.swatch, { backgroundColor: hex }]} />
-              <Text style={styles.optionText}>{name}</Text>
+              <Typography variant="subtitle1" style={styles.optionText}>
+                {name}
+              </Typography>
               {isSelected && <Check size={16} color={PRIMARY_ICON_COLOR} style={styles.check} />}
             </Pressable>
           );
@@ -41,9 +44,6 @@ export function PrimaryColor({ onChange }: PrimaryColorProps) {
 }
 
 const styles = StyleSheet.create({
-  container: { paddingHorizontal: 16, paddingVertical: 16 },
-  titleRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 16 },
-  label: { fontSize: 16, fontWeight: '700', fontFamily: 'Archivo', color: '#565D6D' },
   options: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -73,11 +73,6 @@ const styles = StyleSheet.create({
   },
   optionText: {
     flex: 1,
-    fontFamily: 'Inter',
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
-    color: '#171A1F',
   },
   check: { marginLeft: 'auto' },
 });

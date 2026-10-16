@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Typography } from '../common/Typography';
 import { PhotoTile } from './PhotoTile';
 import { EmptyPhotoTile } from './EmptyPhotoTile';
 import { useFlowerPhotos } from '../../hooks/useFlowerPhotos';
@@ -20,8 +21,12 @@ export function AddPhoto() {
 
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.title}>{addFlowerLabels.photos}</Text>
-      <Text style={styles.description}>{addFlowerLabels.photosDescription}</Text>
+      <Typography variant="body2Bold" style={styles.title}>
+        {addFlowerLabels.photos}
+      </Typography>
+      <Typography variant="body2" style={styles.description}>
+        {addFlowerLabels.photosDescription}
+      </Typography>
 
       <View style={styles.grid}>
         {photos.map((uri, index) => (
@@ -41,17 +46,9 @@ const styles = StyleSheet.create({
     padding: PADDING,
   },
   title: {
-    fontFamily: 'Inter',
-    fontSize: 14,
-    fontWeight: '700',
     letterSpacing: 0.5,
-    color: '#171A1F',
   },
   description: {
-    fontFamily: 'Inter',
-    fontSize: 14,
-    lineHeight: 20,
-    color: '#565D6D',
     marginTop: 6,
   },
   grid: {

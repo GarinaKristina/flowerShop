@@ -1,8 +1,9 @@
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { CreditCard, Heart, Package } from 'lucide-react-native';
 import { buyerProfileLabels, demoData } from '../../constants/mainInfo';
+import { Typography } from '../common/Typography';
 
 type StatisticDashboardItemsProps = {
   onPressItem?: (key: string) => void;
@@ -20,8 +21,12 @@ export function StatisticDashboardItems({ onPressItem }: StatisticDashboardItems
       {ITEMS.map(({ key, Icon, value, label }) => (
         <Pressable key={key} onPress={() => onPressItem?.(key)} style={({ pressed }) => [styles.container, pressed && styles.pressed]}>
           <Icon size={16} color={PRIMARY_ICON_COLOR} style={styles.icon} />
-          <Text style={styles.value}>{value}</Text>
-          <Text style={styles.label}>{label}</Text>
+          <Typography variant="statValue" style={styles.value}>
+            {value}
+          </Typography>
+          <Typography variant="overline" style={styles.label}>
+            {label}
+          </Typography>
         </Pressable>
       ))}
     </View>
@@ -62,11 +67,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     textAlign: 'center',
-    fontFamily: 'Inter',
-    fontSize: 18,
-    lineHeight: 28,
-    fontWeight: '700',
-    color: '#171A1FFF',
   },
   label: {
     position: 'absolute',
@@ -74,10 +74,5 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     textAlign: 'center',
-    fontFamily: 'Inter',
-    fontSize: 10,
-    lineHeight: 15,
-    fontWeight: '500',
-    color: '#565D6DFF',
   },
 });

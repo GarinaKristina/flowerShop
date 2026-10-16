@@ -1,6 +1,7 @@
 import { ClipboardList, Flower2 } from 'lucide-react-native';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { sellerDashboardLabels } from '../../constants/mainInfo';
+import { Typography } from '../common/Typography';
 
 type SubStatisticProps = {
   label: string;
@@ -11,8 +12,13 @@ type SubStatisticProps = {
 export function SubStatistic({ label, statisticNumber, icon: Icon }: SubStatisticProps) {
   return (
     <View style={[styles.container, label !== sellerDashboardLabels.activeListings && styles.iconContainerAlt]}>
-      <Text style={[styles.label]}>{label}</Text>
-      <Text style={[styles.amount]}> {statisticNumber}</Text>
+      <Typography variant="captionMedium" style={styles.label}>
+        {label}
+      </Typography>
+      <Typography variant="h4" style={styles.amount}>
+        {' '}
+        {statisticNumber}
+      </Typography>
       <View style={styles.iconContainer}>
         <Icon size={24} />
       </View>
@@ -31,24 +37,14 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
   },
   label: {
-    fontFamily: 'Inter',
     marginTop: 10,
     marginLeft: 5,
     justifyContent: 'flex-start',
-    fontSize: 12,
-    lineHeight: 16,
-    fontWeight: '500',
-    color: '#565D6DFF',
   },
   amount: {
     position: 'absolute',
     top: 53,
     left: 17,
-    fontFamily: 'Archivo',
-    fontSize: 24,
-    lineHeight: 32,
-    fontWeight: 700,
-    color: '#171A1FFF',
   },
   iconContainer: {
     position: 'absolute',

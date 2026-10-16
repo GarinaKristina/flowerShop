@@ -4,10 +4,11 @@ import { Search as SearchIcon } from 'lucide-react-native';
 import InputComponent from '../components/common/Input';
 import { placeholders } from '../constants/mainInfo';
 import { BottomNavigation } from '../components/common/BottomNavigation';
+import { layoutStyles } from '../components/common/Typography';
 
 export function Search() {
   return (
-    <View style={styles.container}>
+    <View style={layoutStyles.screen}>
       <View style={styles.row}>
         <InputComponent placeholderValue={placeholders.searchScreen} icon={<SearchIcon size={16} />} />
       </View>
@@ -17,22 +18,9 @@ export function Search() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
   row: {
     flexDirection: 'row',
     marginLeft: 10,
     alignItems: 'center',
-  },
-  content: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
   },
 });

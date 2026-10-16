@@ -1,7 +1,8 @@
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import { ViewStyleProp } from '../../utils/styles';
+import { Typography } from './Typography';
 
 type ActionButtonProps = {
   label: string;
@@ -21,7 +22,9 @@ export function ActionButton({ label, onPress, variant = 'filled', icon, style }
       style={({ pressed }) => [styles.button, isFilled ? styles.filledButton : styles.outlinedButton, pressed && styles.pressed, style]}
     >
       {icon}
-      <Text style={[styles.label, isFilled ? styles.filledLabel : styles.outlinedLabel]}>{label}</Text>
+      <Typography variant="buttonMedium" style={isFilled ? styles.filledLabel : styles.outlinedLabel}>
+        {label}
+      </Typography>
     </Pressable>
   );
 }
@@ -47,12 +50,6 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.7,
-  },
-  label: {
-    fontFamily: 'Inter',
-    fontSize: 16,
-    lineHeight: 22,
-    fontWeight: '600',
   },
   filledLabel: {
     color: '#FFFFFF',

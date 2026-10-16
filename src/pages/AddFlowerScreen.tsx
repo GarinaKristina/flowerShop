@@ -1,5 +1,6 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
+import { layoutStyles } from '../components/common/Typography';
 import { AddPhoto } from '../components/addFlower/AddPhoto';
 import { BasicInformation } from '../components/addFlower/BasicInformation';
 import { FloralDetails } from '../components/addFlower/FloralDetails';
@@ -8,7 +9,7 @@ import { ListingActions } from '../components/addFlower/ListingActions';
 
 export function AddFlower() {
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <ScrollView style={layoutStyles.screen} showsVerticalScrollIndicator={false}>
       <AddPhoto />
       <BasicInformation />
       <FloralDetails />
@@ -17,19 +18,3 @@ export function AddFlower() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  content: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-});

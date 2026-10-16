@@ -1,8 +1,9 @@
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { TrendingUp } from 'lucide-react-native';
 import { LineChart } from 'react-native-gifted-charts';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { demoData, sellerDashboardLabels } from '../../constants/mainInfo';
+import { Typography } from '../common/Typography';
 
 const data = [{ value: 400 }, { value: 340 }, { value: 520 }, { value: 450 }, { value: 680 }, { value: 820 }, { value: 760 }];
 
@@ -13,12 +14,16 @@ export function WeeklyPerformance() {
     <View style={styles.card}>
       <View style={styles.header}>
         <View>
-          <Text style={styles.title}>{sellerDashboardLabels.weeklyPerformance}</Text>
-          <Text style={styles.subtitle}>{sellerDashboardLabels.weeklyPerformanceSubtitle}</Text>
+          <Typography variant="body1Bold">{sellerDashboardLabels.weeklyPerformance}</Typography>
+          <Typography variant="captionMuted" style={styles.subtitle}>
+            {sellerDashboardLabels.weeklyPerformanceSubtitle}
+          </Typography>
         </View>
         <View style={styles.badge}>
           <TrendingUp size={14} color="#22CCB2" />
-          <Text style={styles.badgeText}>{demoData.weeklyPerformanceTrend}</Text>
+          <Typography variant="body2Bold" color="#22CCB2">
+            {demoData.weeklyPerformanceTrend}
+          </Typography>
         </View>
       </View>
 
@@ -73,27 +78,12 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     marginBottom: 12,
   },
-  title: {
-    fontFamily: 'Inter',
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#171A1F',
-  },
   subtitle: {
-    fontFamily: 'Inter',
-    fontSize: 12,
-    color: '#ABABAB',
     marginTop: 2,
   },
   badge: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  badgeText: {
-    fontFamily: 'Inter',
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#22CCB2',
   },
   axisLabel: {
     fontSize: 10,

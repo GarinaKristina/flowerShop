@@ -1,6 +1,7 @@
 import { Clock, ShoppingBag, Truck } from 'lucide-react-native';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { ToggleCard } from '../common/ToggleCard';
+import { Typography } from '../common/Typography';
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import { logisticLabels } from '../../constants/mainInfo';
 
@@ -15,7 +16,7 @@ export function Logistic({ onChange }: LogisticProps) {
     <View style={styles.container}>
       <View style={styles.titleRow}>
         <Clock size={18} color={PRIMARY_ICON_COLOR} />
-        <Text style={styles.label}>{logisticLabels.title}</Text>
+        <Typography variant="filterTitleSmall">{logisticLabels.title}</Typography>
       </View>
 
       <ToggleCard
@@ -53,7 +54,6 @@ export function Logistic({ onChange }: LogisticProps) {
 const styles = StyleSheet.create({
   container: { paddingVertical: 16 },
   titleRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 16 },
-  label: { fontSize: 14, fontWeight: '700', fontFamily: 'Archivo', color: '#565D6D' },
   card: {
     marginTop: 12,
     backgroundColor: '#FFFFFF',

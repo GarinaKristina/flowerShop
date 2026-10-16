@@ -1,7 +1,8 @@
-import { PRIMARY_ICON_COLOR } from '../../constants/colors';
+import { PRIMARY_ICON_COLOR, TEXT_SECONDARY } from '../../constants/colors';
 import { ChevronRight, ClipboardList, Flower2, MessageSquare } from 'lucide-react-native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { demoData, mainLabels, sellerDashboardLabels } from '../../constants/mainInfo';
+import { Typography } from '../common/Typography';
 const alertIcons: React.ReactNode[] = [
   <ClipboardList size={20} color="#22CCB2" />,
   <MessageSquare size={20} color="#E57373" />,
@@ -20,7 +21,7 @@ export function RecentAlerts() {
   return (
     <View style={styles.wrapper}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>{sellerDashboardLabels.recentAlerts}</Text>
+        <Typography variant="body1Bold">{sellerDashboardLabels.recentAlerts}</Typography>
         <TouchableOpacity>
           <Text style={styles.viewAll}>{mainLabels.viewAll}</Text>
         </TouchableOpacity>
@@ -33,12 +34,12 @@ export function RecentAlerts() {
               <View style={[styles.iconWrap, { backgroundColor: iconBg[index] }]}>{alertIcons[index]}</View>
               <View style={styles.content}>
                 <View style={styles.titleRow}>
-                  <Text style={styles.title}>{alert.title}</Text>
-                  <Text style={styles.time}>{alert.time}</Text>
+                  <Typography variant="body2Bold">{alert.title}</Typography>
+                  <Typography variant="captionMuted">{alert.time}</Typography>
                 </View>
-                <Text style={styles.subtitle} numberOfLines={1}>
+                <Typography variant="captionMuted" color={TEXT_SECONDARY} style={styles.subtitle} numberOfLines={1}>
                   {alert.subtitle}
-                </Text>
+                </Typography>
               </View>
               <ChevronRight size={16} color="#ABABAB" />
             </TouchableOpacity>
@@ -60,12 +61,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 12,
-  },
-  headerTitle: {
-    fontFamily: 'Inter',
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#171A1F',
   },
   viewAll: {
     fontFamily: 'Inter',
@@ -106,21 +101,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  title: {
-    fontFamily: 'Inter',
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#171A1F',
-  },
-  time: {
-    fontFamily: 'Inter',
-    fontSize: 12,
-    color: '#ABABAB',
-  },
   subtitle: {
-    fontFamily: 'Inter',
-    fontSize: 12,
-    color: '#565D6D',
     marginTop: 2,
   },
   divider: {

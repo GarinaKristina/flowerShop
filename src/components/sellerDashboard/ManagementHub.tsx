@@ -1,5 +1,6 @@
 import { CirclePlus, Flower2, Star, Settings } from 'lucide-react-native';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Typography } from '../common/Typography';
 
 type ManagementHubProps = {
   label: string;
@@ -14,7 +15,9 @@ export function ManagementHub({ label, color, icon: Icon, onPress }: ManagementH
       <View style={[styles.container, { backgroundColor: color }]}>
         <Icon size={24} />
       </View>
-      <Text style={[styles.label]}>{label}</Text>
+      <Typography variant="captionMedium" style={styles.label}>
+        {label}
+      </Typography>
     </TouchableOpacity>
   );
 }
@@ -35,11 +38,6 @@ const styles = StyleSheet.create({
   },
   label: {
     marginTop: 6,
-    fontFamily: 'Inter',
-    fontSize: 12,
-    lineHeight: 16,
-    fontWeight: '500',
-    color: '#565D6DFF',
     textAlign: 'center',
   },
 });

@@ -1,10 +1,11 @@
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { Clock, Layers, Palette } from 'lucide-react-native';
 import { Tag, TagTone } from '../common/Tag';
 import { ViewStyleProp } from '../../utils/styles';
 import { demoData, floralDetailsLabels } from '../../constants/mainInfo';
+import { Typography } from '../common/Typography';
 
 type FloralDetailRow = {
   key: string;
@@ -23,11 +24,6 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   title: {
-    fontFamily: 'Archivo',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '700',
-    color: '#171A1FFF',
     marginBottom: 8,
   },
   card: {
@@ -58,20 +54,6 @@ const styles = StyleSheet.create({
   },
   texts: {
     flex: 1,
-  },
-  label: {
-    fontFamily: 'Archivo',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '600',
-    color: '#171A1FFF',
-  },
-  subtitle: {
-    fontFamily: 'Inter',
-    fontSize: 12,
-    lineHeight: 16,
-    fontWeight: '400',
-    color: '#565D6DFF',
   },
   flowerBadge: {
     backgroundColor: '#F2F2FD',
@@ -120,7 +102,9 @@ const FLORAL_ROWS: FloralDetailRow[] = [
 export function FloralDetails() {
   return (
     <View style={styles.section}>
-      <Text style={styles.title}>{floralDetailsLabels.title}</Text>
+      <Typography variant="subtitle2" style={styles.title}>
+        {floralDetailsLabels.title}
+      </Typography>
       <View style={styles.card}>
         {FLORAL_ROWS.map((row, index) => {
           const isLast = index === FLORAL_ROWS.length - 1;
@@ -131,8 +115,8 @@ export function FloralDetails() {
                 <row.Icon size={20} color={row.iconColor} />
               </View>
               <View style={styles.texts}>
-                <Text style={styles.label}>{row.label}</Text>
-                <Text style={styles.subtitle}>{row.subtitle}</Text>
+                <Typography variant="sectionTitle">{row.label}</Typography>
+                <Typography variant="caption">{row.subtitle}</Typography>
               </View>
               <Tag label={row.value} tone={row.valueTone} />
             </Pressable>

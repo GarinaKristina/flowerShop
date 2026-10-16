@@ -1,7 +1,8 @@
 import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import { TextStyleProp, ViewStyleProp } from '../../utils/styles';
+import { Typography } from './Typography';
 
 export type TagTone = 'primary' | 'neutral' | 'accent';
 
@@ -14,7 +15,9 @@ type TagProps = {
 export function Tag({ label, tone = 'primary', onPress }: TagProps) {
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.tagItem, toneItem[tone], pressed && tonePressed[tone]]}>
-      <Text style={[styles.label, toneLabel[tone]]}>{label}</Text>
+      <Typography variant="labelSmall" style={toneLabel[tone]}>
+        {label}
+      </Typography>
     </Pressable>
   );
 }
@@ -28,12 +31,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 11,
     borderWidth: 1,
-  },
-  label: {
-    fontFamily: 'Inter',
-    fontSize: 12,
-    lineHeight: 20,
-    fontWeight: '600',
   },
   primaryItem: {
     backgroundColor: '#bfc4f1d6',

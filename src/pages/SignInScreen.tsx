@@ -1,6 +1,7 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import InputComponent from '../components/common/Input';
+import { Typography } from '../components/common/Typography';
 import { KeyRound, Mail } from 'lucide-react-native';
 import { buttonNames } from '../constants/buttonNames';
 import { pages } from '../constants/navigation';
@@ -18,7 +19,7 @@ export function SignIn() {
     <ScrollView style={styles.container}>
       <View style={styles.row}>
         <View>
-          <Text style={styles.title}>{mainLabels.signInToAccount}</Text>
+          <Typography variant="h5">{mainLabels.signInToAccount}</Typography>
         </View>
         <View>
           <Text>{mainLabels.emailAddress}</Text>
@@ -35,7 +36,7 @@ export function SignIn() {
         </View>
         <View>
           <TouchableOpacity style={styles.signInButton} disabled={!isFormValid}>
-            <Text style={styles.signInButtonText}>{buttonNames.signIn}</Text>
+            <Typography variant="button">{buttonNames.signIn}</Typography>
           </TouchableOpacity>
         </View>
       </View>
@@ -79,13 +80,6 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
   },
-  signInButtonText: {
-    fontFamily: 'Inter',
-    fontSize: 16,
-    lineHeight: 26,
-    fontWeight: '700',
-    color: 'rgb(15, 22, 39)',
-  },
   buttonHover: {
     color: '#565D6DFF',
     backgroundColor: 'rgb(160, 183, 229)',
@@ -103,12 +97,5 @@ const styles = StyleSheet.create({
   },
   signUpTextBold: {
     fontWeight: '700',
-  },
-  title: {
-    fontFamily: 'Archivo',
-    fontSize: 20,
-    lineHeight: 28,
-    fontWeight: '700',
-    color: '#171A1FFF',
   },
 });
