@@ -4,6 +4,8 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { Calendar } from 'lucide-react-native';
 import { useOpen } from '../../hooks/useOpenClose';
 import { ViewStyleProp } from '../../utils/styles';
+import { placeholders } from '../../constants/mainInfo';
+import { Typography } from './Typography';
 
 type DatePickerInputProps = {
   value: Date;
@@ -19,7 +21,7 @@ export const DatePickerInput = ({
   value,
   onChange,
   label,
-  placeholder = 'Select date',
+  placeholder = placeholders.selectDate,
   style,
   inputStyle,
   minimumAge = 18,
@@ -42,7 +44,11 @@ export const DatePickerInput = ({
 
   return (
     <View style={style}>
-      {label && <Text style={styles.inputDescription}>{label}</Text>}
+      {label && (
+        <Typography variant="fieldLabel" style={styles.inputDescription}>
+          {label}
+        </Typography>
+      )}
       <TouchableOpacity onPress={datePickerModal.open} style={[styles.inputWrapper, inputStyle]}>
         <View style={styles.leftIcon} pointerEvents="none">
           <Calendar size={16} color="#565D6D" />
@@ -68,11 +74,7 @@ export const DatePickerInput = ({
 
 const styles = StyleSheet.create({
   inputDescription: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: '#565D6D',
     marginTop: 4,
-    fontWeight: '700',
   },
   inputWrapper: {
     marginTop: 8,

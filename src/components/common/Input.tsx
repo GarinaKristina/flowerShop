@@ -1,6 +1,8 @@
 import React from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { InputModeOptions, StyleSheet, TextInput, View } from 'react-native';
 import { TextStyleProp, ViewStyleProp } from '../../utils/styles';
+
+const DEFAULT_MAX_LENGTH = 20;
 
 type InputProps = {
   placeholderValue: string;
@@ -9,21 +11,45 @@ type InputProps = {
   onChangeText?: (text: string) => void;
   style?: ViewStyleProp;
   inputStyle?: TextStyleProp;
+  variant?: 'filled' | 'outlined';
+  multiline?: boolean;
+  maxLength?: number;
+  inputMode?: InputModeOptions;
 };
 
-const InputComponent = ({ placeholderValue, icon, value, onChangeText, style, inputStyle }: InputProps) => {
+const InputComponent = ({
+  placeholderValue,
+  icon,
+  value,
+  onChangeText,
+  style,
+  inputStyle,
+  variant = 'filled',
+  multiline = false,
+  maxLength = DEFAULT_MAX_LENGTH,
+  inputMode = 'text',
+}: InputProps) => {
   return (
     <View style={[styles.inputWrapper, style]}>
-      <View style={styles.leftIcon} pointerEvents="none">
-        {icon}
-      </View>
+      {icon ? (
+        <View style={styles.leftIcon} pointerEvents="none">
+          {icon}
+        </View>
+      ) : null}
       <TextInput
-        style={[styles.input, inputStyle]}
+        style={[
+          styles.input,
+          icon ? styles.inputWithIcon : styles.inputWithoutIcon,
+          variant === 'outlined' && styles.outlinedInput,
+          multiline && styles.multilineInput,
+          inputStyle,
+        ]}
         onChangeText={onChangeText}
         value={value}
         placeholder={placeholderValue}
-        inputMode="text"
-        maxLength={20}
+        inputMode={inputMode}
+        maxLength={maxLength}
+        multiline={multiline}
       />
     </View>
   );
@@ -39,15 +65,16 @@ const styles = StyleSheet.create({
   leftIcon: {
     position: 'absolute',
     left: 12,
-    top: 14,
+    top: 0,
+    bottom: 0,
     width: 16,
-    height: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
     zIndex: 1,
   },
   input: {
     width: '100%',
     height: 44,
-    paddingLeft: 34,
     paddingRight: 12,
     fontFamily: 'Inter',
     paddingVertical: 0,
@@ -64,6 +91,30 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.09,
     shadowRadius: 5,
     elevation: 3,
+  },
+  inputWithIcon: {
+    paddingLeft: 34,
+  },
+  inputWithoutIcon: {
+    paddingLeft: 12,
+  },
+  outlinedInput: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#DEE1E6',
+    shadowOpacity: 0,
+    elevation: 0,
+  },
+  multilineInput: {
+    height: '100%',
+    paddingTop: 12,
+    paddingBottom: 12,
+    lineHeight: 22,
+    textAlignVertical: 'top',
+  },
+  erroredInput: {
+    borderWidth: 1,
+    borderColor: '#EF4444',
   },
 });
 

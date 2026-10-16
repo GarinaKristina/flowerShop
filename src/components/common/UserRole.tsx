@@ -1,6 +1,8 @@
 import React from 'react';
 import { Archive, Flower2 } from 'lucide-react-native';
 import { StyleSheet, View, Text } from 'react-native';
+import { userRoleLabelPrefix } from '../../constants/mainInfo';
+import { Typography } from './Typography';
 type tUserRole = 'Buyer' | 'Seller';
 
 type UserRoleProps = {
@@ -11,7 +13,7 @@ type UserRoleProps = {
 };
 
 export function UserRole({ userRole, roleDescription, highlights, selected = false }: UserRoleProps) {
-  const label = `  I'm a ${userRole}`;
+  const label = `${userRoleLabelPrefix}${userRole}`;
 
   return (
     <View style={styles.container}>
@@ -19,7 +21,9 @@ export function UserRole({ userRole, roleDescription, highlights, selected = fal
         <View style={styles.icon}>{userRole === 'Buyer' ? <Archive size={24} /> : <Flower2 size={24} />}</View>
         <Text> {'\n'} </Text>
         <View style={[styles.checkIcon, selected && styles.checkIconSelected]} />
-        <Text style={styles.title}>{label}</Text>
+        <Typography variant="h5" style={styles.title}>
+          {label}
+        </Typography>
         <Text style={styles.description}>{roleDescription}</Text>
         <View style={styles.highlights}>
           {highlights.map((highlight, index) => (
@@ -67,11 +71,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 86,
     left: 22,
-    fontFamily: 'Archivo',
-    fontSize: 20,
-    lineHeight: 28,
-    fontWeight: '700',
-    color: '#171A1FFF',
   },
   description: {
     position: 'absolute',
