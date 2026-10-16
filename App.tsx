@@ -23,52 +23,67 @@ import { Listings } from './src/pages/ListingsScreen';
 import { Reviews } from './src/pages/ReviewsScreen';
 import { Settings } from './src/pages/SettingsScreen';
 import { FilterBouquets } from './src/pages/FilterBouquets';
+import { Details } from './src/pages/DetailsScreen';
+import { DetailsHeaderRight } from './src/components/details/DetailsHeaderRight';
+import { cartLabels, detailsLabels } from './src/constants/mainInfo';
+import { CartHeaderRight } from './src/components/cart/CartHeaderRight';
+import { CartProvider } from './src/context/CartContext';
+import { FavoritesProvider } from './src/context/FavoritesContext';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName={pages.BuyerHome}
-        screenOptions={{
-          headerShown: true,
-          headerBackButtonDisplayMode: 'minimal',
-        }}
-      >
-        <Stack.Screen
-          name={pages.BuyerHome}
-          component={BuyerHome}
-          options={{
-            title: '',
-            headerRight: BuyerHeaderRight,
-            headerLeft: BuyerHeaderLeft,
-          }}
-        />
-        <Stack.Screen name={pages.Search} component={Search} options={{ title: 'Search' }} />
-        <Stack.Screen name={pages.Favorites} component={Favorites} options={{ title: 'Favorites' }} />
-        <Stack.Screen name={pages.Cart} component={Cart} options={{ title: 'Cart' }} />
-        <Stack.Screen name={pages.RoleSelection} component={RoleSelection} options={{ title: 'Join BloomMarket' }} />
-        <Stack.Screen
-          name={pages.BuyerAccount}
-          component={BuyerAccount}
-          options={{ title: 'My Profile', headerRight: BuyerProfileRight }}
-        />
-        <Stack.Screen
-          name={pages.SellerDashboard}
-          component={SellerDashboard}
-          options={{ title: 'Bloom Dashboard', headerRight: BuyerProfileRight }}
-        />
-        <Stack.Screen name={pages.FilterBouquets} component={FilterBouquets} options={{ title: 'Filter Bouquets' }} />
-        <Stack.Screen name={pages.SignIn} component={SignIn} options={{ title: 'Sign In' }} />
-        <Stack.Screen name={pages.SignUp} component={SignUp} options={{ title: 'Sign Up' }} />
-        <Stack.Screen name={pages.SellerHome} component={SellerHome} options={{ title: 'Seller' }} />
-        <Stack.Screen name={pages.AddFlower} component={AddFlower} options={{ title: 'Add Bouquet' }} />
-        <Stack.Screen name={pages.Listings} component={Listings} options={{ title: 'My Flowers' }} />
-        <Stack.Screen name={pages.Reviews} component={Reviews} options={{ title: 'Reviews' }} />
-        <Stack.Screen name={pages.Settings} component={Settings} options={{ title: 'Settings' }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <CartProvider>
+      <FavoritesProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName={pages.BuyerHome}
+            screenOptions={{
+              headerShown: true,
+              headerBackButtonDisplayMode: 'minimal',
+            }}
+          >
+            <Stack.Screen
+              name={pages.BuyerHome}
+              component={BuyerHome}
+              options={{
+                title: '',
+                headerRight: BuyerHeaderRight,
+                headerLeft: BuyerHeaderLeft,
+              }}
+            />
+            <Stack.Screen name={pages.Search} component={Search} options={{ title: 'Search' }} />
+            <Stack.Screen name={pages.Favorites} component={Favorites} options={{ title: 'Favorites' }} />
+            <Stack.Screen name={pages.Cart} component={Cart} options={{ title: cartLabels.title, headerRight: CartHeaderRight }} />
+            <Stack.Screen name={pages.RoleSelection} component={RoleSelection} options={{ title: 'Join BloomMarket' }} />
+            <Stack.Screen
+              name={pages.BuyerAccount}
+              component={BuyerAccount}
+              options={{ title: 'My Profile', headerRight: BuyerProfileRight }}
+            />
+            <Stack.Screen
+              name={pages.SellerDashboard}
+              component={SellerDashboard}
+              options={{ title: 'Bloom Dashboard', headerRight: BuyerProfileRight }}
+            />
+            <Stack.Screen name={pages.FilterBouquets} component={FilterBouquets} options={{ title: 'Filter Bouquets' }} />
+            <Stack.Screen
+              name={pages.Details}
+              component={Details}
+              options={{ title: detailsLabels.title, headerRight: DetailsHeaderRight }}
+            />
+            <Stack.Screen name={pages.SignIn} component={SignIn} options={{ title: 'Sign In' }} />
+            <Stack.Screen name={pages.SignUp} component={SignUp} options={{ title: 'Sign Up' }} />
+            <Stack.Screen name={pages.SellerHome} component={SellerHome} options={{ title: 'Seller' }} />
+            <Stack.Screen name={pages.AddFlower} component={AddFlower} options={{ title: 'Add Bouquet' }} />
+            <Stack.Screen name={pages.Listings} component={Listings} options={{ title: 'My Flowers' }} />
+            <Stack.Screen name={pages.Reviews} component={Reviews} options={{ title: 'Reviews' }} />
+            <Stack.Screen name={pages.Settings} component={Settings} options={{ title: 'Settings' }} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </FavoritesProvider>
+    </CartProvider>
   );
 }
 

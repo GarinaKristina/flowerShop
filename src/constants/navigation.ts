@@ -18,6 +18,7 @@ export const pages = {
   Reviews: 'Reviews',
   Settings: 'Settings',
   FilterBouquets: 'FilterBouquets',
+  Details: 'Details',
 } as const;
 
 export type RootStackParamList = {
@@ -37,6 +38,7 @@ export type RootStackParamList = {
   [pages.Reviews]: undefined;
   [pages.Settings]: undefined;
   [pages.FilterBouquets]: undefined;
+  [pages.Details]: { listingId?: string } | undefined;
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, T>;

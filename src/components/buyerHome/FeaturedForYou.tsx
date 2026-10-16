@@ -1,7 +1,8 @@
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import { FeaturedSkeleton } from './Skeletons';
 import { mainLabels } from '../../constants/mainInfo';
+import { ListingCard } from '../common/ListingCard';
 import { layoutStyles, Typography } from '../common/Typography';
+import { listingsDemoData } from '../../pages/ListingsScreen';
 
 export function FeaturedForYou() {
   return (
@@ -14,8 +15,10 @@ export function FeaturedForYou() {
           </Typography>
         </Pressable>
       </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <FeaturedSkeleton />
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.list}>
+        {listingsDemoData.map(listing => (
+          <ListingCard key={listing.id} listing={listing} style={styles.card} imageStyle={styles.image} />
+        ))}
       </ScrollView>
     </View>
   );
@@ -24,6 +27,17 @@ export function FeaturedForYou() {
 const styles = StyleSheet.create({
   container: {
     marginTop: 20,
+  },
+  list: {
+    paddingHorizontal: 16,
+    gap: 12,
+    marginTop: 12,
+  },
+  card: {
+    width: 280,
+  },
+  image: {
+    height: 180,
   },
   viewAllButton: {
     width: 55,

@@ -236,3 +236,123 @@ export const demoData = {
     },
   ],
 };
+
+export const detailsLabels = {
+  title: 'Details',
+  vatIncluded: 'VAT INCLUDED',
+  inStock: 'In Stock',
+  delivery: 'Delivery',
+  location: 'Location',
+  waitTime: 'Wait Time',
+  occasion: 'Occasion',
+  aboutThisBouquet: 'About this Bouquet',
+  theFlorist: 'The Florist',
+  contact: 'Contact',
+  verifiedReviews: 'Verified Reviews',
+  addToCart: 'Add to Cart',
+  buyNow: 'Buy Now',
+};
+
+export type BouquetReview = {
+  id: string;
+  author: string;
+  postedAgo: string;
+  rating: number;
+  text: string;
+};
+
+export type BouquetDetails = {
+  id: string;
+  title: string;
+  category: string;
+  unitPrice: number;
+  rating: number;
+  reviewsCount: string;
+  freshness: string;
+  delivery: string;
+  location: string;
+  waitTime: string;
+  occasion: string;
+  description: string;
+  images: ReturnType<typeof require>[];
+  florist: {
+    name: string;
+    rating: number;
+    reviewsCount: string;
+    tags: { label: string; tone: 'primary' | 'accent' }[];
+  };
+  reviews: BouquetReview[];
+};
+
+export const bouquetDetailsDemo: BouquetDetails = {
+  id: 'midnight-blush-premium-roses',
+  title: 'Midnight Blush Premium Roses',
+  category: 'Premium Roses',
+  unitPrice: 85,
+  rating: 4.8,
+  reviewsCount: '(245 reviews)',
+  freshness: 'Freshness: 7 Days',
+  delivery: 'Free Delivery',
+  location: '2.4 miles away',
+  waitTime: '45 - 60 mins',
+  occasion: 'Romance, Birthday',
+  description:
+    "An exquisite arrangement of 24 deep velvet red roses intertwined with delicate white baby's breath and fresh eucalyptus leaves. Hand-tied with a satin ribbon and delivered in a signature eco-friendly box. Perfect for expressing deep emotions.",
+  images: [require('../../assets/roses.jpeg'), require('../../assets/smth.jpeg'), require('../../assets/piones.jpeg')],
+  florist: {
+    name: "Grace's Floral Studio",
+    rating: 4.9,
+    reviewsCount: '(1.2k reviews)',
+    tags: [
+      { label: 'Top Rated', tone: 'primary' },
+      { label: 'Fast Shipping', tone: 'accent' },
+    ],
+  },
+  reviews: [
+    {
+      id: '1',
+      author: 'Elena Rodriguez',
+      postedAgo: '2 days ago',
+      rating: 5,
+      text: 'The flowers were even more beautiful in person! They lasted for over a week. Excellent delivery service.',
+    },
+    {
+      id: '2',
+      author: 'Marcus Chen',
+      postedAgo: '1 week ago',
+      rating: 4,
+      text: 'Beautiful arrangement. The scent is amazing. Delivery was slightly late but the quality made up for it.',
+    },
+  ],
+};
+
+export const cartLabels = {
+  title: 'Shopping Cart',
+  clear: 'Clear',
+  noteForFlorist: 'Note for the Florist',
+  notePlaceholder: 'Special instructions, message for card, etc.',
+  noteHint: 'By providing details, you help our florists create the perfect arrangement for your occasion.',
+  nextDayDelivery: 'Next Day Delivery',
+  nextDayDeliveryHint: 'Order within 2h 45m',
+  itemsSubtotal: 'Items Subtotal',
+  deliveryCost: 'Delivery Cost',
+  grandTotal: 'Grand Total',
+  includingVat: 'Including VAT',
+  goToCheckout: 'Go to Checkout',
+  emptyCart: 'Your cart is empty',
+};
+
+export const DELIVERY_COST = 12;
+
+export type CartItem = {
+  id: string;
+  title: string;
+  category: string;
+  unitPrice: number;
+  quantity: number;
+  image: ReturnType<typeof require>;
+};
+
+export const searchLabels = {
+  recommendedForYou: 'Recommended for You',
+};

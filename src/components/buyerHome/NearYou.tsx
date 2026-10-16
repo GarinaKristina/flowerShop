@@ -1,8 +1,8 @@
-import { Alert, FlatList, Pressable, StyleSheet, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, View } from 'react-native';
 import { TEXT_PRIMARY } from '../../constants/colors';
-import { NearYouSkeleton } from './Skeletons';
 import { Funnel } from 'lucide-react-native';
 import { buyerHomeLabels } from '../../constants/mainInfo';
+import { ListingsGrid } from '../common/ListingsGrid';
 import { layoutStyles, Typography } from '../common/Typography';
 
 export function NearYou() {
@@ -17,12 +17,7 @@ export function NearYou() {
           </Typography>
         </Pressable>
       </View>
-      <FlatList
-        scrollEnabled={false}
-        data={Array.from({ length: 10 })}
-        renderItem={() => <NearYouSkeleton />}
-        keyExtractor={(_, index) => `nearYou-${index}`}
-      />
+      <ListingsGrid />
     </View>
   );
 }
