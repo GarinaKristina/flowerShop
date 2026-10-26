@@ -29,8 +29,13 @@ import { cartLabels, detailsLabels } from './src/constants/mainInfo';
 import { CartHeaderRight } from './src/components/cart/CartHeaderRight';
 import { CartProvider } from './src/context/CartContext';
 import { FavoritesProvider } from './src/context/FavoritesContext';
+import { getAuth, signInAnonymously } from '@react-native-firebase/auth';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+signInAnonymously(getAuth())
+  .then(() => console.log('Вошли анонимно!'))
+  .catch(console.error);
 
 function App() {
   return (

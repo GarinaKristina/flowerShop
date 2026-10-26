@@ -16,7 +16,7 @@ end
 
 target 'AwesomeProject' do
   config = use_native_modules!
-
+use_frameworks! :linkage => :dynamic
   use_react_native!(
     :path => config[:reactNativePath],
     # An absolute path to your application root.
@@ -30,5 +30,16 @@ target 'AwesomeProject' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+
+    # react-native-linear-gradient's podspec only declares `React-Core` (no
+    # install_modules_dependencies), so under use_frameworks! its dynamic
+    # framework links without React and fails on RCTView/RCTConvert symbols.
+    installer.pods_project.targets.each do |target|
+      next unless target.name == 'BVLinearGradient'
+
+      target.build_configurations.each do |build_configuration|
+        build_configuration.build_settings['OTHER_LDFLAGS'] = '$(inherited) -framework "React"'
+      end
+    end
   end
 end
