@@ -1,17 +1,24 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { FeaturedSkeleton } from './Skeletons';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { mainLabels } from '../../constants/mainInfo';
+import { ListingCard } from '../common/ListingCard';
+import { layoutStyles, Typography } from '../common/Typography';
+import { listingsDemoData } from '../../pages/ListingsScreen';
 
 export function FeaturedForYou() {
   return (
     <View style={styles.container}>
-      <View style={styles.headerRow}>
-        <Text style={styles.title}>Featured For You</Text>
+      <View style={layoutStyles.sectionHeader}>
+        <Typography variant="h5">{mainLabels.featuredForYou}</Typography>
         <Pressable>
-          <Text style={styles.viewAllButton}>View All</Text>
+          <Typography variant="link" style={styles.viewAllButton}>
+            {mainLabels.viewAll}
+          </Typography>
         </Pressable>
       </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <FeaturedSkeleton />
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.list}>
+        {listingsDemoData.map(listing => (
+          <ListingCard key={listing.id} listing={listing} style={styles.card} imageStyle={styles.image} />
+        ))}
       </ScrollView>
     </View>
   );
@@ -21,18 +28,16 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 20,
   },
-  headerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+  list: {
     paddingHorizontal: 16,
+    gap: 12,
+    marginTop: 12,
   },
-  title: {
-    fontFamily: 'Archivo',
-    fontSize: 20,
-    lineHeight: 28,
-    fontWeight: '700',
-    color: '#171A1FFF',
+  card: {
+    width: 280,
+  },
+  image: {
+    height: 180,
   },
   viewAllButton: {
     width: 55,
@@ -40,11 +45,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: 'Inter',
-    fontSize: 14,
-    lineHeight: 22,
-    fontWeight: '600',
-    color: '#636AE8FF',
     backgroundColor: '#00000000',
     opacity: 1,
     borderWidth: 0,

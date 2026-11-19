@@ -1,10 +1,12 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import InputComponent from '../components/common/Input';
+import { Typography } from '../components/common/Typography';
 import { KeyRound, Mail } from 'lucide-react-native';
 import { buttonNames } from '../constants/buttonNames';
 import { pages } from '../constants/navigation';
 import { useAppNavigation } from '../hooks/useAppNavigation';
+import { mainLabels, placeholders } from '../constants/mainInfo';
 
 export function SignIn() {
   const navigation = useAppNavigation();
@@ -17,26 +19,32 @@ export function SignIn() {
     <ScrollView style={styles.container}>
       <View style={styles.row}>
         <View>
-          <Text style={styles.title}> Sign in to your account</Text>
+          <Typography variant="h5">{mainLabels.signInToAccount}</Typography>
         </View>
         <View>
-          <Text>Email Address</Text>
-          <InputComponent placeholderValue={'Email'} icon={<Mail size={16} />} value={email} onChangeText={setEmail} />
+          <Text>{mainLabels.emailAddress}</Text>
+          <InputComponent placeholderValue={placeholders.email} icon={<Mail size={16} />} value={email} onChangeText={setEmail} />
         </View>
         <View>
-          <Text>Password</Text>
-          <InputComponent placeholderValue={'Password'} icon={<KeyRound size={16} />} value={password} onChangeText={setPassword} />
+          <Text>{mainLabels.password}</Text>
+          <InputComponent
+            placeholderValue={placeholders.password}
+            icon={<KeyRound size={16} />}
+            value={password}
+            onChangeText={setPassword}
+          />
         </View>
         <View>
           <TouchableOpacity style={styles.signInButton} disabled={!isFormValid}>
-            <Text style={styles.signInButtonText}>{buttonNames.signIn}</Text>
+            <Typography variant="button">{buttonNames.signIn}</Typography>
           </TouchableOpacity>
         </View>
       </View>
       <View>
         <TouchableOpacity onPress={() => navigation.navigate(pages.SignUp)}>
           <Text style={styles.signUpText}>
-            Don't have an account? <Text style={styles.signUpTextBold}>Sign Up</Text>
+            {mainLabels.doNotYouHaveAccount}
+            <Text style={styles.signUpTextBold}>{mainLabels.signUp}</Text>
           </Text>
         </TouchableOpacity>
       </View>
@@ -72,13 +80,6 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
   },
-  signInButtonText: {
-    fontFamily: 'Inter',
-    fontSize: 16,
-    lineHeight: 26,
-    fontWeight: '700',
-    color: 'rgb(15, 22, 39)',
-  },
   buttonHover: {
     color: '#565D6DFF',
     backgroundColor: 'rgb(160, 183, 229)',
@@ -96,12 +97,5 @@ const styles = StyleSheet.create({
   },
   signUpTextBold: {
     fontWeight: '700',
-  },
-  title: {
-    fontFamily: 'Archivo',
-    fontSize: 20,
-    lineHeight: 28,
-    fontWeight: '700',
-    color: '#171A1FFF',
   },
 });

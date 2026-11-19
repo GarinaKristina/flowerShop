@@ -1,7 +1,11 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
-import { StyleSheet, Switch, Text, View } from 'react-native';
+import { Switch, View } from 'react-native';
 import { Store } from 'lucide-react-native';
+import { Typography } from '../common/Typography';
 import { useOpen } from '../../hooks/useOpenClose';
+import { buyerProfileLabels } from '../../constants/mainInfo';
+import { toggleCardStyles } from '../../utils/styles';
 
 type SellerModeCardProps = {
   onValueChange?: (isOn: boolean) => void;
@@ -20,69 +24,22 @@ export function SellerModeCard({ onValueChange }: SellerModeCardProps) {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.iconBadge}>
+    <View style={toggleCardStyles.container}>
+      <View style={toggleCardStyles.iconBadge}>
         <Store size={20} color="#FFFFFFFF" />
       </View>
-      <View style={styles.texts}>
-        <Text style={styles.title}>Seller Mode</Text>
-        <Text style={styles.subtitle}>Switch to your selling dashboard</Text>
+      <View style={toggleCardStyles.texts}>
+        <Typography variant="subtitle2">{buyerProfileLabels.sellerMode}</Typography>
+        <Typography variant="caption">{buyerProfileLabels.sellerModeDescription}</Typography>
       </View>
       <Switch
-        style={styles.switch}
+        style={toggleCardStyles.switch}
         value={sellerMode.isOpen}
         onValueChange={handleChange}
-        trackColor={{ false: '#BCC1CAFF', true: '#636AE8FF' }}
+        trackColor={{ false: '#BCC1CAFF', true: PRIMARY_ICON_COLOR }}
         thumbColor="#FFFFFFFF"
         ios_backgroundColor="#BCC1CAFF"
       />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 68,
-    marginHorizontal: 16,
-    marginTop: 16,
-    paddingHorizontal: 12,
-    backgroundColor: '#F2F2FDFF',
-    borderRadius: 10,
-    shadowColor: '#171A1F',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.09,
-    shadowRadius: 5,
-    elevation: 2,
-  },
-  iconBadge: {
-    width: 40,
-    height: 40,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#636AE8FF',
-    marginRight: 12,
-  },
-  texts: {
-    flex: 1,
-  },
-  switch: {
-    alignSelf: 'center',
-  },
-  title: {
-    fontFamily: 'Archivo',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '700',
-    color: '#171A1FFF',
-  },
-  subtitle: {
-    fontFamily: 'Inter',
-    fontSize: 12,
-    lineHeight: 16,
-    fontWeight: '400',
-    color: '#565D6DFF',
-  },
-});

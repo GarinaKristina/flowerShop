@@ -1,6 +1,8 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { ChevronRight } from 'lucide-react-native';
+import { Typography } from '../common/Typography';
 
 export type MenuItem = {
   key: string;
@@ -17,7 +19,9 @@ type ProfileMenuProps = {
 export function ProfileMenuItems({ title, items }: ProfileMenuProps) {
   return (
     <View style={styles.section}>
-      <Text style={styles.title}>{title}</Text>
+      <Typography variant="subtitle2" style={styles.title}>
+        {title}
+      </Typography>
       <View style={styles.card}>
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
@@ -29,9 +33,11 @@ export function ProfileMenuItems({ title, items }: ProfileMenuProps) {
               style={({ pressed }) => [styles.row, !isLast && styles.rowDivider, pressed && styles.pressed]}
             >
               <View style={styles.iconBadge}>
-                <item.Icon size={20} color="#636AE8" />
+                <item.Icon size={20} color={PRIMARY_ICON_COLOR} />
               </View>
-              <Text style={styles.label}>{item.label}</Text>
+              <Typography variant="body2Medium" style={styles.label}>
+                {item.label}
+              </Typography>
               <ChevronRight size={20} color="#BCC1CA" />
             </Pressable>
           );
@@ -47,11 +53,6 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   title: {
-    fontFamily: 'Archivo',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '700',
-    color: '#171A1FFF',
     marginBottom: 8,
   },
   card: {
@@ -88,10 +89,5 @@ const styles = StyleSheet.create({
   },
   label: {
     flex: 1,
-    fontFamily: 'Inter',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '500',
-    color: '#171A1FFF',
   },
 });

@@ -1,10 +1,19 @@
+import { PRIMARY_ICON_COLOR } from '../../constants/colors';
 import React from 'react';
-import { Text, Pressable, StyleSheet } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
+import { buyerProfileLabels } from '../../constants/mainInfo';
+import { Typography } from '../common/Typography';
 
-export function EditProfileButton({ onPress }) {
+type EditProfileButtonProps = {
+  onPress?: () => void;
+};
+
+export function EditProfileButton({ onPress }: EditProfileButtonProps) {
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
-      <Text style={styles.text}>Edit Profile</Text>
+      <Typography variant="buttonSmall" color={PRIMARY_ICON_COLOR}>
+        {buyerProfileLabels.editProfile}
+      </Typography>
     </Pressable>
   );
 }
@@ -21,16 +30,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 9999,
     borderWidth: 1,
-    borderColor: '#636AE8',
+    borderColor: PRIMARY_ICON_COLOR,
     opacity: 1,
-  },
-
-  text: {
-    fontFamily: 'Inter',
-    fontSize: 14,
-    lineHeight: 22,
-    fontWeight: '500',
-    color: '#636AE8',
   },
   pressed: {
     opacity: 0.7,

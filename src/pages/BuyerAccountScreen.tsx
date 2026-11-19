@@ -1,6 +1,7 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import React from 'react';
 import { AvatarPicker } from '../components/common/ImagePicker';
+import { Typography } from '../components/common/Typography';
 import { EditProfileButton } from '../components/buyerProfile/EditProfileButton';
 import { StatisticDashboardItems } from '../components/buyerProfile/StatisticDashboardItems';
 import { SellerModeCard } from '../components/buyerProfile/SellerModeCard';
@@ -8,19 +9,24 @@ import { AccountSettingsMenu } from '../components/buyerProfile/AccountSettingsM
 import { SupportMenu } from '../components/buyerProfile/SupportMenu';
 import { BottomNavigation } from '../components/common/BottomNavigation';
 import { LogOut } from '../components/buyerProfile/LogOut';
+import { appVersionData } from '../constants/mainInfo';
 
 export function BuyerAccount() {
   const handleEditProfile = () => {
     console.log('Edit profile pressed');
   };
 
+  const user = {
+    name: 'Sarah Jenkins',
+    email: 'sarah.j@bloommarket.com',
+  };
   return (
-    <View>
+    <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.avatarCOntainer}>
-          <AvatarPicker />
-          <Text style={styles.nameStyle}>Sarah Jenkins</Text>
-          <Text style={styles.emailStyle}>sarah.j@bloommarket.com</Text>
+          <AvatarPicker avatarType="buyer" />
+          <Typography variant="h5">{user.name}</Typography>
+          <Typography variant="body2">{user.email}</Typography>
         </View>
         <EditProfileButton onPress={handleEditProfile} />
         <StatisticDashboardItems />
@@ -29,7 +35,9 @@ export function BuyerAccount() {
         <SupportMenu />
         <LogOut />
         <View>
-          <Text style={styles.buildText}>BloomMarket v2.4.0 (Build 892)</Text>
+          <Typography variant="caption2" style={styles.buildText}>
+            {appVersionData}
+          </Typography>
         </View>
       </ScrollView>
       <BottomNavigation />
@@ -38,6 +46,9 @@ export function BuyerAccount() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   content: {
     paddingBottom: 32,
   },
@@ -46,27 +57,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  nameStyle: {
-    fontFamily: 'Archivo',
-    fontSize: 20,
-    lineHeight: 28,
-    fontWeight: '700',
-    color: '#171A1FFF',
-  },
-  emailStyle: {
-    fontFamily: 'Inter',
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '400',
-    color: '#565D6DFF',
-  },
   buildText: {
     textAlign: 'center',
     marginTop: 20,
-    fontFamily: 'Inter',
-    fontSize: 10,
-    lineHeight: 15,
-    fontWeight: '400',
-    color: '#565D6DFF',
   },
 });
